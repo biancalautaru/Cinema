@@ -675,7 +675,7 @@ public:
 int main() {
 	// creare filme
 	std::vector<Film> filme = {
-		{"memento", {"Mister"}, 112, 2001, "", "N", "", 30},
+		{"memento", {"Mister"}, 112, 2001, "Christopher Nolan", "N", "3D", 30},
 		{"Catch Me If You Can", {"Biografie", "Crima", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35},
 		{"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35},
 		{"Taxi Driver", {"Crima", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30},
@@ -713,13 +713,13 @@ int main() {
 	an0--;
 	filme[0].setAn(an0);
 	std::string regizor0 = filme[0].getRegizor();
-	regizor0 = "Christopher Nolan";
+	regizor0[0] = 'C';
 	filme[0].setRegizor(regizor0);
 	std::string rating0 = filme[0].getRating();
 	rating0 += "-15";
 	filme[0].setRating(rating0);
 	std::string format0 = filme[0].getFormat();
-	format0 = "2D";
+	format0[0] = '2';
 	filme[0].setFormat(format0);
 	float pret0 = filme[0].getPret();
 	pret0 += 5;
@@ -877,7 +877,8 @@ int main() {
 		std::cout << "|--------------------------------------|\n";
 		std::cout << "Introduceti numarul optiunii dorite:";
 		int optiune;
-		std::cin >> optiune;
+		if (!(std::cin >> optiune))
+			return 0;
 		switch (optiune) {
 			case 1:
 				std::cout << "- " << program_azi.first<< " -\n" << program_azi.second;
