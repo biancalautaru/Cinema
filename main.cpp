@@ -21,27 +21,11 @@ public:
 
 	~Film() {};
 
-	Film(const std::string &nume, const std::vector<std::string> &gen, const int &durata, const int &an, const std::string &regizor, const std::string &rating, const std::string &format, const float &pret) {
-		this->nume = nume;
-		this->gen = gen;
-		this->durata = durata;
-		this->an = an;
-		this->regizor = regizor;
-		this->rating = rating;
-		this->format = format;
-		this->pret = pret;
-	}
+	Film(const std::string &nume, const std::vector<std::string> &gen, const int durata, const int an, const std::string &regizor, const std::string &rating, const std::string &format, const float pret)
+		: nume(nume), gen(gen), durata(durata), an(an), regizor(regizor), rating(rating), format(format), pret(pret) {}
 
-	Film(const Film &copie) {
-		nume = copie.nume;
-		gen = copie.gen;
-		durata = copie.durata;
-		an = copie.an;
-		regizor = copie.regizor;
-		rating = copie.rating;
-		format = copie.format;
-		pret = copie.pret;
-	}
+	Film(const Film &copie)
+		: nume(copie.nume), gen(copie.gen), durata(copie.durata), an(copie.an), regizor(copie.regizor), rating(copie.rating), format(copie.format), pret(copie.pret) {}
 
 	Film &operator=(const Film &copie) {
 		nume = copie.nume;
@@ -72,72 +56,72 @@ public:
 		return os;
 	}
 
-	void setNume(const std::string &nume) {
-		this->nume = nume;
+	void setNume(const std::string &nume_) {
+		nume = nume_;
 	}
 
 	std::string getNume() const {
-		return this->nume;
+		return nume;
 	}
 
-	void setGen(const std::vector<std::string> &gen) {
-		this->gen = gen;
+	void setGen(const std::vector<std::string> &gen_) {
+		gen = gen_;
 	}
 
 	std::vector<std::string> getGen() const {
-		return this->gen;
+		return gen;
 	}
 
-	void setDurata(const int durata) {
-		this->durata = durata;
+	void setDurata(const int durata_) {
+		durata = durata_;
 	}
 
 	int getDurata() const {
-		return this->durata;
+		return durata;
 	}
 
-	void setAn(const int an) {
-		this->an = an;
+	void setAn(const int an_) {
+		an = an_;
 	}
 
 	int getAn() const {
-		return this->an;
+		return an;
 	}
 
-	void setRegizor(const std::string &regizor) {
-		this->regizor = regizor;
+	void setRegizor(const std::string &regizor_) {
+		regizor = regizor_;
 	}
 
 	std::string getRegizor() const {
-		return this->regizor;
+		return regizor;
 	}
 
-	void setRating(const std::string &rating) {
-		this->rating = rating;
+	void setRating(const std::string &rating_) {
+		rating = rating_;
 	}
 
 	std::string getRating() const {
-		return this->rating;
+		return rating;
 	}
 
-	void setFormat(const std::string &format) {
-		this->format = format;
+	void setFormat(const std::string &format_) {
+		format = format_;
 	}
 
 	std::string getFormat() const {
-		return this->format;
+		return format;
 	}
 
-	void setPret(const float pret) {
-		this->pret = pret;
+	void setPret(const float pret_) {
+		pret = pret_;
 	}
 
 	float getPret() const {
-		return this->pret;
+		return pret;
 	}
 
 	float pretElevi() const {
-		return this->pret * 0.8;
+		return pret * 0.8;
 	}
 };
 
@@ -152,17 +136,11 @@ public:
 
 	~Sala() {};
 
-	Sala(const int &numar, const int &randuri, const int &coloane) {
-		this->numar = numar;
-		this->randuri = randuri;
-		this->coloane = coloane;
-	}
+	Sala(const int numar, const int randuri, const int coloane)
+		: numar(numar), randuri(randuri), coloane(coloane) {}
 
-	Sala(const Sala &copie) {
-		numar = copie.numar;
-		randuri = copie.randuri;
-		coloane = copie.coloane;
-	}
+	Sala(const Sala &copie)
+		: numar(copie.numar), randuri(copie.randuri), coloane(copie.coloane) {}
 
 	Sala &operator=(const Sala &copie) {
 		numar = copie.numar;
@@ -194,28 +172,28 @@ public:
 		return os;
 	}
 
-	void setNumar(const int numar) {
-		this->numar = numar;
+	void setNumar(const int numar_) {
+		numar = numar_;
 	}
 
 	int getNumar() const {
-		return this->numar;
+		return numar;
 	}
 
-	void setRanduri(const int randuri) {
-		this->randuri = randuri;
+	void setRanduri(const int randuri_) {
+		randuri = randuri_;
 	}
 
 	int getRanduri() const {
-		return this->randuri;
+		return randuri;
 	}
 
-	void setColoane(const int coloane) {
-		this->coloane = coloane;
+	void setColoane(const int coloane_) {
+		coloane = coloane_;
 	}
 
 	int getColoane() const {
-		return this->coloane;
+		return coloane;
 	}
 };
 
@@ -232,21 +210,11 @@ public:
 
 	~Proiectie() {};
 
-	Proiectie(const Film &film, const std::string &zi, const std::string &ora, const Sala &sala, const std::set<int> &ocupate) {
-		this->film = film;
-		this->zi = zi;
-		this->ora = ora;
-		this->sala = sala;
-		this->ocupate = ocupate;
-	}
+	Proiectie(const Film &film, const std::string &zi, const std::string &ora, const Sala &sala, const std::set<int> &ocupate)
+		: film(film), zi(zi), ora(ora), sala(sala), ocupate(ocupate) {}
 
-	Proiectie(const Proiectie &copie) {
-		film = copie.film;
-		zi = copie.zi;
-		ora = copie.ora;
-		sala = copie.sala;
-		ocupate = copie.ocupate;
-	}
+	Proiectie(const Proiectie &copie)
+		: film(copie.film), zi(copie.zi), ora(copie.ora), sala(copie.sala), ocupate(copie.ocupate) {}
 
 	Proiectie &operator=(const Proiectie &copie) {
 		film = copie.film;
@@ -288,48 +256,48 @@ public:
 		return os;
 	}
 
-	void setFilm(const Film &film) {
-		this->film = film;
+	void setFilm(const Film &film_) {
+		film = film_;
 	}
 
 	Film getFilm() const {
-		return this->film;
+		return film;
 	}
 
-	void setZi(const std::string &zi) {
-		this->zi = zi;
+	void setZi(const std::string &zi_) {
+		zi = zi_;
 	}
 
 	std::string getZi() const {
-		return this->zi;
+		return zi;
 	}
 
-	void setOra(const std::string &ora) {
-		this->ora = ora;
+	void setOra(const std::string &ora_) {
+		ora = ora_;
 	}
 
 	std::string getOra() const {
-		return this->ora;
+		return ora;
 	}
 
-	void setSala(const Sala &sala) {
-		this->sala = sala;
+	void setSala(const Sala &sala_) {
+		sala = sala_;
 	}
 
 	Sala getSala() const {
-		return this->sala;
+		return sala;
 	}
 
-	void setOcupate(const std::set<int> &ocupate) {
-		this->ocupate = ocupate;
+	void setOcupate(const std::set<int> &ocupate_) {
+		ocupate = ocupate_;
 	}
 
 	std::set<int> getOcupate() const {
-		return this->ocupate;
+		return ocupate;
 	}
 
 	int locuriRamase() const {
-		return this->sala.getRanduri() * this->sala.getColoane() - ocupate.size();
+		return sala.getRanduri() * sala.getColoane() - ocupate.size();
 	}
 };
 
@@ -371,14 +339,13 @@ public:
 
 	~ProgramZi() {};
 
-	ProgramZi(const std::vector<Proiectie> &zi) {
-		this->zi = zi;
+	ProgramZi(const std::vector<Proiectie> &zi)
+		: zi(zi) {
 		sortareProiectii();
 	}
 
-	ProgramZi(const ProgramZi &copie) {
-		zi = copie.zi;
-	}
+	ProgramZi(const ProgramZi &copie)
+		: zi(copie.zi) {}
 
 	ProgramZi &operator=(const ProgramZi &copie) {
 		zi = copie.zi;
@@ -404,17 +371,17 @@ public:
 		return os;
 	}
 
-	void setZi(const std::vector<Proiectie> &zi) {
-		this->zi = zi;
+	void setZi(const std::vector<Proiectie> &zi_) {
+		zi = zi_;
 		sortareProiectii();
 	}
 
 	std::vector<Proiectie> getZi() const {
-		return this->zi;
+		return zi;
 	}
 
 	void adaugaProiectie(const Proiectie &proiectie) {
-		this->zi.push_back(proiectie);
+		zi.push_back(proiectie);
 		sortareProiectii();
 	}
 
@@ -511,13 +478,11 @@ public:
 
 	~ProgramSaptamana() {};
 
-	ProgramSaptamana(const std::vector<std::pair<std::string, ProgramZi>> &saptamana) {
-		this->saptamana = saptamana;
-	}
+	ProgramSaptamana(const std::vector<std::pair<std::string, ProgramZi>> &saptamana)
+		: saptamana(saptamana) {}
 
-	ProgramSaptamana(const ProgramSaptamana &copie) {
-		saptamana = copie.saptamana;
-	}
+	ProgramSaptamana(const ProgramSaptamana &copie)
+		: saptamana(copie.saptamana) {}
 
 	ProgramSaptamana &operator=(const ProgramSaptamana &copie) {
 		saptamana = copie.saptamana;
@@ -530,12 +495,12 @@ public:
 		return os;
 	}
 
-	void setSaptamana(const std::vector<std::pair<std::string, ProgramZi>> &saptamana) {
-		this->saptamana = saptamana;
+	void setSaptamana(const std::vector<std::pair<std::string, ProgramZi>> &saptamana_) {
+		saptamana = saptamana_;
 	}
 
 	std::vector<std::pair<std::string, ProgramZi>> getSaptamana() const {
-		return this->saptamana;
+		return saptamana;
 	}
 
 	ProgramSaptamana generare(const std::vector<Film> &filme, const std::vector<Sala> &sali) {
@@ -579,17 +544,11 @@ public:
 
 	~Client() {};
 
-	Client(const std::string &nume, const std::string &email, const std::string &telefon) {
-		this->nume = nume;
-		this->email = email;
-		this->telefon = telefon;
-	}
+	Client(const std::string &nume, const std::string &email, const std::string &telefon)
+		: nume(nume), email(email), telefon(telefon) {}
 
-	Client(const Client &copie) {
-		nume = copie.nume;
-		email = copie.email;
-		telefon = copie.telefon;
-	}
+	Client(const Client &copie)
+		: nume(copie.nume), email(copie.email), telefon(copie.telefon) {}
 
 	Client &operator=(const Client &copie) {
 		nume = copie.nume;
@@ -605,28 +564,28 @@ public:
 		return os;
 	}
 
-	void setNume(const std::string &nume) {
-		this->nume = nume;
+	void setNume(const std::string &nume_) {
+		nume = nume_;
 	}
 
 	std::string getNume() const {
-		return this->nume;
+		return nume;
 	}
 
-	void setEmail(const std::string &email) {
-		this->email = email;
+	void setEmail(const std::string &email_) {
+		email = email_;
 	}
 
 	std::string getEmail() const {
-		return this->email;
+		return email;
 	}
 
-	void setTelefon(const std::string &telefon) {
-		this->telefon = telefon;
+	void setTelefon(const std::string &telefon_) {
+		telefon = telefon_;
 	}
 
 	std::string getTelefon() const {
-		return this->telefon;
+		return telefon;
 	}
 };
 
@@ -642,19 +601,11 @@ public:
 
 	~Rezervare() {};
 
-	Rezervare(const Client &client, const Proiectie &proiectie, const std::vector<int> &locuri, const int &elevi) {
-		this->client = client;
-		this->proiectie = proiectie;
-		this->locuri = locuri;
-		this->elevi = elevi;
-	}
+	Rezervare(const Client &client, const Proiectie &proiectie, const std::vector<int> &locuri, const int &elevi)
+		: client(client), proiectie(proiectie), locuri(locuri), elevi(elevi) {}
 
-	Rezervare(const Rezervare &copie) {
-		client = copie.client;
-		proiectie = copie.proiectie;
-		locuri = copie.locuri;
-		elevi = copie.elevi;
-	}
+	Rezervare(const Rezervare &copie)
+		: client(copie.client), proiectie(copie.proiectie), locuri(copie.locuri), elevi(copie.elevi) {}
 
 	Rezervare &operator=(const Rezervare &copie) {
 		client = copie.client;
@@ -680,40 +631,40 @@ public:
 		return os;
 	}
 
-	void setClient(const Client &client) {
-		this->client = client;
+	void setClient(const Client &client_) {
+		client = client_;
 	}
 
 	Client getClient() const {
-		return this->client;
+		return client;
 	}
 
-	void setProiectie(const Proiectie &proiectie) {
-		this->proiectie = proiectie;
+	void setProiectie(const Proiectie &proiectie_) {
+		proiectie = proiectie_;
 	}
 
 	Proiectie getProiectie() const {
-		return this->proiectie;
+		return proiectie;
 	}
 
-	void setLocuri(const std::vector<int> &locuri) {
-		this->locuri = locuri;
+	void setLocuri(const std::vector<int> &locuri_) {
+		locuri = locuri_;
 	}
 
 	std::vector<int> getLocuri() const {
-		return this->locuri;
+		return locuri;
 	}
 
-	void setElevi(const int elevi) {
-		this->elevi = elevi;
+	void setElevi(const int elevi_) {
+		elevi = elevi_;
 	}
 
 	int getElevi() const {
-		return this->elevi;
+		return elevi;
 	}
 
 	float pretRezervare() const {
-		return (this->locuri.size() - this->elevi) * this->proiectie.getFilm().getPret() + this->elevi * this->proiectie.getFilm().pretElevi();
+		return (locuri.size() - elevi) * proiectie.getFilm().getPret() + elevi * proiectie.getFilm().pretElevi();
 	}
 };
 
@@ -837,7 +788,7 @@ int main() {
 	std::vector<Proiectie> proiectii, proiectii_modificat;
 	std::vector<int> locuri;
 	std::set<int> ocupate;
-	int nr_proiectie, elevi;
+	int nr_zi, nr_proiectie, elevi;
 	std::vector<std::pair<std::string, ProgramZi>> program_modificat;
 	bool repeat;
 	while (true) {
@@ -890,7 +841,7 @@ int main() {
 				std::cin >> zi;
 				if (islower(zi[0]))
 					zi[0] = zi[0] - 'a' + 'A';
-				int nr_zi;
+				nr_zi = -1;
 				if (zi == "Luni")
 					nr_zi = 0;
 				else if (zi == "Marti")
