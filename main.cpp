@@ -339,7 +339,7 @@ public:
 
 	~ProgramZi() {};
 
-	ProgramZi(const std::vector<Proiectie> &zi)
+	explicit ProgramZi(const std::vector<Proiectie> &zi)
 		: zi(zi) {
 		sortareProiectii();
 	}
@@ -478,7 +478,7 @@ public:
 
 	~ProgramSaptamana() {};
 
-	ProgramSaptamana(const std::vector<std::pair<std::string, ProgramZi>> &saptamana)
+	explicit ProgramSaptamana(const std::vector<std::pair<std::string, ProgramZi>> &saptamana)
 		: saptamana(saptamana) {}
 
 	ProgramSaptamana(const ProgramSaptamana &copie)
@@ -503,6 +503,10 @@ public:
 		return saptamana;
 	}
 
+	void adaugaZi(const std::pair<std::string, ProgramZi> &program) {
+		saptamana.push_back(program);
+	}
+
 	ProgramSaptamana generare(const std::vector<Film> &filme, const std::vector<Sala> &sali) {
 		ProgramSaptamana program;
 		for (int i = 1; i <= 7; i++) {
@@ -522,11 +526,11 @@ public:
 						break;
 				default: zi = "Duminica";
 			}
-			ProgramZi program_zi = this->saptamana[i].second.generare(filme, sali);
-			std::vector<Proiectie> proiectii(program_zi.getZi());
+			ProgramZi program_zi = saptamana[i].second.generare(filme, sali);
+			std::vector<Proiectie> proiectii = program_zi.getZi();
 			for (size_t j = 0; j < proiectii.size(); j++)
 				proiectii[j].setZi(zi);
-			program_zi = proiectii;
+			program_zi.setZi(proiectii);
 			program.saptamana.push_back({zi, program_zi});
 		}
 		return program;
@@ -671,7 +675,7 @@ public:
 int main() {
 	// creare filme
 	std::vector<Film> filme = {
-		{"Memento", {"Mister", "Thriller"}, 113, 2000, "Christopher Nolan", "N-15", "2D", 35},
+		{"memento", {"Mister"}, 112, 2001, "", "N", "", 30},
 		{"Catch Me If You Can", {"Biografie", "Crima", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35},
 		{"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35},
 		{"Taxi Driver", {"Crima", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30},
@@ -696,18 +700,53 @@ int main() {
 		{"The Princess Diaries", {"Comedie", "Familie", "Romantic"}, 105, 2001, "Garry Marshall", "AG", "2D", 25}
 	};
 
+	std::string nume_film0 = filme[0].getNume();
+	nume_film0[0] = 'M';
+	filme[0].setNume(nume_film0);
+	std::vector<std::string> gen0 = filme[0].getGen();
+	gen0.push_back({"Thriller"});
+	filme[0].setGen(gen0);
+	int durata0 = filme[0].getDurata();
+	durata0++;
+	filme[0].setDurata(durata0);
+	int an0 = filme[0].getAn();
+	an0--;
+	filme[0].setAn(an0);
+	std::string regizor0 = filme[0].getRegizor();
+	regizor0 = "Christopher Nolan";
+	filme[0].setRegizor(regizor0);
+	std::string rating0 = filme[0].getRating();
+	rating0 += "-15";
+	filme[0].setRating(rating0);
+	std::string format0 = filme[0].getFormat();
+	format0 = "2D";
+	filme[0].setFormat(format0);
+	float pret0 = filme[0].getPret();
+	pret0 += 5;
+	filme[0].setPret(pret0);
+
 	// creare sali
 	std::vector<Sala> sali = {
-		{1, 6, 20},
+		{0, 4, 23},
 		{2, 8, 12},
 		{3, 5, 15},
 		{4, 7, 11},
 		{5, 9, 23}
 	};
 
+	int numar0 = sali[0].getNumar();
+	numar0++;
+	sali[0].setNumar(numar0);
+	int randuri0 = sali[0].getRanduri();
+	randuri0 += 2;
+	sali[0].setRanduri(randuri0);
+	int coloane0 = sali[0].getColoane();
+	coloane0 -= 3;
+	sali[0].setColoane(coloane0);
+
 	// creare clienti
 	std::vector<Client> clienti = {
-		{"Ion Popescu", "ion.popescu@gmail.com", "0749187947"},
+		{"ion Popescu", "ion.Popescu@gmail.com", "0849187947"},
 		{"George Ionescu", "george.ionescu@gmail.com", "0764367341"},
 		{"Mihai Vasile", "mihai.vasile@yahoo.com", "0737635326"},
 		{"Alexandru Radulescu", "alexandru.radulescu@gmail.com", "0789525437"},
@@ -719,13 +758,22 @@ int main() {
 		{"Ana Dobre", "ana.dobre@gmail.com", "0745123789"}
 	};
 
+	std::string nume0 = clienti[0].getNume();
+	nume0[0] = 'I';
+	clienti[0].setNume(nume0);
+	std::string email0 = clienti[0].getEmail();
+	email0[4] = 'p';
+	clienti[0].setEmail(email0);
+	std::string telefon0 = clienti[0].getTelefon();
+	telefon0[1] = '7';
+	clienti[0].setTelefon(telefon0);
+
 	// generare program
 	ProgramSaptamana program_saptamana;
 	program_saptamana = program_saptamana.generare(filme, sali);
 
 	// creare rezervari existente
 	std::vector<Rezervare> rezervari;
-	std::vector<std::pair<std::string, ProgramZi>> program_nou;
 	std::vector<std::pair<std::string, ProgramZi>> program = program_saptamana.getSaptamana();
 	for (size_t i = 0; i < program.size(); i++) {
 		std::vector<Proiectie> proiectii = program[i].second.getZi();
@@ -776,9 +824,31 @@ int main() {
 				rezervari[k].setProiectie(proiectii[j]);
 		}
 
-		program_nou.push_back({program[i].first, proiectii});
+		ProgramZi program_zi;
+		program_zi.setZi(proiectii);
+		program_saptamana.adaugaZi({program[i].first, program_zi});
 	}
-	program_saptamana = program_nou;
+
+	if (!rezervari.empty()) {
+		Client client0 = rezervari[0].getClient();
+		client0 = clienti[1];
+		rezervari[0].setClient(client0);
+		std::vector<int> locuri0 = rezervari[0].getLocuri();
+		if (locuri0.size() > 1)
+			locuri0.erase(locuri0.begin());
+		rezervari[0].setLocuri(locuri0);
+		int elevi0 = rezervari[0].getElevi();
+		if (elevi0 == 1)
+			elevi0 = 0;
+		rezervari[0].setElevi(elevi0);
+		if (rezervari.size() >= 2) {
+			Proiectie proiectie0 = rezervari[0].getProiectie();
+			proiectie0.setFilm(rezervari[1].getProiectie().getFilm());
+			proiectie0.setOra(rezervari[1].getProiectie().getOra());
+			proiectie0.setSala(rezervari[1].getProiectie().getSala());
+			rezervari[0].setProiectie(proiectie0);
+		}
+	}
 
 	// meniu interactiv
 	auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
@@ -915,7 +985,7 @@ int main() {
 				proiectii_modificat = program_modificat[nr_zi].second.getZi();
 				proiectii_modificat[nr_proiectie].setOcupate(ocupate);
 				program_modificat[nr_zi].second.setZi(proiectii_modificat);
-				program_saptamana = program_modificat;
+				program_saptamana.setSaptamana(program_modificat);
 				for (size_t i = 0; i < rezervari.size(); i++)
 					if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie].getZi()
 					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
