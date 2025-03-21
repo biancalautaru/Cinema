@@ -60,7 +60,7 @@ public:
 		nume = nume_;
 	}
 
-	std::string getNume() const {
+	const std::string &getNume() const {
 		return nume;
 	}
 
@@ -68,7 +68,7 @@ public:
 		gen = gen_;
 	}
 
-	std::vector<std::string> getGen() const {
+	const std::vector<std::string> &getGen() const {
 		return gen;
 	}
 
@@ -92,7 +92,7 @@ public:
 		regizor = regizor_;
 	}
 
-	std::string getRegizor() const {
+	const std::string &getRegizor() const {
 		return regizor;
 	}
 
@@ -100,7 +100,7 @@ public:
 		rating = rating_;
 	}
 
-	std::string getRating() const {
+	const std::string &getRating() const {
 		return rating;
 	}
 
@@ -108,7 +108,7 @@ public:
 		format = format_;
 	}
 
-	std::string getFormat() const {
+	const std::string &getFormat() const {
 		return format;
 	}
 
@@ -260,7 +260,7 @@ public:
 		film = film_;
 	}
 
-	Film getFilm() const {
+	const Film &getFilm() const {
 		return film;
 	}
 
@@ -268,7 +268,7 @@ public:
 		zi = zi_;
 	}
 
-	std::string getZi() const {
+	const std::string &getZi() const {
 		return zi;
 	}
 
@@ -276,7 +276,7 @@ public:
 		ora = ora_;
 	}
 
-	std::string getOra() const {
+	const std::string &getOra() const {
 		return ora;
 	}
 
@@ -284,7 +284,7 @@ public:
 		sala = sala_;
 	}
 
-	Sala getSala() const {
+	const Sala &getSala() const {
 		return sala;
 	}
 
@@ -292,7 +292,7 @@ public:
 		ocupate = ocupate_;
 	}
 
-	std::set<int> getOcupate() const {
+	const std::set<int> &getOcupate() const {
 		return ocupate;
 	}
 
@@ -376,7 +376,7 @@ public:
 		sortareProiectii();
 	}
 
-	std::vector<Proiectie> getZi() const {
+	const std::vector<Proiectie> &getZi() const {
 		return zi;
 	}
 
@@ -499,7 +499,7 @@ public:
 		saptamana = saptamana_;
 	}
 
-	std::vector<std::pair<std::string, ProgramZi>> getSaptamana() const {
+	const std::vector<std::pair<std::string, ProgramZi>> &getSaptamana() const {
 		return saptamana;
 	}
 
@@ -568,7 +568,7 @@ public:
 		nume = nume_;
 	}
 
-	std::string getNume() const {
+	const std::string &getNume() const {
 		return nume;
 	}
 
@@ -576,7 +576,7 @@ public:
 		email = email_;
 	}
 
-	std::string getEmail() const {
+	const std::string &getEmail() const {
 		return email;
 	}
 
@@ -584,7 +584,7 @@ public:
 		telefon = telefon_;
 	}
 
-	std::string getTelefon() const {
+	const std::string &getTelefon() const {
 		return telefon;
 	}
 };
@@ -635,7 +635,7 @@ public:
 		client = client_;
 	}
 
-	Client getClient() const {
+	const Client &getClient() const {
 		return client;
 	}
 
@@ -643,7 +643,7 @@ public:
 		proiectie = proiectie_;
 	}
 
-	Proiectie getProiectie() const {
+	const Proiectie &getProiectie() const {
 		return proiectie;
 	}
 
@@ -651,7 +651,7 @@ public:
 		locuri = locuri_;
 	}
 
-	std::vector<int> getLocuri() const {
+	const std::vector<int> &getLocuri() const {
 		return locuri;
 	}
 
@@ -830,7 +830,7 @@ int main() {
 				break;
 			case 5:
 				std::cout << "Nume: ";
-				std::cin.get();
+				std::cin.ignore();
 				std::getline(std::cin, nume);
 				std::cout << "Email: ";
 				std::cin >> email;
@@ -879,7 +879,7 @@ int main() {
 				std::cout << "\n";
 				std::cout << "Introduceti numarul proiectiei dorite: ";
 				std::cin >> nr_proiectie;
-				std::cin.get();
+				std::cin.ignore();
 				nr_proiectie--;
 				std::cout << proiectii[nr_proiectie] << "\n";
 				repeat = true;
