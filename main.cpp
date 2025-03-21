@@ -58,7 +58,7 @@ public:
 	friend std::ostream &operator<<(std::ostream &os, const Film &film) {
 		os << "Nume: " << film.nume << "\n";
 		os << "Gen: ";
-		for (int i = 0; i < film.gen.size(); i++)
+		for (size_t i = 0; i < film.gen.size(); i++)
 			if (i != film.gen.size() - 1)
 				os << film.gen[i] << ", ";
 			else
@@ -386,7 +386,7 @@ public:
 	}
 
 	friend std::ostream &operator<<(std::ostream &os, const ProgramZi &program) {
-		for (int i = 0; i < program.zi.size(); i++) {
+		for (size_t i = 0; i < program.zi.size(); i++) {
 			const Proiectie &proiectie = program.zi[i];
 			os << "Ora " << proiectie.getOra() << " | ";
 			os << "Sala " << proiectie.getSala().getNumar() << " | ";
@@ -426,7 +426,7 @@ public:
 		std::shuffle(sali.begin(), sali.end(), std::default_random_engine(seed));
 
 		std::vector<int> filmeAG, filmeIM, filme3D, filmeRest;
-		for (int i = 0; i < filme.size(); i++)
+		for (size_t i = 0; i < filme.size(); i++)
 			if (filme[i].getRating() == "AG")
 				filmeAG.push_back(i);
 			else
@@ -442,11 +442,11 @@ public:
 		std::vector<int> sali_ore;
 
 		int start = 720;
-		for (int i = 0; i < sali.size(); i++)
+		for (size_t i = 0; i < sali.size(); i++)
 			sali_ore.push_back(start);
 
-		for (int i = 0; i < filmeAG.size(); i++)
-			for (int j = 0; j < sali_ore.size(); j++) {
+		for (size_t i = 0; i < filmeAG.size(); i++)
+			for (size_t j = 0; j < sali_ore.size(); j++) {
 				int final = urmatoareaOra(sali_ore[j] + filme[filmeAG[i]].getDurata());
 				if (final <= 960) {
 					Proiectie proiectie(filme[filmeAG[i]], "", oraString(sali_ore[j]), sali[j], {});
@@ -456,8 +456,8 @@ public:
 				}
 			}
 
-		for (int i = 0; i < filme3D.size(); i++)
-			for (int j = 0; j < sali_ore.size(); j++) {
+		for (size_t i = 0; i < filme3D.size(); i++)
+			for (size_t j = 0; j < sali_ore.size(); j++) {
 				int final = urmatoareaOra(sali_ore[j] + filme[filme3D[i]].getDurata());
 				if (final <= 1410) {
 					Proiectie proiectie(filme[filme3D[i]], "", oraString(sali_ore[j]), sali[j], {});
@@ -468,12 +468,12 @@ public:
 			}
 
 		start = 960;
-		for (int i = 0; i < sali.size(); i++)
+		for (size_t i = 0; i < sali.size(); i++)
 			if (sali_ore[i] < start)
 				sali_ore[i] = start;
 
-		for (int i = 0; i < filmeRest.size(); i++)
-			for (int j = 0; j < sali_ore.size(); j++) {
+		for (size_t i = 0; i < filmeRest.size(); i++)
+			for (size_t j = 0; j < sali_ore.size(); j++) {
 				int final = urmatoareaOra(sali_ore[j] + filme[filmeRest[i]].getDurata());
 				if (final <= 1410) {
 					Proiectie proiectie(filme[filmeRest[i]], "", oraString(sali_ore[j]), sali[j], {});
@@ -484,12 +484,12 @@ public:
 			}
 
 		start = 1200;
-		for (int i = 0; i < sali.size(); i++)
+		for (size_t i = 0; i < sali.size(); i++)
 			if (sali_ore[i] < start)
 				sali_ore[i] = start;
 
-		for (int i = 0; i < filmeIM.size(); i++)
-			for (int j = 0; j < sali_ore.size(); j++) {
+		for (size_t i = 0; i < filmeIM.size(); i++)
+			for (size_t j = 0; j < sali_ore.size(); j++) {
 				int final = urmatoareaOra(sali_ore[j] + filme[filmeIM[i]].getDurata());
 				if (final <= 1470) {
 					Proiectie proiectie(filme[filmeIM[i]], "", oraString(sali_ore[j]), sali[j], {});
@@ -525,7 +525,7 @@ public:
 	}
 
 	friend std::ostream &operator<<(std::ostream &os, const ProgramSaptamana &program) {
-		for (int i = 0; i < program.saptamana.size(); i++)
+		for (size_t i = 0; i < program.saptamana.size(); i++)
 			os << "- " << program.saptamana[i].first << " -\n" << program.saptamana[i].second << "\n";
 		return os;
 	}
@@ -559,7 +559,7 @@ public:
 			}
 			ProgramZi program_zi = this->saptamana[i].second.generare(filme, sali);
 			std::vector<Proiectie> proiectii(program_zi.getZi());
-			for (int j = 0; j < proiectii.size(); j++)
+			for (size_t j = 0; j < proiectii.size(); j++)
 				proiectii[j].setZi(zi);
 			program_zi = proiectii;
 			program.saptamana.push_back({zi, program_zi});
@@ -669,7 +669,7 @@ public:
 		os << "Film: \"" << rezervare.proiectie.getFilm().getNume() << "\", ";
 		os << rezervare.proiectie.getZi() << ", Ora " << rezervare.proiectie.getOra() << ", Sala " << rezervare.proiectie.getSala().getNumar() << "\n";
 		os << "Locuri: ";
-		for (int i = 0; i < rezervare.locuri.size(); i++) {
+		for (size_t i = 0; i < rezervare.locuri.size(); i++) {
 			os << rezervare.locuri[i];
 			if (i != rezervare.locuri.size() - 1)
 				os << ", ";
@@ -776,14 +776,14 @@ int main() {
 	std::vector<Rezervare> rezervari;
 	std::vector<std::pair<std::string, ProgramZi>> program_nou;
 	std::vector<std::pair<std::string, ProgramZi>> program = program_saptamana.getSaptamana();
-	for (int i = 0; i < program.size(); i++) {
+	for (size_t i = 0; i < program.size(); i++) {
 		std::vector<Proiectie> proiectii = program[i].second.getZi();
 
-		for (int j = 0; j < proiectii.size(); j++) {
+		for (size_t j = 0; j < proiectii.size(); j++) {
 			std::set<int> ocupate = proiectii[j].getOcupate();
 
 			std::vector<int> clienti_fara_rezervare;
-			for (int k = 0; k < clienti.size(); k++)
+			for (size_t k = 0; k < clienti.size(); k++)
 				clienti_fara_rezervare.push_back(k);
 
 			int ultima_rezervare = rezervari.size() - 1;
@@ -821,7 +821,7 @@ int main() {
 			}
 
 			proiectii[j].setOcupate(ocupate);
-			for (int k = ultima_rezervare + 1; k < rezervari.size(); k++)
+			for (size_t k = ultima_rezervare + 1; k < rezervari.size(); k++)
 				rezervari[k].setProiectie(proiectii[j]);
 		}
 
@@ -865,7 +865,7 @@ int main() {
 				std::cout << program_saptamana;
 				break;
 			case 3:
-				for (int i = 0; i < filme.size(); i++) {
+				for (size_t i = 0; i < filme.size(); i++) {
 					std::cout << filme[i];
 					if (i != filme.size() - 1)
 						std::cout << "----------------------------------------\n";
@@ -874,7 +874,7 @@ int main() {
 				}
 				break;
 			case 4:
-				for (int i = 0; i < sali.size(); i++)
+				for (size_t i = 0; i < sali.size(); i++)
 					std::cout << sali[i] << "\n";
 				break;
 			case 5:
@@ -907,7 +907,7 @@ int main() {
 					nr_zi = 6;
 
 				proiectii = program_saptamana.getSaptamana()[nr_zi].second.getZi();
-				for (int i = 0; i < proiectii.size(); i++) {
+				for (size_t i = 0; i < proiectii.size(); i++) {
 					if (i + 1 < 10)
 						std::cout << " ";
 					std::cout << i + 1 << ". ";
@@ -915,14 +915,14 @@ int main() {
 					std::cout << "Ora " << proiectii[i].getOra() << " | ";
 					std::cout << "Sala " << proiectii[i].getSala().getNumar() << " | ";
 					std::cout << proiectii[i].getFilm().getNume() << " | ";
-					int locuri = proiectii[i].locuriRamase();
-					if (locuri == 1)
-						std::cout << locuri << " loc ramas";
+					int nr_locuri = proiectii[i].locuriRamase();
+					if (nr_locuri == 1)
+						std::cout << nr_locuri << " loc ramas";
 					else
-						if (locuri >= 20)
-							std::cout << locuri << " de locuri ramase";
+						if (nr_locuri >= 20)
+							std::cout << nr_locuri << " de locuri ramase";
 						else
-							std::cout << locuri << " locuri ramase";
+							std::cout << nr_locuri << " locuri ramase";
 					std::cout << "\n";
 				}
 				std::cout << "\n";
@@ -946,7 +946,7 @@ int main() {
 							locuri.push_back(loc);
 						}
 					repeat = false;
-					for (int i = 0; i < locuri.size(); i++)
+					for (size_t i = 0; i < locuri.size(); i++)
 						for (auto it : proiectii[nr_proiectie].getOcupate())
 							if (locuri[i] == it) {
 								std::cout << "Alegeti locuri care nu sunt ocupate deja!\n\n";
@@ -958,14 +958,14 @@ int main() {
 				std::cin >> elevi;
 				rezervari.push_back({{nume, email, telefon}, proiectii[nr_proiectie] , locuri, elevi});
 				ocupate = proiectii[nr_proiectie].getOcupate();
-				for (int i = 0; i < locuri.size(); i++)
+				for (size_t i = 0; i < locuri.size(); i++)
 					ocupate.insert(locuri[i]);
 				program_modificat = program_saptamana.getSaptamana();
 				proiectii_modificat = program_modificat[nr_zi].second.getZi();
 				proiectii_modificat[nr_proiectie].setOcupate(ocupate);
 				program_modificat[nr_zi].second.setZi(proiectii_modificat);
 				program_saptamana = program_modificat;
-				for (int i = 0; i < rezervari.size(); i++)
+				for (size_t i = 0; i < rezervari.size(); i++)
 					if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie].getZi()
 					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
 					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie].getSala().getNumar())
