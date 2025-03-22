@@ -676,6 +676,7 @@ public:
 };
 
 int main() {
+	std::cout << "debug1\n";
 	// creare filme
 	std::vector<Film> filme = {
 		{"memento", {"Mister"}, 112, 2001, "Christopher Nolan", "N", "3D", 30},
@@ -728,6 +729,7 @@ int main() {
 	pret0 += 5;
 	filme[0].setPret(pret0);
 
+	std::cout << "debug2\n";
 	// creare sali
 	std::vector<Sala> sali = {
 		{0, 4, 23},
@@ -747,6 +749,7 @@ int main() {
 	coloane0 -= 3;
 	sali[0].setColoane(coloane0);
 
+	std::cout << "debug3\n";
 	// creare clienti
 	std::vector<Client> clienti = {
 		{"ion Popescu", "ion.Popescu@gmail.com", "0849187947"},
@@ -771,10 +774,12 @@ int main() {
 	telefon0[1] = '7';
 	clienti[0].setTelefon(telefon0);
 
+	std::cout << "debug4\n";
 	// generare program
 	ProgramSaptamana program_saptamana;
 	program_saptamana = program_saptamana.generare(filme, sali);
 
+	std::cout << "debug5\n";
 	// creare rezervari existente
 	std::vector<Rezervare> rezervari;
 	std::vector<std::pair<std::string, ProgramZi>> program = program_saptamana.getSaptamana();
@@ -854,17 +859,20 @@ int main() {
 		}
 	}
 
+	std::cout << "debug6\n";
 	// afisare program azi
-	std::cout << "Programul zilei de azi:\n\n";
+	std::cout << "Programul de azi:\n\n";
 	auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
 	auto ziua_saptamanii = std::chrono::weekday{azi};
 	auto program_azi =  program_saptamana.getSaptamana()[ziua_saptamanii.c_encoding() - 1];
 	std::cout << "- " << program_azi.first<< " -\n" << program_azi.second << "\n";
 
+	std::cout << "debug7\n";
 	// afisare program saptamana
 	std::cout << "Programul saptamanii:\n\n";
 	std::cout << program_saptamana;
 
+	std::cout << "debug8\n";
 	// afisare filme
 	std::cout << "Filmele ce pot fi vizionate:\n\n";
 	for (size_t i = 0; i < filme.size(); i++) {
@@ -875,28 +883,28 @@ int main() {
 			std::cout << "\n";
 	}
 
+	std::cout << "debug9\n";
 	// afisare configuratie sali
 	std::cout << "Configuratia salilor:\n\n";
 	for (size_t i = 0; i < sali.size(); i++)
 		std::cout << sali[i] << "\n";
 
+	std::cout << "debug10\n";
 	// creare rezervare
 	std::cout << "Introduceti detaliile rezervarii:\n\n";
+	std::string nume, email, telefon;
 	std::cout << "Nume: ";
-	std::string nume = "Exemplu Nume";
-	std::cout << nume << "\n\n";
+	std::getline(std::cin, nume);
 	std::cout << "Email: ";
-	std::string email = "exemplu@gmail.com";
-	std::cout << email << "\n\n";
+	std::getline(std::cin, email);
 	std::cout << "Telefon: ";
-	std::string telefon = "0712345678";
-	std::cout << telefon << "\n\n";
+	std::getline(std::cin, telefon);
 
 	std::cout << "Ziua aleasa: ";
-	std::string zi = "marti";
+	std::string zi;
+	std::getline(std::cin, zi);
 	if (islower(zi[0]))
 		zi[0] = zi[0] - 'a' + 'A';
-	std::cout << zi << "\n\n";
 	int nr_zi = -1;
 	if (zi == "Luni")
 		nr_zi = 0;
@@ -935,8 +943,8 @@ int main() {
 	std::cout << "\n";
 
 	std::cout << "Introduceti numarul proiectiei dorite: ";
-	std::string linie = "9";
-	std::cout << linie << "\n\n";
+	std::string linie;
+	std::getline(std::cin, linie);
 	int nr_proiectie = 0;
 	for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 		nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
@@ -947,8 +955,7 @@ int main() {
 
 	std::vector<int> locuri;
 	std::cout << "Introduceti locurile dorite (separate prin spatii): ";
-	linie = "50 51 52";
-	std::cout << linie << "\n\n";
+	std::getline(std::cin, linie);
 	locuri.clear();
 	for (size_t i = 0; i < linie.size(); i++)
 		if (isdigit(linie[i])) {
@@ -967,7 +974,7 @@ int main() {
 			}
 
 	std::cout << "Numarul de bilete destinate elevilor (20% reducere): ";
-	linie = "2";
+	std::getline(std::cin, linie);
 	int elevi = 0;
 	for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 		elevi = 10 * elevi + (linie[i] - '0');
