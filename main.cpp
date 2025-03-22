@@ -938,10 +938,9 @@ int main() {
 	int nr_proiectie = 0;
 	for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 		nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
+	nr_proiectie--;
 	if (nr_proiectie == -1)
 		nr_proiectie = 0;
-	else
-		nr_proiectie--;
 	std::cout << proiectii[nr_proiectie] << "\n";
 
 	std::vector<int> locuri;
