@@ -503,8 +503,11 @@ public:
 		return saptamana;
 	}
 
-	void adaugaZi(const std::pair<std::string, ProgramZi> &program) {
-		saptamana.push_back(program);
+	ProgramSaptamana adaugaZi(const std::pair<std::string, ProgramZi> &program_zi) {
+		saptamana.push_back(program_zi);
+		ProgramSaptamana program;
+		program.setSaptamana(saptamana);
+		return program;
 	}
 
 	ProgramSaptamana generare(const std::vector<Film> &filme, const std::vector<Sala> &sali) {
@@ -775,6 +778,7 @@ int main() {
 	// creare rezervari existente
 	std::vector<Rezervare> rezervari;
 	std::vector<std::pair<std::string, ProgramZi>> program = program_saptamana.getSaptamana();
+	program_saptamana = {};
 	for (size_t i = 0; i < program.size(); i++) {
 		std::vector<Proiectie> proiectii = program[i].second.getZi();
 
@@ -826,7 +830,7 @@ int main() {
 
 		ProgramZi program_zi;
 		program_zi.setZi(proiectii);
-		program_saptamana.adaugaZi({program[i].first, program_zi});
+		program_saptamana = program_saptamana.adaugaZi({program[i].first, program_zi});
 	}
 
 	if (!rezervari.empty()) {
@@ -854,7 +858,7 @@ int main() {
 	auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
 	auto ziua_saptamanii = std::chrono::weekday{azi};
 	auto program_azi =  program_saptamana.getSaptamana()[ziua_saptamanii.c_encoding() - 1];
-	std::string nume, email, telefon, zi, locuri_string;
+	std::string nume, email, telefon, zi, locuri_string, linie;
 	std::vector<Proiectie> proiectii, proiectii_modificat;
 	std::vector<int> locuri;
 	std::set<int> ocupate;
@@ -876,9 +880,10 @@ int main() {
 		std::cout << "| 6. Iesire                            |\n";
 		std::cout << "|--------------------------------------|\n";
 		std::cout << "Introduceti numarul optiunii dorite:";
-		int optiune;
-		if (!(std::cin >> optiune))
-			return 0;
+		std::getline(std::cin, linie);
+		int optiune = 0;
+		for (int i = 0; i < linie.size() && isdigit(linie[i]); i++)
+			optiune = 10 * optiune + (linie[i] - '0');
 		switch (optiune) {
 			case 1:
 				std::cout << "- " << program_azi.first<< " -\n" << program_azi.second;
@@ -901,15 +906,14 @@ int main() {
 				break;
 			case 5:
 				std::cout << "Nume: ";
-				std::cin.ignore();
 				std::getline(std::cin, nume);
 				std::cout << "Email: ";
-				std::cin >> email;
+				std::getline(std::cin, email);
 				std::cout << "Telefon: ";
-				std::cin >> telefon;
+				std::getline(std::cin, telefon);
 
 				std::cout << "Ziua aleasa: ";
-				std::cin >> zi;
+				std::getline(std::cin, zi);
 				if (islower(zi[0]))
 					zi[0] = zi[0] - 'a' + 'A';
 				nr_zi = -1;
@@ -949,21 +953,23 @@ int main() {
 				}
 				std::cout << "\n";
 				std::cout << "Introduceti numarul proiectiei dorite: ";
-				std::cin >> nr_proiectie;
-				std::cin.ignore();
+				std::getline(std::cin, linie);
+				nr_proiectie = 0;
+				for (int i = 0; i < linie.size() && isdigit(linie[i]); i++)
+					nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
 				nr_proiectie--;
 				std::cout << proiectii[nr_proiectie] << "\n";
 				repeat = true;
 				while (repeat) {
 					std::cout << "Introduceti locurile dorite (separate prin spatii): ";
-					std::getline(std::cin, locuri_string);
+					std::getline(std::cin, linie);
 					locuri.clear();
-					for (int i = 0; locuri_string[i] != '\0'; i++)
-						if (isdigit(locuri_string[i])) {
+					for (int i = 0; i < linie.size(); i++)
+						if (isdigit(linie[i])) {
 							int loc = 0;
 							int j;
-							for (j = i; isdigit(locuri_string[j]); j++)
-								loc = loc * 10 + locuri_string[j] - '0';
+							for (j = i; isdigit(linie[j]); j++)
+								loc = loc * 10 + linie[j] - '0';
 							i = j - 1;
 							locuri.push_back(loc);
 						}
@@ -977,7 +983,10 @@ int main() {
 							}
 				}
 				std::cout << "Numarul de bilete destinate elevilor (20% reducere): ";
-				std::cin >> elevi;
+				std::getline(std::cin, linie);
+				elevi = 0;
+				for (int i = 0; i < linie.size() && isdigit(linie[i]); i++)
+					elevi = 10 * elevi + (linie[i] - '0');
 				rezervari.push_back({{nume, email, telefon}, proiectii[nr_proiectie] , locuri, elevi});
 				ocupate = proiectii[nr_proiectie].getOcupate();
 				for (size_t i = 0; i < locuri.size(); i++)
