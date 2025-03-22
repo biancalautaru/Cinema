@@ -858,7 +858,7 @@ int main() {
 	auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
 	auto ziua_saptamanii = std::chrono::weekday{azi};
 	auto program_azi =  program_saptamana.getSaptamana()[ziua_saptamanii.c_encoding() - 1];
-	std::string nume, email, telefon, zi, locuri_string, linie;
+	std::string nume, email, telefon, zi, linie;
 	std::vector<Proiectie> proiectii, proiectii_modificat;
 	std::vector<int> locuri;
 	std::set<int> ocupate;
@@ -882,7 +882,7 @@ int main() {
 		std::cout << "Introduceti numarul optiunii dorite:";
 		std::getline(std::cin, linie);
 		int optiune = 0;
-		for (int i = 0; i < linie.size() && isdigit(linie[i]); i++)
+		for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 			optiune = 10 * optiune + (linie[i] - '0');
 		switch (optiune) {
 			case 1:
@@ -955,16 +955,15 @@ int main() {
 				std::cout << "Introduceti numarul proiectiei dorite: ";
 				std::getline(std::cin, linie);
 				nr_proiectie = 0;
-				for (int i = 0; i < linie.size() && isdigit(linie[i]); i++)
+				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
-				nr_proiectie--;
-				std::cout << proiectii[nr_proiectie] << "\n";
+				std::cout << proiectii[nr_proiectie - 1] << "\n";
 				repeat = true;
 				while (repeat) {
 					std::cout << "Introduceti locurile dorite (separate prin spatii): ";
 					std::getline(std::cin, linie);
 					locuri.clear();
-					for (int i = 0; i < linie.size(); i++)
+					for (size_t i = 0; i < linie.size(); i++)
 						if (isdigit(linie[i])) {
 							int loc = 0;
 							int j;
@@ -975,7 +974,7 @@ int main() {
 						}
 					repeat = false;
 					for (size_t i = 0; i < locuri.size(); i++)
-						for (auto it : proiectii[nr_proiectie].getOcupate())
+						for (auto it : proiectii[nr_proiectie - 1].getOcupate())
 							if (locuri[i] == it) {
 								std::cout << "Alegeti locuri care nu sunt ocupate deja!\n\n";
 								repeat = true;
@@ -985,22 +984,22 @@ int main() {
 				std::cout << "Numarul de bilete destinate elevilor (20% reducere): ";
 				std::getline(std::cin, linie);
 				elevi = 0;
-				for (int i = 0; i < linie.size() && isdigit(linie[i]); i++)
+				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					elevi = 10 * elevi + (linie[i] - '0');
-				rezervari.push_back({{nume, email, telefon}, proiectii[nr_proiectie] , locuri, elevi});
-				ocupate = proiectii[nr_proiectie].getOcupate();
+				rezervari.push_back({{nume, email, telefon}, proiectii[nr_proiectie - 1] , locuri, elevi});
+				ocupate = proiectii[nr_proiectie - 1].getOcupate();
 				for (size_t i = 0; i < locuri.size(); i++)
 					ocupate.insert(locuri[i]);
 				program_modificat = program_saptamana.getSaptamana();
 				proiectii_modificat = program_modificat[nr_zi].second.getZi();
-				proiectii_modificat[nr_proiectie].setOcupate(ocupate);
+				proiectii_modificat[nr_proiectie - 1].setOcupate(ocupate);
 				program_modificat[nr_zi].second.setZi(proiectii_modificat);
 				program_saptamana.setSaptamana(program_modificat);
 				for (size_t i = 0; i < rezervari.size(); i++)
-					if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie].getZi()
-					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
-					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie].getSala().getNumar())
-						rezervari[i].setProiectie(proiectii_modificat[nr_proiectie]);
+					if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie - 1].getZi()
+					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie - 1].getOra()
+					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie - 1].getSala().getNumar())
+						rezervari[i].setProiectie(proiectii_modificat[nr_proiectie - 1]);
 				std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n" << rezervari[rezervari.size() - 1];
 				break;
 			case 6:
