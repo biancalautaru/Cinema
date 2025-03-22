@@ -855,7 +855,7 @@ int main() {
 	}
 
 	// afisare program azi
-	std::cout << "Programul de azi:\n\n";
+	std::cout << "Programul zilei de azi:\n\n";
 	auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
 	auto ziua_saptamanii = std::chrono::weekday{azi};
 	auto program_azi =  program_saptamana.getSaptamana()[ziua_saptamanii.c_encoding() - 1];
@@ -882,19 +882,21 @@ int main() {
 
 	// creare rezervare
 	std::cout << "Introduceti detaliile rezervarii:\n\n";
-	std::string nume, email, telefon;
 	std::cout << "Nume: ";
-	std::getline(std::cin, nume);
+	std::string nume = "Exemplu Nume";
+	std::cout << nume << "\n\n";
 	std::cout << "Email: ";
-	std::getline(std::cin, email);
+	std::string email = "exemplu@gmail.com";
+	std::cout << email << "\n\n";
 	std::cout << "Telefon: ";
-	std::getline(std::cin, telefon);
+	std::string telefon = "0712345678";
+	std::cout << telefon << "\n\n";
 
 	std::cout << "Ziua aleasa: ";
-	std::string zi;
-	std::getline(std::cin, zi);
+	std::string zi = "marti";
 	if (islower(zi[0]))
 		zi[0] = zi[0] - 'a' + 'A';
+	std::cout << zi << "\n\n";
 	int nr_zi = -1;
 	if (zi == "Luni")
 		nr_zi = 0;
@@ -933,8 +935,8 @@ int main() {
 	std::cout << "\n";
 
 	std::cout << "Introduceti numarul proiectiei dorite: ";
-	std::string linie;
-	std::getline(std::cin, linie);
+	std::string linie = "9";
+	std::cout << linie << "\n\n";
 	int nr_proiectie = 0;
 	for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 		nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
@@ -945,7 +947,8 @@ int main() {
 
 	std::vector<int> locuri;
 	std::cout << "Introduceti locurile dorite (separate prin spatii): ";
-	std::getline(std::cin, linie);
+	linie = "50 51 52";
+	std::cout << linie << "\n\n";
 	locuri.clear();
 	for (size_t i = 0; i < linie.size(); i++)
 		if (isdigit(linie[i])) {
@@ -964,7 +967,7 @@ int main() {
 			}
 
 	std::cout << "Numarul de bilete destinate elevilor (20% reducere): ";
-	std::getline(std::cin, linie);
+	linie = "2";
 	int elevi = 0;
 	for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 		elevi = 10 * elevi + (linie[i] - '0');
