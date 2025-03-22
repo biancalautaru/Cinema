@@ -957,7 +957,9 @@ int main() {
 				nr_proiectie = 0;
 				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
-				std::cout << proiectii[nr_proiectie - 1] << "\n";
+				if (nr_proiectie == -1)
+					nr_proiectie = 0;
+				std::cout << proiectii[nr_proiectie] << "\n";
 				repeat = true;
 				while (repeat) {
 					std::cout << "Introduceti locurile dorite (separate prin spatii): ";
@@ -974,7 +976,7 @@ int main() {
 						}
 					repeat = false;
 					for (size_t i = 0; i < locuri.size(); i++)
-						for (auto it : proiectii[nr_proiectie - 1].getOcupate())
+						for (auto it : proiectii[nr_proiectie].getOcupate())
 							if (locuri[i] == it) {
 								std::cout << "Alegeti locuri care nu sunt ocupate deja!\n\n";
 								repeat = true;
@@ -986,20 +988,20 @@ int main() {
 				elevi = 0;
 				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					elevi = 10 * elevi + (linie[i] - '0');
-				rezervari.push_back({{nume, email, telefon}, proiectii[nr_proiectie - 1] , locuri, elevi});
-				ocupate = proiectii[nr_proiectie - 1].getOcupate();
+				rezervari.push_back({{nume, email, telefon}, proiectii[nr_proiectie] , locuri, elevi});
+				ocupate = proiectii[nr_proiectie].getOcupate();
 				for (size_t i = 0; i < locuri.size(); i++)
 					ocupate.insert(locuri[i]);
 				program_modificat = program_saptamana.getSaptamana();
 				proiectii_modificat = program_modificat[nr_zi].second.getZi();
-				proiectii_modificat[nr_proiectie - 1].setOcupate(ocupate);
+				proiectii_modificat[nr_proiectie].setOcupate(ocupate);
 				program_modificat[nr_zi].second.setZi(proiectii_modificat);
 				program_saptamana.setSaptamana(program_modificat);
 				for (size_t i = 0; i < rezervari.size(); i++)
-					if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie - 1].getZi()
-					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie - 1].getOra()
-					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie - 1].getSala().getNumar())
-						rezervari[i].setProiectie(proiectii_modificat[nr_proiectie - 1]);
+					if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie].getZi()
+					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
+					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie].getSala().getNumar())
+						rezervari[i].setProiectie(proiectii_modificat[nr_proiectie]);
 				std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n" << rezervari[rezervari.size() - 1];
 				break;
 			case 6:
