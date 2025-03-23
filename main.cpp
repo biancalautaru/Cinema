@@ -770,9 +770,5 @@ int main() {
 	std::string telefon0 = clienti[0].getTelefon();
 	telefon0[1] = '7';
 	clienti[0].setTelefon(telefon0);
-
-	// generare program
-	ProgramSaptamana program_saptamana;
-	program_saptamana = program_saptamana.generare(filme, sali);
 	return 0;
 }
