@@ -512,29 +512,30 @@ public:
 
 	ProgramSaptamana generare(const std::vector<Film> &filme, const std::vector<Sala> &sali) {
 		ProgramSaptamana program;
-		for (int i = 1; i <= 7; i++) {
+		for (int i = 0; i < 7; i++) {
 			std::string zi;
 			switch (i) {
-				case 1:	zi = "Luni";
+				case 0:	zi = "Luni";
 						break;
-				case 2:	zi = "Marti";
+				case 1:	zi = "Marti";
 						break;
-				case 3: zi = "Miercuri";
+				case 2: zi = "Miercuri";
 						break;
-				case 4: zi = "Joi";
+				case 3: zi = "Joi";
 						break;
-				case 5: zi = "Vineri";
+				case 4: zi = "Vineri";
 						break;
-				case 6: zi = "Sambata";
+				case 5: zi = "Sambata";
 						break;
 				default: zi = "Duminica";
 			}
-			ProgramZi program_zi = saptamana[i].second.generare(filme, sali);
+			ProgramZi program_zi;
+			program_zi = program_zi.generare(filme, sali);
 			std::vector<Proiectie> proiectii = program_zi.getZi();
 			for (size_t j = 0; j < proiectii.size(); j++)
 				proiectii[j].setZi(zi);
 			program_zi.setZi(proiectii);
-			program.saptamana.push_back({zi, program_zi});
+			program.adaugaZi({zi, program_zi});
 		}
 		return program;
 	}
@@ -770,5 +771,9 @@ int main() {
 	std::string telefon0 = clienti[0].getTelefon();
 	telefon0[1] = '7';
 	clienti[0].setTelefon(telefon0);
+
+	// generare program
+	ProgramSaptamana program_saptamana;
+	program_saptamana = program_saptamana.generare(filme, sali);
 	return 0;
 }
