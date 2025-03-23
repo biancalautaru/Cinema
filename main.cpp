@@ -857,8 +857,11 @@ int main() {
 
 	// meniu interactiv
 	auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
-	auto ziua_saptamanii = std::chrono::weekday{azi};
-	auto program_azi =  program_saptamana.getSaptamana()[ziua_saptamanii.c_encoding()];
+	auto ziua_saptamanii = std::chrono::weekday{std::chrono::sys_days{azi}};
+	int nr_azi = ziua_saptamanii.c_encoding() - 1;
+	if (nr_azi == -1)
+		nr_azi = 6;
+	auto program_azi =  program_saptamana.getSaptamana()[nr_azi];
 	std::string nume, email, telefon, zi, linie;
 	std::vector<Proiectie> proiectii, proiectii_modificat;
 	std::vector<int> locuri;
