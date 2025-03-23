@@ -676,6 +676,103 @@ public:
 };
 
 int main() {
+	// creare filme
+	std::vector<Film> filme = {
+		{"memento", {"Mister"}, 112, 2001, "Christopher Nolan", "N", "3D", 30},
+		{"Catch Me If You Can", {"Biografie", "Crima", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35},
+		{"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35},
+		{"Taxi Driver", {"Crima", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30},
+		{"Back to the Future", {"Aventura", "Comedie", "SF"}, 116, 1985, "Robert Zemeckis", "AP-12", "2D", 30},
+		{"The Talented Mr. Ripley", {"Crima", "Drama", "Thriller"}, 139, 1999, "Anthony Minghella", "N-15", "2D", 35},
+		{"Inception", {"Actiune", "Aventura", "SF", "Thriller"}, 148, 2010, "Christopher Nolan", "N-15", "2D", 40},
+		{"Whiplash", {"Drama", "Muzica"}, 106, 2014, "Damien Chazelle", "AP-12", "2D", 30},
+		{"Hachi: A Dog's Tale", {"Biografie", "Drama", "Familie"}, 93, 2009, "Lasse Hallstrom", "AG", "2D", 25},
+		{"The Sixth Sense", {"Drama", "Mister", "Thriller"}, 107, 1999, "M. Night Shyamalan", "AP-12", "2D", 30},
+		{"Liar Liar", {"Comedie", "Fantastic"}, 86, 1997, "Tom Shadyac", "AP-12", "2D", 25},
+		{"The Search for Santa Paws", {"Aventura", "Drama", "Familie", "Fantastic"}, 96, 2010, "Robert Vince","AG", "2D", 25},
+		{"Barbie", {"Aventura", "Comedie", "Fantastic"}, 114, 2023, "Greta Gerwig", "AP-12", "2D", 25},
+		{"The Godfather", {"Crima", "Drama"}, 175, 1972, "Francis Ford Coppola", "N-15", "2D", 35},
+		{"Se7en", {"Crima", "Drama", "Mister", "Thriller"}, 127, 1995, "David Fincher", "N-15", "2D", 30},
+		{"The Wolf of Wall Street", {"Biografie", "Comedie", "Crima", "Drama"}, 180, 2013, "Martin Scorsese", "IM-18", "2D", 35},
+		{"Casino", {"Crima", "Drama"}, 178, 1995, "Martin Scorsese", "N-15", "2D", 35},
+		{"Avatar", {"Actiune", "Aventura", "Fantastic", "SF"}, 162, 2009, "James Cameron", "AP-12", "3D", 40},
+		{"Once Upon a Time in America", {"Crima", "Drama"}, 229, 1984, "Sergio Leone", "IM-18", "2D", 40},
+		{"Forrest Gump", {"Comedie", "Drama", "Romantic"}, 142, 1994, "Robert Zemeckis", "AP-12", "2D", 30},
+		{"Inglourious Basterds", {"Aventura", "Drama", "Razboi"}, 153, 2009, "Quentin Tarantino", "IM-18", "2D", 35},
+		{"Dune: Part One", {"Actiune", "Aventura", "Drama", "SF"}, 155, 2021, "Denis Villeneuve", "AP-12", "3D", 40},
+		{"The Princess Diaries", {"Comedie", "Familie", "Romantic"}, 105, 2001, "Garry Marshall", "AG", "2D", 25}
+	};
 
+	std::string nume_film0 = filme[0].getNume();
+	nume_film0[0] = 'M';
+	filme[0].setNume(nume_film0);
+	std::vector<std::string> gen0 = filme[0].getGen();
+	gen0.push_back({"Thriller"});
+	filme[0].setGen(gen0);
+	int durata0 = filme[0].getDurata();
+	durata0++;
+	filme[0].setDurata(durata0);
+	int an0 = filme[0].getAn();
+	an0--;
+	filme[0].setAn(an0);
+	std::string regizor0 = filme[0].getRegizor();
+	regizor0[0] = 'C';
+	filme[0].setRegizor(regizor0);
+	std::string rating0 = filme[0].getRating();
+	rating0 += "-15";
+	filme[0].setRating(rating0);
+	std::string format0 = filme[0].getFormat();
+	format0[0] = '2';
+	filme[0].setFormat(format0);
+	float pret0 = filme[0].getPret();
+	pret0 += 5;
+	filme[0].setPret(pret0);
+
+	// creare sali
+	std::vector<Sala> sali = {
+		{0, 4, 23},
+		{2, 8, 12},
+		{3, 5, 15},
+		{4, 7, 11},
+		{5, 9, 23}
+	};
+
+	int numar0 = sali[0].getNumar();
+	numar0++;
+	sali[0].setNumar(numar0);
+	int randuri0 = sali[0].getRanduri();
+	randuri0 += 2;
+	sali[0].setRanduri(randuri0);
+	int coloane0 = sali[0].getColoane();
+	coloane0 -= 3;
+	sali[0].setColoane(coloane0);
+
+	// creare clienti
+	std::vector<Client> clienti = {
+		{"ion Popescu", "ion.Popescu@gmail.com", "0849187947"},
+		{"George Ionescu", "george.ionescu@gmail.com", "0764367341"},
+		{"Mihai Vasile", "mihai.vasile@yahoo.com", "0737635326"},
+		{"Alexandru Radulescu", "alexandru.radulescu@gmail.com", "0789525437"},
+		{"Gabriel Tudor", "gabriel.tudor@hotmail.com", "0778912345"},
+		{"Maria Popa", "maria.popa@yahoo.com", "0758369424"},
+		{"Diana Munteanu", "diana.munteanu@hotmail.com", "0723658741"},
+		{"Gabriela Radu", "gabriela.radu@gmail.com", "0752375437"},
+		{"Elena Dumitrescu", "elena.dumitrescu@yahoo.com", "0765432199"},
+		{"Ana Dobre", "ana.dobre@gmail.com", "0745123789"}
+	};
+
+	std::string nume0 = clienti[0].getNume();
+	nume0[0] = 'I';
+	clienti[0].setNume(nume0);
+	std::string email0 = clienti[0].getEmail();
+	email0[4] = 'p';
+	clienti[0].setEmail(email0);
+	std::string telefon0 = clienti[0].getTelefon();
+	telefon0[1] = '7';
+	clienti[0].setTelefon(telefon0);
+
+	// generare program
+	ProgramSaptamana program_saptamana;
+	program_saptamana = program_saptamana.generare(filme, sali);
 	return 0;
 }
