@@ -10,6 +10,7 @@ void ProgramZi::sortareProiectii() {
 		return p1.getOra() < p2.getOra();
 	});
 }
+
 std::string ProgramZi::oraString(const int& ora) {
 	std::string ora_st(5, ' ');
 	ora_st[0] = '0' + ora / 60 / 10;
@@ -19,6 +20,7 @@ std::string ProgramZi::oraString(const int& ora) {
 	ora_st[4] = '0' + ora % 60 % 10;
 	return ora_st;
 }
+
 int ProgramZi::urmatoareaOra(const int& ora) {
 	int min = ora % 60;
 	if (min == 0 || min == 15 || min == 30 || min == 45)
@@ -32,8 +34,9 @@ int ProgramZi::urmatoareaOra(const int& ora) {
 	return ora + 60 - min + 30;
 }
 
-ProgramZi::ProgramZi() = default;
-ProgramZi::~ProgramZi() = default;
+ProgramZi::ProgramZi() {};
+
+ProgramZi::~ProgramZi() {};
 
 ProgramZi::ProgramZi(const std::vector<Proiectie>& zi):
 	zi(zi) {

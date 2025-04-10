@@ -1,8 +1,8 @@
 #include "../headers/Film.h"
 
-Film::Film() = default;
+Film::Film() {};
 
-Film::~Film() = default;
+Film::~Film() {};
 
 Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int durata, const int an, const std::string& regizor, const std::string& rating, const std::string& format, const float pret):
 	nume(nume),

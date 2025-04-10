@@ -1,8 +1,8 @@
 #include "../headers/Sala.h"
 
-Sala::Sala() = default;
+Sala::Sala() {};
 
-Sala::~Sala() = default;
+Sala::~Sala() {};
 
 Sala::Sala(const int numar, const int randuri, const int coloane):
 	numar(numar),

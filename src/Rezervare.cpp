@@ -1,8 +1,8 @@
 #include "../headers/Rezervare.h"
 
-Rezervare::Rezervare() = default;
+Rezervare::Rezervare() {};
 
-Rezervare::~Rezervare() = default;
+Rezervare::~Rezervare() {};
 
 Rezervare::Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi):
 	client(client),
