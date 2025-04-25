@@ -80,10 +80,6 @@ void Rezervare::setClient(const Client& client_) {
 	client = client_;
 }
 
-const Client& Rezervare::getClient() const {
-	return client;
-}
-
 void Rezervare::setProiectie(const Proiectie& proiectie_) {
 	proiectie = proiectie_;
 }
@@ -96,16 +92,8 @@ void Rezervare::setLocuri(const std::vector<int>& locuri_) {
 	locuri = locuri_;
 }
 
-const std::vector<int>& Rezervare::getLocuri() const {
-	return locuri;
-}
-
 void Rezervare::setElevi(const int elevi_) {
 	elevi = elevi_;
-}
-
-int Rezervare::getElevi() const {
-	return elevi;
 }
 
 void Rezervare::adaugaProdus(const std::shared_ptr<Produs>& produs) {

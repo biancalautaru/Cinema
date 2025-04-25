@@ -40,10 +40,6 @@ void Mancare::aplicaPromotie() {
 		pret *= 0.9;
 }
 
-void Mancare::setGramaj(int gramaj_) {
-	gramaj = gramaj_;
-}
-
 int Mancare::getGramaj() const {
 	return gramaj;
 }

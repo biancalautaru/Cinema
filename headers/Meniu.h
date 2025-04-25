@@ -31,13 +31,6 @@ public:
 	void afisare(std::ostream& os) const override;
 	std::shared_ptr<Produs> clone() override;
 	void aplicaPromotie() override;
-
-	void setMancare(const std::shared_ptr<Mancare>& mancare_);
-	const std::shared_ptr<Mancare>& getMancare() const;
-	void setBautura(const std::shared_ptr<Bautura>& bautura_);
-	const std::shared_ptr<Bautura>& getBautura() const;
-	void setmarime(const MarimeMeniu& marime_);
-	const MarimeMeniu& getMarime() const;
 };
 
 #endif

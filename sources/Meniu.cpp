@@ -61,27 +61,3 @@ void Meniu::aplicaPromotie() {
 	if (pret > 27)
 		pret *= 0.9;
 }
-
-void Meniu::setMancare(const std::shared_ptr<Mancare>& mancare_) {
-	mancare = mancare_;
-}
-
-const std::shared_ptr<Mancare>& Meniu::getMancare() const {
-	return mancare;
-}
-
-void Meniu::setBautura(const std::shared_ptr<Bautura>& bautura_) {
-	bautura = bautura_;
-}
-
-const std::shared_ptr<Bautura>& Meniu::getBautura() const {
-	return bautura;
-}
-
-void Meniu::setmarime(const MarimeMeniu& marime_) {
-	marime = marime_;
-}
-
-const MarimeMeniu& Meniu::getMarime() const {
-	return marime;
-}

@@ -26,8 +26,8 @@ public:
 	void aplicaPromotii();
 	void aplicaPromotiiMeniuri();
 
-	const std::vector<std::shared_ptr<Produs>>& getProduse() const;
-	int getTotalProduse() const;
+	// const std::vector<std::shared_ptr<Produs>>& getProduse() const;
+	// int getTotalProduse() const;
 };
 
 #endif

@@ -46,24 +46,12 @@ std::ostream& operator<<(std::ostream& os, const Sala& sala) {
 	return os;
 }
 
-void Sala::setNumar(const int numar_) {
-	numar = numar_;
-}
-
 int Sala::getNumar() const {
 	return numar;
 }
 
-void Sala::setRanduri(const int randuri_) {
-	randuri = randuri_;
-}
-
 int Sala::getRanduri() const {
 	return randuri;
-}
-
-void Sala::setColoane(const int coloane_) {
-	coloane = coloane_;
 }
 
 int Sala::getColoane() const {

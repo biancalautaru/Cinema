@@ -41,10 +41,6 @@ void Bautura::aplicaPromotie() {
 		pret *= 0.9;
 }
 
-void Bautura::setVolum(int volum_) {
-	volum = volum_;
-}
-
 int Bautura::getVolum() const {
 	return volum;
 }

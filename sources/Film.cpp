@@ -55,64 +55,20 @@ std::ostream& operator<<(std::ostream& os, const Film& film) {
 	return os;
 }
 
-void Film::setNume(const std::string& nume_) {
-	nume = nume_;
-}
-
 const std::string& Film::getNume() const {
 	return nume;
-}
-
-void Film::setGen(const std::vector<std::string>& gen_) {
-	gen = gen_;
-}
-
-const std::vector<std::string>& Film::getGen() const {
-	return gen;
-}
-
-void Film::setDurata(const int durata_) {
-	durata = durata_;
 }
 
 int Film::getDurata() const {
 	return durata;
 }
 
-void Film::setAn(const int an_) {
-	an = an_;
-}
-
-int Film::getAn() const {
-	return an;
-}
-
-void Film::setRegizor(const std::string& regizor_) {
-	regizor = regizor_;
-}
-
-const std::string& Film::getRegizor() const {
-	return regizor;
-}
-
-void Film::setRating(const std::string& rating_) {
-	rating = rating_;
-}
-
 const std::string& Film::getRating() const {
 	return rating;
 }
 
-void Film::setFormat(const std::string& format_) {
-	format = format_;
-}
-
 const std::string& Film::getFormat() const {
 	return format;
-}
-
-void Film::setPret(const double pret_) {
-	pret = pret_;
 }
 
 double Film::getPret() const {

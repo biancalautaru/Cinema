@@ -19,11 +19,8 @@ public:
 	Sala& operator=(const Sala& copie);
 	friend std::ostream& operator<<(std::ostream& os, const Sala& sala);
 
-	void setNumar(const int numar_);
 	int getNumar() const;
-	void setRanduri(const int randuri_);
 	int getRanduri() const;
-	void setColoane(const int coloane_);
 	int getColoane() const;
 };
 

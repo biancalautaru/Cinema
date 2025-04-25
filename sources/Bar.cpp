@@ -55,10 +55,10 @@ void Bar::aplicaPromotiiMeniuri() {
 	}
 }
 
-const std::vector<std::shared_ptr<Produs>>& Bar::getProduse() const {
-	return produse;
-}
-
-int Bar::getTotalProduse() const {
-	return totalProduse;
-}
+// const std::vector<std::shared_ptr<Produs>>& Bar::getProduse() const {
+// 	return produse;
+// }
+//
+// int Bar::getTotalProduse() const {
+// 	return totalProduse;
+// }

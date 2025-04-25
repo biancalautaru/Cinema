@@ -30,13 +30,10 @@ public:
 	void citireProduse(std::istream& is, std::ostream& os, const Bar& bar);
 
 	void setClient(const Client& client_);
-	const Client& getClient() const;
 	void setProiectie(const Proiectie& proiectie_);
 	const Proiectie& getProiectie() const;
 	void setLocuri(const std::vector<int>& locuri_);
-	const std::vector<int>& getLocuri() const;
 	void setElevi(const int elevi_);
-	int getElevi() const;
 
 	void adaugaProdus(const std::shared_ptr<Produs>& produs);
 	double pretRezervare() const;

@@ -26,21 +26,10 @@ public:
 	Film& operator=(const Film& copie);
 	friend std::ostream& operator<<(std::ostream& os, const Film& film);
 
-	void setNume(const std::string& nume_);
 	const std::string& getNume() const;
-	void setGen(const std::vector<std::string>& gen_);
-	const std::vector<std::string>& getGen() const;
-	void setDurata(const int durata_);
 	int getDurata() const;
-	void setAn(const int an_);
-	int getAn() const;
-	void setRegizor(const std::string& regizor_);
-	const std::string& getRegizor() const;
-	void setRating(const std::string& rating_);
 	const std::string& getRating() const;
-	void setFormat(const std::string& format_);
 	const std::string& getFormat() const;
-	void setPret(const double pret_);
 	double getPret() const;
 
 	double pretElevi() const;
