@@ -23,9 +23,7 @@ public:
 	virtual std::shared_ptr<Produs> clone() = 0;
 	virtual void aplicaPromotie() = 0;
 
-	void setNume(const std::string& nume_);
 	const std::string& getNume() const;
-	void setPret(double pret_);
 	double getPret() const;
 };
 

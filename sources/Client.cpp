@@ -35,11 +35,3 @@ std::ostream& operator<<(std::ostream& os, const Client& client) {
 const std::string& Client::getNume() const {
 	return nume;
 }
-
-const std::string& Client::getEmail() const {
-	return email;
-}
-
-const std::string& Client::getTelefon() const {
-	return telefon;
-}

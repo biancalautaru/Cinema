@@ -20,8 +20,6 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Client& client);
 
 	const std::string& getNume() const;
-	const std::string& getEmail() const;
-	const std::string& getTelefon() const;
 };
 
 #endif

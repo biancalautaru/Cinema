@@ -28,16 +28,8 @@ std::ostream& operator<<(std::ostream& os, const Produs& produs) {
 	return os;
 }
 
-void Produs::setNume(const std::string& nume_) {
-	nume = nume_;
-}
-
 const std::string& Produs::getNume() const {
 	return nume;
-}
-
-void Produs::setPret(double pret_) {
-	pret = pret_;
 }
 
 double Produs::getPret() const {
