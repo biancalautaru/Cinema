@@ -59,6 +59,6 @@ const std::vector<std::shared_ptr<Produs>>& Bar::getProduse() const {
 	return produse;
 }
 
-const int Bar::getTotalProduse() const {
+int Bar::getTotalProduse() const {
 	return totalProduse;
 }
