@@ -60,10 +60,6 @@ std::ostream& operator<<(std::ostream& os, const Proiectie& proiectie) {
 	return os;
 }
 
-void Proiectie::setFilm(const Film& film_) {
-	film = film_;
-}
-
 const Film& Proiectie::getFilm() const {
 	return film;
 }
@@ -76,16 +72,8 @@ const std::string& Proiectie::getZi() const {
 	return zi;
 }
 
-void Proiectie::setOra(const std::string& ora_) {
-	ora = ora_;
-}
-
 const std::string& Proiectie::getOra() const {
 	return ora;
-}
-
-void Proiectie::setSala(const Sala& sala_) {
-	sala = sala_;
 }
 
 const Sala& Proiectie::getSala() const {
