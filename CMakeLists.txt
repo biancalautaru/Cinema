@@ -51,20 +51,30 @@ include(cmake/CopyHelper.cmake)
 add_executable(${MAIN_EXECUTABLE_NAME}
     main.cpp
     generated/src/Helper.cpp
-        src/Film.cpp
+        sources/Film.cpp
         headers/Film.h
-        src/Sala.cpp
+        sources/Sala.cpp
         headers/Sala.h
-        src/Proiectie.cpp
+        sources/Proiectie.cpp
         headers/Proiectie.h
-        src/ProgramZi.cpp
+        sources/ProgramZi.cpp
         headers/ProgramZi.h
-        src/ProgramSaptamana.cpp
+        sources/ProgramSaptamana.cpp
         headers/ProgramSaptamana.h
-        src/Client.cpp
+        sources/Client.cpp
         headers/Client.h
-        src/Rezervare.cpp
+        sources/Rezervare.cpp
         headers/Rezervare.h
+        sources/Produs.cpp
+        headers/Produs.h
+        sources/Mancare.cpp
+        headers/Mancare.h
+        sources/Bautura.cpp
+        headers/Bautura.h
+        sources/Meniu.cpp
+        headers/Meniu.h
+        sources/Bar.cpp
+        headers/Bar.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
