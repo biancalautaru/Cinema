@@ -20,7 +20,7 @@ private:
 
 public:
 	Meniu();
-	virtual ~Meniu();
+	~Meniu() override;
 
 	Meniu(const std::string& nume, double pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime);
 	Meniu(const Meniu& copie);
