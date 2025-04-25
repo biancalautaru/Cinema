@@ -6,7 +6,7 @@ Bautura::Bautura() {}
 
 Bautura::~Bautura() {}
 
-Bautura::Bautura(const std::string&nume, float pret, int volum):
+Bautura::Bautura(const std::string&nume, double pret, int volum):
 	Produs(nume, pret),
 	volum(volum)
 {}

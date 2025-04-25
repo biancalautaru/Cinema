@@ -69,7 +69,7 @@ int main() {
 	std::string format0 = filme[0].getFormat();
 	format0[0] = '2';
 	filme[0].setFormat(format0);
-	float pret0 = filme[0].getPret();
+	double pret0 = filme[0].getPret();
 	pret0 += 5;
 	filme[0].setPret(pret0);
 
@@ -394,7 +394,6 @@ int main() {
 			std::cout << "Produse comandate de la bar:\n";
 			rezervari[rezervari.size() - 1].afisareProduse(std::cout);
 			std::cout << "\n";
-
 			std::cout << "Pret total rezervare: " << rezervari[rezervari.size() - 1].pretTotal() << " lei\n";
 		}
 		else if (optiune == 6)

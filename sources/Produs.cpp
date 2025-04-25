@@ -2,19 +2,14 @@
 
 #include <iomanip>
 
-int Produs::totalProduse = 0;
-
-Produs::Produs() {
-	totalProduse++;
-}
+Produs::Produs() {}
 
 Produs::~Produs() {}
 
-Produs::Produs(const std::string& nume, float pret):
+Produs::Produs(const std::string& nume, double pret):
 	nume(nume),
-	pret(pret) {
-	totalProduse++;
-}
+	pret(pret)
+{}
 
 Produs::Produs(const Produs& copie):
 	nume(copie.nume),
@@ -41,10 +36,10 @@ const std::string& Produs::getNume() const {
 	return nume;
 }
 
-void Produs::setPret(float pret_) {
+void Produs::setPret(double pret_) {
 	pret = pret_;
 }
 
-float Produs::getPret() const {
+double Produs::getPret() const {
 	return pret;
 }

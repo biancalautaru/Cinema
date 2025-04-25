@@ -11,7 +11,7 @@ public:
 	Mancare();
 	virtual ~Mancare();
 
-	explicit Mancare(const std::string& nume, float pret, int gramaj);
+	explicit Mancare(const std::string& nume, double pret, int gramaj);
 	Mancare(const Mancare& copie);
 
 	Mancare& operator=(const Mancare& copie);

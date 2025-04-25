@@ -39,8 +39,8 @@ public:
 	int getElevi() const;
 
 	void adaugaProdus(const std::shared_ptr<Produs>& produs);
-	float pretRezervare() const;
-	float pretTotal() const;
+	double pretRezervare() const;
+	double pretTotal() const;
 };
 
 #endif

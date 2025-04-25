@@ -14,13 +14,13 @@ private:
 	std::string regizor;
 	std::string rating;
 	std::string format;
-	float pret;
+	double pret;
 
 public:
 	Film();
 	~Film();
 
-	Film(const std::string& nume, const std::vector<std::string>& gen, const int durata, const int an, const std::string& regizor, const std::string& rating, const std::string& format, const float pret);
+	Film(const std::string& nume, const std::vector<std::string>& gen, const int durata, const int an, const std::string& regizor, const std::string& rating, const std::string& format, const double pret);
 	Film(const Film& copie);
 
 	Film& operator=(const Film& copie);
@@ -40,10 +40,10 @@ public:
 	const std::string& getRating() const;
 	void setFormat(const std::string& format_);
 	const std::string& getFormat() const;
-	void setPret(const float pret_);
-	float getPret() const;
+	void setPret(const double pret_);
+	double getPret() const;
 
-	float pretElevi() const;
+	double pretElevi() const;
 };
 
 #endif

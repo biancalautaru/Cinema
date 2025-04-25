@@ -4,7 +4,7 @@ Film::Film() {};
 
 Film::~Film() {};
 
-Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int durata, const int an, const std::string& regizor, const std::string& rating, const std::string& format, const float pret):
+Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int durata, const int an, const std::string& regizor, const std::string& rating, const std::string& format, const double pret):
 	nume(nume),
 	gen(gen),
 	durata(durata),
@@ -111,14 +111,14 @@ const std::string& Film::getFormat() const {
 	return format;
 }
 
-void Film::setPret(const float pret_) {
+void Film::setPret(const double pret_) {
 	pret = pret_;
 }
 
-float Film::getPret() const {
+double Film::getPret() const {
 	return pret;
 }
 
-float Film::pretElevi() const {
+double Film::pretElevi() const {
 	return pret * 0.8;
 }

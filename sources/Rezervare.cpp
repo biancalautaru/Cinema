@@ -112,12 +112,12 @@ void Rezervare::adaugaProdus(const std::shared_ptr<Produs>& produs) {
 	produse.push_back(produs);
 }
 
-float Rezervare::pretRezervare() const {
+double Rezervare::pretRezervare() const {
 	return (locuri.size() - elevi) * proiectie.getFilm().getPret() + elevi * proiectie.getFilm().pretElevi();
 }
 
-float Rezervare::pretTotal() const {
-	float total = pretRezervare();
+double Rezervare::pretTotal() const {
+	double total = pretRezervare();
 	for (auto produs : produse)
 		total += produs->getPret();
 	return total;

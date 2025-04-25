@@ -22,7 +22,7 @@ public:
 	Meniu();
 	virtual ~Meniu();
 
-	Meniu(const std::string& nume, float pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime);
+	Meniu(const std::string& nume, double pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime);
 	Meniu(const Meniu& copie);
 
 	Meniu& operator=(const Meniu& copie);

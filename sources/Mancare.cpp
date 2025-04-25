@@ -5,7 +5,7 @@
 Mancare::Mancare() {}
 Mancare::~Mancare() {}
 
-Mancare::Mancare(const std::string& nume, float pret, int gramaj):
+Mancare::Mancare(const std::string& nume, double pret, int gramaj):
 	Produs(nume, pret),
 	gramaj(gramaj)
 {}

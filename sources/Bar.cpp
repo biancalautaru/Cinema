@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+int Bar::totalProduse = 0;
+
 Bar::Bar() {};
 
 Bar::~Bar() {}
@@ -37,6 +39,7 @@ void Bar::afisare(std::ostream& os) const {
 
 void Bar::adaugaProdus(std::shared_ptr<Produs> produs) {
 	produse.push_back(produs);
+	totalProduse++;
 }
 
 void Bar::aplicaPromotii() {
@@ -54,4 +57,8 @@ void Bar::aplicaPromotiiMeniuri() {
 
 const std::vector<std::shared_ptr<Produs>>& Bar::getProduse() const {
 	return produse;
+}
+
+const int Bar::getTotalProduse() const {
+	return totalProduse;
 }

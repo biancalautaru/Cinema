@@ -11,7 +11,7 @@ public:
 	Bautura();
 	virtual ~Bautura();
 
-	Bautura(const std::string&nume, float pret, int volum);
+	Bautura(const std::string&nume, double pret, int volum);
 	Bautura(const Bautura& copie);
 
 	Bautura& operator=(const Bautura& copie);
