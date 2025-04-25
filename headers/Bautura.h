@@ -9,7 +9,7 @@ private:
 
 public:
 	Bautura();
-	~Bautura();
+	virtual ~Bautura();
 
 	Bautura(const std::string&nume, float pret, int volum);
 	Bautura(const Bautura& copie);
@@ -18,7 +18,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Bautura& bautura);
 
 	void afisare(std::ostream& os) const override;
-	std::shared_ptr<Produs> clone();
+	std::shared_ptr<Produs> clone() override;
 	void aplicaPromotie() override;
 
 	void setVolum(int volum_);

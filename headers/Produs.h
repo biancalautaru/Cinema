@@ -12,7 +12,7 @@ protected:
 
 public:
 	Produs();
-	~Produs();
+	virtual ~Produs();
 
 	Produs(const std::string& nume, float pret);
 	Produs(const Produs& copie);

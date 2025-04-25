@@ -9,7 +9,7 @@ private:
 
 public:
 	Mancare();
-	~Mancare();
+	virtual ~Mancare();
 
 	explicit Mancare(const std::string& nume, float pret, int gramaj);
 	Mancare(const Mancare& copie);
@@ -18,7 +18,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Mancare& mancare);
 
 	void afisare(std::ostream& os) const override;
-	std::shared_ptr<Produs> clone();
+	std::shared_ptr<Produs> clone() override;
 	void aplicaPromotie() override;
 
 	void setGramaj(int gramaj_);

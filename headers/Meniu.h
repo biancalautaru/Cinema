@@ -20,16 +20,16 @@ private:
 
 public:
 	Meniu();
-	~Meniu();
+	virtual ~Meniu();
 
-	Meniu(const std::string& nume, float pret, const std::shared_ptr<Mancare>& mancare, const std::shared_ptr<Bautura>& bautura, const MarimeMeniu& marime);
+	Meniu(const std::string& nume, float pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime);
 	Meniu(const Meniu& copie);
 
 	Meniu& operator=(const Meniu& copie);
 	friend std::ostream& operator<<(std::ostream& os, const Meniu& meniu);
 
 	void afisare(std::ostream& os) const override;
-	std::shared_ptr<Produs> clone();
+	std::shared_ptr<Produs> clone() override;
 	void aplicaPromotie() override;
 
 	void setMancare(const std::shared_ptr<Mancare>& mancare_);

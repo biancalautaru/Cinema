@@ -6,10 +6,10 @@ Meniu::Meniu() {}
 
 Meniu::~Meniu() {}
 
-Meniu::Meniu(const std::string& nume, float pret, const std::shared_ptr<Mancare>& mancare, const std::shared_ptr<Bautura>& bautura, const MarimeMeniu& marime):
+Meniu::Meniu(const std::string& nume, float pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime):
 	Produs(nume, pret),
-	mancare(mancare),
-	bautura(bautura),
+	mancare(std::dynamic_pointer_cast<Mancare>(mancare)),
+	bautura(std::dynamic_pointer_cast<Bautura>(bautura)),
 	marime(marime)
 {}
 

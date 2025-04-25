@@ -28,7 +28,8 @@ std::ostream& operator<<(std::ostream& os, const Bar& bar) {
 }
 
 void Bar::afisare(std::ostream& os) const {
-	for (int i = 0; i < produse.size(); i++) {
+	os << "Produse bar:\n";
+	for (size_t i = 0; i < produse.size(); i++) {
 		os << i + 1 << ". ";
 		produse[i]->afisare(os);
 	}

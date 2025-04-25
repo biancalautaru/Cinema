@@ -200,17 +200,17 @@ int main() {
 	}
 
 	// creare produse
-	auto popcorn_mic = std::make_shared<Mancare>("Popcorn", 16.99, 300);
-	auto popcorn_mediu = std::make_shared<Mancare>("Popcorn", 20.99, 500);
-	auto popcorn_mare = std::make_shared<Mancare>("Popcorn", 24.99, 800);
-	auto cola_mic = std::make_shared<Bautura>("Coca-Cola", 7.99, 330);
-	auto cola_mediu = std::make_shared<Bautura>("Coca-Cola", 9.99, 500);
-	auto cola_mare = std::make_shared<Bautura>("Coca-Cola", 12.99, 750);
-	auto meniu_mic = std::make_shared<Meniu>("Meniu Mic", 20.99, popcorn_mic, cola_mic, MIC);
-	auto meniu_mediu = std::make_shared<Meniu>("Meniu Mediu", 26.99, popcorn_mediu, cola_mediu, MEDIU);
-	auto meniu_mare = std::make_shared<Meniu>("Meniu Mare", 31.99, popcorn_mare, cola_mare, MARE);
-	auto meniu_mic_mediu = std::make_shared<Meniu>("Meniu mic-mediu", 23.99, popcorn_mic, cola_mediu, SPECIAL);
-	auto meniu_mediu_mare = std::make_shared<Meniu>("Meniu mediu-mare", 28.99, popcorn_mediu, cola_mare, SPECIAL);
+	std::shared_ptr<Produs> popcorn_mic = std::make_shared<Mancare>("Popcorn", 16.99, 300);
+	std::shared_ptr<Produs>  popcorn_mediu = std::make_shared<Mancare>("Popcorn", 20.99, 500);
+	std::shared_ptr<Produs>  popcorn_mare = std::make_shared<Mancare>("Popcorn", 24.99, 800);
+	std::shared_ptr<Produs>  cola_mic = std::make_shared<Bautura>("Coca-Cola", 7.99, 330);
+	std::shared_ptr<Produs>  cola_mediu = std::make_shared<Bautura>("Coca-Cola", 9.99, 500);
+	std::shared_ptr<Produs>  cola_mare = std::make_shared<Bautura>("Coca-Cola", 12.99, 750);
+	std::shared_ptr<Produs>  meniu_mic = std::make_shared<Meniu>("Meniu Mic", 20.99, popcorn_mic, cola_mic, MIC);
+	std::shared_ptr<Produs>  meniu_mediu = std::make_shared<Meniu>("Meniu Mediu", 26.99, popcorn_mediu, cola_mediu, MEDIU);
+	std::shared_ptr<Produs>  meniu_mare = std::make_shared<Meniu>("Meniu Mare", 31.99, popcorn_mare, cola_mare, MARE);
+	std::shared_ptr<Produs>  meniu_mic_mediu = std::make_shared<Meniu>("Meniu mic-mediu", 23.99, popcorn_mic, cola_mediu, SPECIAL);
+	std::shared_ptr<Produs>  meniu_mediu_mare = std::make_shared<Meniu>("Meniu mediu-mare", 28.99, popcorn_mediu, cola_mare, SPECIAL);
 
 	// adaugare produse la bar
 	Bar bar;
@@ -394,6 +394,8 @@ int main() {
 			std::cout << "Produse comandate de la bar:\n";
 			rezervari[rezervari.size() - 1].afisareProduse(std::cout);
 			std::cout << "\n";
+
+			std::cout << "Pret total rezervare: " << rezervari[rezervari.size() - 1].pretTotal() << " lei\n";
 		}
 		else if (optiune == 6)
 			return 0;
