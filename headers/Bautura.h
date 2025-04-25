@@ -9,7 +9,7 @@ private:
 
 public:
 	Bautura();
-	virtual ~Bautura();
+	~Bautura() override;
 
 	Bautura(const std::string&nume, double pret, int volum);
 	Bautura(const Bautura& copie);

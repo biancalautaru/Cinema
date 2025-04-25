@@ -59,7 +59,7 @@ void Rezervare::afisareProduse(std::ostream& os) const {
 }
 
 void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar) {
-	bar.afisare(std::cout);
+	os << bar;
 	os << "\n";
 	std::string linie;
 	os << "Introduceti numerele corespunzatoare produselor dorite, separate prin spatii:\n";

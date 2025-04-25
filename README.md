@@ -42,7 +42,7 @@ Gestiunea rezervărilor pentru un cinematograf
     - clasele de excepții trebuie să trateze categorii de erori distincte (exemplu de erori echivalente: citire fișiere cu diverse extensii)
   - [ ] utilizare cu sens: de exemplu, `throw` în constructor (sau funcție care întoarce un obiect), `try`/`catch` în `main`
   - această ierarhie va fi complet independentă de ierarhia cu funcții virtuale
-- [ ] funcții și atribute `static`
+- [x] funcții și atribute `static`
 - [x] STL
 - [x] cât mai multe `const`
 - [ ] funcții *de nivel înalt*, de eliminat cât mai mulți getters/setters/funcții low-level

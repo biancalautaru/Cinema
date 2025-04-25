@@ -9,7 +9,7 @@ private:
 
 public:
 	Mancare();
-	virtual ~Mancare();
+	~Mancare() override;
 
 	explicit Mancare(const std::string& nume, double pret, int gramaj);
 	Mancare(const Mancare& copie);

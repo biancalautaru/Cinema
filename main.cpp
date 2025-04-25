@@ -50,7 +50,7 @@ int main() {
 
 	// creare sali
 	std::vector<Sala> sali = {
-		{1, 2, 20},
+		{1, 5, 20},
 		{2, 8, 12},
 		{3, 5, 15},
 		{4, 7, 11},

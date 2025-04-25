@@ -22,12 +22,12 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Bar& bar);
 
 	void afisare(std::ostream& os) const;
-	void adaugaProdus(std::shared_ptr<Produs> produs);
+	void adaugaProdus(const std::shared_ptr<Produs>& produs);
 	void aplicaPromotii();
 	void aplicaPromotiiMeniuri();
 
 	const std::vector<std::shared_ptr<Produs>>& getProduse() const;
-	// int getTotalProduse() const;
+	static int getTotalProduse();
 };
 
 #endif

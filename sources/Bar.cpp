@@ -25,25 +25,25 @@ Bar& Bar::operator=(const Bar& copie) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bar& bar) {
+	os << "Produse bar (" << Bar::getTotalProduse() << " produse):\n";
 	bar.afisare(os);
 	return os;
 }
 
 void Bar::afisare(std::ostream& os) const {
-	os << "Produse bar:\n";
 	for (size_t i = 0; i < produse.size(); i++) {
 		os << i + 1 << ". ";
 		produse[i]->afisare(os);
 	}
 }
 
-void Bar::adaugaProdus(std::shared_ptr<Produs> produs) {
+void Bar::adaugaProdus(const std::shared_ptr<Produs>& produs) {
 	produse.push_back(produs);
 	totalProduse++;
 }
 
 void Bar::aplicaPromotii() {
-	for (auto produs : produse)
+	for (auto& produs : produse)
 		produs->aplicaPromotie();
 }
 
@@ -59,6 +59,6 @@ const std::vector<std::shared_ptr<Produs>>& Bar::getProduse() const {
 	return produse;
 }
 
-// int Bar::getTotalProduse() const {
-// 	return totalProduse;
-// }
+int Bar::getTotalProduse() {
+	return totalProduse;
+}
