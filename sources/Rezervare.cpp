@@ -83,7 +83,7 @@ void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar
 				}
 
 			for (auto nr : nr_produse)
-				if (nr > bar.getProduse().size())
+				if (nr > static_cast<int>(bar.getProduse().size()))
 					throw ProdusInexistent("Introduceti numere corespunzatoare produselor existente: ");
 			break;
 		}
