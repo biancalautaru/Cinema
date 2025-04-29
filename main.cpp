@@ -19,6 +19,8 @@
 #include "headers/Bautura.h"
 #include "headers/Meniu.h"
 #include "headers/Bar.h"
+#include "headers/LocOcupat.h"
+#include "headers/OptiuneInexistenta.h"
 
 int main() {
 	// creare filme
@@ -177,12 +179,25 @@ int main() {
 		std::cout << "|--------------------------------------|\n";
 		std::cout << "| 6. Iesire                            |\n";
 		std::cout << "|--------------------------------------|\n";
+
 		std::cout << "Introduceti numarul optiunii dorite:";
 		std::string linie;
-		std::getline(std::cin, linie);
-		int optiune = 0;
-		for (size_t i = 0; i < linie.size()&&  isdigit(linie[i]); i++)
-			optiune = 10 * optiune + (linie[i] - '0');
+		int optiune;
+		while (true) {
+			try {
+				std::getline(std::cin, linie);
+				optiune = 0;
+				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
+					optiune = 10 * optiune + (linie[i] - '0');
+				if (optiune < 1 || optiune > 6)
+					throw OptiuneInexistenta("Introduceti numarul corespunzator unei optiuni existente: ");
+				break;
+			}
+			catch (const OptiuneInexistenta& e) {
+				std::cout << e.what();
+			}
+		}
+
 		if (optiune == 1) {
 			auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
 			auto ziua_saptamanii = std::chrono::weekday{std::chrono::sys_days{azi}};
@@ -206,6 +221,8 @@ int main() {
 			for (size_t i = 0; i < sali.size(); i++)
 				std::cout << sali[i] << "\n";
 		else if (optiune == 5) {
+			std::cout << "- Creare rezervare -\n\n";
+
 			std::string nume, email, telefon;
 			std::cout << "Nume: ";
 			std::getline(std::cin, nume);
@@ -256,6 +273,7 @@ int main() {
 				std::cout << "\n";
 			}
 			std::cout << "\n";
+
 			std::cout << "Introduceti numarul proiectiei dorite: ";
 			std::getline(std::cin, linie);
 			int nr_proiectie = 0;
@@ -265,6 +283,7 @@ int main() {
 			if (nr_proiectie == -1)
 				nr_proiectie = 0;
 			std::cout << proiectii[nr_proiectie] << "\n";
+
 			bool repeat = true;
 			std::vector<int> locuri;
 			while (repeat) {
@@ -274,32 +293,39 @@ int main() {
 				for (size_t i = 0; i < linie.size(); i++)
 					if (isdigit(linie[i])) {
 						int loc = 0;
-						int j;
+						size_t j;
 						for (j = i; isdigit(linie[j]); j++)
 							loc = loc * 10 + linie[j] - '0';
 						i = j - 1;
 						locuri.push_back(loc);
 					}
 				repeat = false;
-				for (size_t i = 0; i < locuri.size(); i++)
-					for (auto it : proiectii[nr_proiectie].getOcupate())
-						if (locuri[i] == it) {
-							std::cout << "Alegeti locuri care nu sunt ocupate deja!\n\n";
-							repeat = true;
-							break;
-						}
+
+				try {
+					for (auto loc : locuri)
+						for (auto it : proiectii[nr_proiectie].getOcupate())
+							if (loc == it)
+								throw LocOcupat("Alegeti locuri care nu sunt ocupate deja!\n\n");
+				}
+				catch (const LocOcupat& e) {
+					std::cout << e.what();
+					repeat = true;
+				}
 			}
+
 			std::cout << "Numarul de bilete destinate elevilor (20% reducere): ";
 			std::getline(std::cin, linie);
 			int elevi = 0;
-			for (size_t i = 0; i < linie.size()&&  isdigit(linie[i]); i++)
+			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 				elevi = 10 * elevi + (linie[i] - '0');
+
 			Rezervare rezervare;
 			rezervare.setClient({nume, email, telefon});
 			rezervare.setProiectie(proiectii[nr_proiectie]);
 			rezervare.setLocuri(locuri);
 			rezervare.setElevi(elevi);
 			rezervari.push_back(rezervare);
+
 			std::set<int> ocupate = proiectii[nr_proiectie].getOcupate();
 			for (size_t i = 0; i < locuri.size(); i++)
 				ocupate.insert(locuri[i]);
@@ -333,8 +359,6 @@ int main() {
 		}
 		else if (optiune == 6)
 			return 0;
-		else
-			std::cout << "Introduceti un numar valid!";
 		std::cout << "\n";
 	}
 	return 0;

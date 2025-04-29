@@ -2,6 +2,8 @@
 
 #include <iomanip>
 
+#include "../headers/ProdusInexistent.h"
+
 Rezervare::Rezervare() {};
 
 Rezervare::~Rezervare() {};
@@ -63,17 +65,35 @@ void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar
 	os << "\n";
 	std::string linie;
 	os << "Introduceti numerele corespunzatoare produselor dorite, separate prin spatii:\n";
-	std::getline(is, linie);
-	for (size_t i = 0; i < linie.size(); i++)
-		if (isdigit(linie[i])) {
-			int nr = 0;
-			int j;
-			for (j = i; isdigit(linie[j]); j++)
-				nr = nr * 10 + linie[j] - '0';
-			i = j - 1;
-			nr--;
-			adaugaProdus(bar.getProduse()[nr]);
+
+	std::vector<int> nr_produse;
+	while (true) {
+		try {
+			nr_produse.clear();
+			std::getline(is, linie);
+			for (size_t i = 0; i < linie.size(); i++)
+				if (isdigit(linie[i])) {
+					int nr = 0;
+					size_t j;
+					for (j = i; isdigit(linie[j]); j++)
+						nr = nr * 10 + linie[j] - '0';
+					i = j - 1;
+					nr--;
+					nr_produse.push_back(nr);
+				}
+
+			for (auto nr : nr_produse)
+				if (nr > bar.getProduse().size())
+					throw ProdusInexistent("Introduceti numere corespunzatoare produselor existente: ");
+			break;
 		}
+		catch (const ProdusInexistent& e) {
+			std::cout << e.what();
+		}
+	}
+
+	for (auto nr : nr_produse)
+		adaugaProdus(bar.getProduse()[nr]);
 }
 
 void Rezervare::setClient(const Client& client_) {
