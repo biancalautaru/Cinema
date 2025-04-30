@@ -3,6 +3,7 @@
 #include <iomanip>
 
 Mancare::Mancare() {}
+
 Mancare::~Mancare() {}
 
 Mancare::Mancare(const std::string& nume, double pret, int gramaj):

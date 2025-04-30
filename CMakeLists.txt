@@ -83,6 +83,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/ProdusInexistent.h
         sources/Exceptie.cpp
         headers/Exceptie.h
+        sources/Suvenir.cpp
+        headers/Suvenir.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
