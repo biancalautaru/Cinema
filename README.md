@@ -1,6 +1,19 @@
-# Cinema
+# Cinema 🎥
 
-Gestiunea rezervărilor pentru un cinematograf
+Această aplicație de tip linie de comandă simulează funcționalitatea unui sistem de rezervări pentru un cinematograf. Printr-o interfață intuitivă, utilizatorii pot accesa rapid informații utile despre filme și pot efectua rezervări.
+
+---
+
+### Funcționalitățile aplicației:
+
+- 🕝 Vizualizarea **programului zilei** — utilizatorii pot vedea ce filme sunt programate astăzi și orele la care rulează.
+- 📅 Vizualizarea **programului săptămânii**, pentru o planificare din timp a vizionărilor.
+- 🎞️ Vizualizarea **listei de filme** disponibile în programul curent, cu informații despre fiecare film.
+- 🪑 Vizualizarea **configurației sălilor de cinema**, inclusiv numărul de locuri și aranjamentul acestora în sală.
+- 🎫 Posibilitatea de a **face rezervări** — sistemul ține cont de locurile ocupate la fiecare proiecție a filmelor din program.
+- 🍿 Adăugarea de **produse de la bar** la rezervare — utilizatorii pot comanda gustări sau suveniruri și le pot ridica direct de la bar, evitând cozile.
+
+---
 
 ## Tema 1
 
@@ -20,6 +33,8 @@ Gestiunea rezervărilor pentru un cinematograf
 - [x] minim 50-55% din codul propriu să fie C++, `.gitattributes` configurat corect
 - [x] tag de `git`: de exemplu `v0.1`
 - [x] serviciu de integrare continuă (CI) cu **toate bifele**; exemplu: GitHub Actions
+
+---
 
 ## Tema 2
 
@@ -51,6 +66,8 @@ Gestiunea rezervărilor pentru un cinematograf
   - noua derivată nu poate fi una existentă care a fost ștearsă și adăugată din nou
   - noua derivată va fi integrată în codul existent (adică va fi folosită, nu adăugată doar ca să fie)
 - [x] tag de `git` pe commit cu **toate bifele**: de exemplu `v0.2`
+
+---
 
 ## Tema 3
 
