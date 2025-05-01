@@ -4,12 +4,12 @@ Această aplicație în linie de comandă simulează funcționalitatea unui sist
 
 ### Funcționalitățile aplicației:
 
-- 🕝 Vizualizarea **programului zilei curente** — utilizatorii pot vedea ce filme sunt programate în ziua curentă și orele la care rulează.
+- 🕝 Vizualizarea **programului zilei curente** - utilizatorii pot vedea ce filme sunt programate în ziua respectivă și orele la care rulează.
 - 📅 Vizualizarea **programului săptămânii**, pentru o planificare din timp a vizionărilor.
 - 🎞️ Vizualizarea **listei de filme** disponibile în programul curent, cu informații despre fiecare film.
 - 🪑 Vizualizarea **configurației sălilor de cinema**, inclusiv numărul de locuri și aranjamentul acestora în sală.
-- 🎫 Posibilitatea de a **face rezervări** — sistemul ține cont de locurile ocupate la fiecare proiecție a filmelor din program.
-- 🍿 Adăugarea de **produse de la bar** la rezervare — utilizatorii pot comanda gustări sau suveniruri și le pot ridica direct de la bar, evitând cozile.
+- 🎫 Posibilitatea de a **face rezervări** - sistemul ține cont de locurile ocupate la fiecare proiecție a filmelor din program.
+- 🍿 Adăugarea de **produse de la bar** la rezervare - utilizatorii pot comanda gustări sau suveniruri și le pot ridica direct de la bar, evitând cozile de la cinematograf.
 
 ## Tema 1
 
