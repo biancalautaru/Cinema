@@ -21,10 +21,12 @@ Meniu::Meniu(const Meniu& copie):
 {}
 
 Meniu& Meniu::operator=(const Meniu& copie) {
-	Produs::operator=(copie);
-	mancare = copie.mancare;
-	bautura = copie.bautura;
-	marime = copie.marime;
+	if (this != &copie) {
+		Produs::operator=(copie);
+		mancare = copie.mancare;
+		bautura = copie.bautura;
+		marime = copie.marime;
+	}
 	return *this;
 }
 

@@ -14,7 +14,7 @@ Bar::Bar(const std::vector<std::shared_ptr<Produs>>& produse):
 {};
 
 Bar::Bar(const Bar& copie) {
-	for (auto produs: copie.produse)
+	for (const auto& produs: copie.produse)
 		produse.push_back(produs->clone());
 }
 

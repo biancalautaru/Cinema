@@ -12,7 +12,7 @@ public:
 	Exceptie();
 	explicit Exceptie(const std::string& mesaj);
 
-	virtual const char* what() const noexcept override;
+	const char* what() const noexcept override;
 };
 
 #endif

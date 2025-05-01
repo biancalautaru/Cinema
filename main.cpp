@@ -22,6 +22,7 @@
 #include "headers/Bar.h"
 #include "headers/LocOcupat.h"
 #include "headers/OptiuneInexistenta.h"
+#include "headers/InputGresit.h"
 
 int main() {
 	// creare filme
@@ -196,7 +197,7 @@ int main() {
 				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					optiune = 10 * optiune + (linie[i] - '0');
 				if (optiune < 1 || optiune > 6)
-					throw OptiuneInexistenta("Introduceti numarul corespunzator unei optiuni existente: ");
+					throw OptiuneInexistenta();
 				break;
 			}
 			catch (const OptiuneInexistenta& e) {
@@ -290,32 +291,43 @@ int main() {
 				nr_proiectie = 0;
 			std::cout << proiectii[nr_proiectie] << "\n";
 
-			bool repeat = true;
 			std::vector<int> locuri;
-			while (repeat) {
-				std::cout << "Introduceti locurile dorite (separate prin spatii): ";
-				std::getline(std::cin, linie);
-				locuri.clear();
-				for (size_t i = 0; i < linie.size(); i++)
-					if (isdigit(linie[i])) {
-						int loc = 0;
-						size_t j;
-						for (j = i; isdigit(linie[j]); j++)
-							loc = loc * 10 + linie[j] - '0';
-						i = j - 1;
-						locuri.push_back(loc);
-					}
-				repeat = false;
-
+			while (true) {
 				try {
+					std::cout << "Introduceti locurile dorite (separate prin spatii): ";
+					while (true) {
+						std::getline(std::cin, linie);
+						try {
+							for (size_t i = 0; i < linie.size(); i++)
+								if (!isdigit(linie[i]) && linie[i] != ' ')
+									throw InputGresit();
+							break;
+						}
+						catch (const InputGresit& e) {
+							std::cout << e.what();
+						}
+					}
+
+					locuri.clear();
+					for (size_t i = 0; i < linie.size(); i++)
+						if (isdigit(linie[i])) {
+							int loc = 0;
+							size_t j;
+							for (j = i; isdigit(linie[j]); j++)
+								loc = loc * 10 + linie[j] - '0';
+							i = j - 1;
+							locuri.push_back(loc);
+						}
+
 					for (auto loc : locuri)
 						for (auto it : proiectii[nr_proiectie].getOcupate())
 							if (loc == it)
-								throw LocOcupat("Alegeti locuri care nu sunt ocupate deja!\n\n");
+								throw LocOcupat();
+
+					break;
 				}
 				catch (const LocOcupat& e) {
 					std::cout << e.what();
-					repeat = true;
 				}
 			}
 
@@ -351,20 +363,20 @@ int main() {
 			if (linie == "nu") {
 				std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n";
 				rezervari[rezervari.size() - 1].afisareRezervare(std::cout);
-				break;
 			}
-
-			rezervari[rezervari.size() - 1].citireProduse(std::cin, std::cout, bar);
-			std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n";
-			rezervari[rezervari.size() - 1].afisareRezervare(std::cout);
-			std::cout << "\n";
-			std::cout << "Produse comandate de la bar:\n";
-			rezervari[rezervari.size() - 1].afisareProduse(std::cout);
-			std::cout << "\n";
-			std::cout << "Pret total rezervare: " << rezervari[rezervari.size() - 1].pretTotal() << " lei\n";
+			else {
+				rezervari[rezervari.size() - 1].citireProduse(std::cin, std::cout, bar);
+				std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n";
+				rezervari[rezervari.size() - 1].afisareRezervare(std::cout);
+				std::cout << "\n";
+				std::cout << "Produse comandate de la bar:\n";
+				rezervari[rezervari.size() - 1].afisareProduse(std::cout);
+				std::cout << "\n";
+				std::cout << "Pret total rezervare: " << rezervari[rezervari.size() - 1].pretTotal() << " lei\n";
+			}
 		}
 		else if (optiune == 6)
-			return 0;
+			break;
 		std::cout << "\n";
 	}
 	return 0;

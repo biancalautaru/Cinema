@@ -4,7 +4,7 @@ Film::Film() {};
 
 Film::~Film() {};
 
-Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int durata, const int an, const std::string& regizor, const std::string& rating, const std::string& format, const double pret):
+Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int& durata, const int& an, const std::string& regizor, const std::string& rating, const std::string& format, const double& pret):
 	nume(nume),
 	gen(gen),
 	durata(durata),

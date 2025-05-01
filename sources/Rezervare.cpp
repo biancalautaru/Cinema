@@ -1,8 +1,8 @@
 #include "../headers/Rezervare.h"
+#include "../headers/ProdusInexistent.h"
+#include "../headers/InputGresit.h"
 
 #include <iomanip>
-
-#include "../headers/ProdusInexistent.h"
 
 Rezervare::Rezervare() {};
 
@@ -56,21 +56,33 @@ void Rezervare::afisareRezervare(std::ostream& os) const {
 }
 
 void Rezervare::afisareProduse(std::ostream& os) const {
-	for (auto produs : produse)
+	for (const auto& produs : produse)
 		produs->afisare(os);
 }
 
 void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar) {
 	os << bar;
 	os << "\n";
-	std::string linie;
-	os << "Introduceti numerele corespunzatoare produselor dorite, separate prin spatii:\n";
 
+	os << "Introduceti numerele corespunzatoare produselor dorite, separate prin spatii: ";
 	std::vector<int> nr_produse;
+	std::string linie;
 	while (true) {
 		try {
+			while (true) {
+				std::getline(is, linie);
+				try {
+					for (size_t i = 0; i < linie.size(); i++)
+						if (!isdigit(linie[i]) && linie[i] != ' ')
+							throw InputGresit();
+					break;
+				}
+				catch (const InputGresit& e) {
+					std::cout << e.what();
+				}
+			}
+
 			nr_produse.clear();
-			std::getline(is, linie);
 			for (size_t i = 0; i < linie.size(); i++)
 				if (isdigit(linie[i])) {
 					int nr = 0;
@@ -83,8 +95,8 @@ void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar
 				}
 
 			for (auto nr : nr_produse)
-				if (nr > static_cast<int>(bar.getProduse().size()))
-					throw ProdusInexistent("Introduceti numere corespunzatoare produselor existente: ");
+				if (nr < 0 || nr > static_cast<int>(bar.getProduse().size()) - 1)
+					throw ProdusInexistent();
 			break;
 		}
 		catch (const ProdusInexistent& e) {
@@ -126,7 +138,7 @@ double Rezervare::pretRezervare() const {
 
 double Rezervare::pretTotal() const {
 	double total = pretRezervare();
-	for (auto produs : produse)
+	for (const auto& produs : produse)
 		total += produs->getPret();
 	return total;
 }

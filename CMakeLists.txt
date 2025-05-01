@@ -85,6 +85,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/Exceptie.h
         sources/Suvenir.cpp
         headers/Suvenir.h
+        sources/InputGresit.cpp
+        headers/InputGresit.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

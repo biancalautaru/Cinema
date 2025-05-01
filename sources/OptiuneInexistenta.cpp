@@ -1,6 +1,8 @@
 #include "../headers/OptiuneInexistenta.h"
 
-OptiuneInexistenta::OptiuneInexistenta() {}
+OptiuneInexistenta::OptiuneInexistenta():
+	Exceptie("Introduceti numarul corespunzator unei optiuni existente: ")
+{}
 
 OptiuneInexistenta::OptiuneInexistenta(const std::string& mesaj):
 	Exceptie(mesaj)
