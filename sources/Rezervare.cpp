@@ -1,5 +1,6 @@
 #include "../headers/Rezervare.h"
-#include "../headers/Exceptie.h"
+#include "../headers/InputGresit.h"
+#include "../headers/ProdusInexistent.h"
 
 #include <iomanip>
 
