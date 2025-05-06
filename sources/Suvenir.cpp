@@ -32,7 +32,7 @@ void Suvenir::afisare(std::ostream& os) const {
 	os << nume << " film " << this->nume_film << " - " << pret << " lei\n";
 }
 
-std::shared_ptr<Produs> Suvenir::clone() {
+std::shared_ptr<Produs> Suvenir::clone() const {
 	return std::make_shared<Suvenir>(*this);
 }
 

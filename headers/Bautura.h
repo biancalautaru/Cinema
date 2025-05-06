@@ -18,10 +18,10 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Bautura& bautura);
 
 	void afisare(std::ostream& os) const override;
-	std::shared_ptr<Produs> clone() override;
+	std::shared_ptr<Produs> clone() const override;
 	void aplicaPromotie() override;
 
-	int getVolum() const;
+	int getVolum() const override;
 };
 
 #endif

@@ -32,7 +32,7 @@ void Mancare::afisare(std::ostream& os) const {
 	os << nume << " (" << this->gramaj << "g) - " << pret << " lei\n";
 }
 
-std::shared_ptr<Produs> Mancare::clone() {
+std::shared_ptr<Produs> Mancare::clone() const {
 	return std::make_shared<Mancare>(*this);
 }
 

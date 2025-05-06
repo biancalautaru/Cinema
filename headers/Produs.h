@@ -20,8 +20,10 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Produs& produs);
 
 	virtual void afisare(std::ostream& os) const = 0;
-	virtual std::shared_ptr<Produs> clone() = 0;
+	virtual std::shared_ptr<Produs> clone() const = 0;
 	virtual void aplicaPromotie() = 0;
+	virtual int getGramaj() const;
+	virtual int getVolum() const;
 
 	const std::string& getNume() const;
 	double getPret() const;

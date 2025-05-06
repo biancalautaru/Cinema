@@ -32,7 +32,7 @@ void Bautura::afisare(std::ostream& os) const {
 	os << nume << " (" << volum << "ml) - " << pret << " lei\n";
 }
 
-std::shared_ptr<Produs> Bautura::clone() {
+std::shared_ptr<Produs> Bautura::clone() const {
 	return std::make_shared<Bautura>(*this);
 }
 

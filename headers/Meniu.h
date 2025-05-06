@@ -14,22 +14,24 @@ enum MarimeMeniu {
 
 class Meniu : public Produs {
 private:
-	std::shared_ptr<Mancare> mancare;
-	std::shared_ptr<Bautura> bautura;
+	std::string nume_mancare;
+	int gramaj;
+	std::string nume_bautura;
+	int volum;
 	MarimeMeniu marime;
 
 public:
 	Meniu();
 	~Meniu() override;
 
-	Meniu(const std::string& nume, double pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime);
+	Meniu(const std::string& nume, double pret, const std::string& nume_mancare, const int& gramaj, const std::string& nume_bautura, const int& volum, const MarimeMeniu& marime);
 	Meniu(const Meniu& copie);
 
 	Meniu& operator=(const Meniu& copie);
 	friend std::ostream& operator<<(std::ostream& os, const Meniu& meniu);
 
 	void afisare(std::ostream& os) const override;
-	std::shared_ptr<Produs> clone() override;
+	std::shared_ptr<Produs> clone() const override;
 	void aplicaPromotie() override;
 };
 

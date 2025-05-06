@@ -18,10 +18,10 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Mancare& mancare);
 
 	void afisare(std::ostream& os) const override;
-	std::shared_ptr<Produs> clone() override;
+	std::shared_ptr<Produs> clone() const override;
 	void aplicaPromotie() override;
 
-	int getGramaj() const;
+	int getGramaj() const override;
 };
 
 #endif

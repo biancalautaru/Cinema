@@ -6,25 +6,31 @@ Meniu::Meniu() {}
 
 Meniu::~Meniu() {}
 
-Meniu::Meniu(const std::string& nume, double pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime):
+Meniu::Meniu(const std::string& nume, double pret, const std::string& nume_mancare, const int& gramaj, const std::string& nume_bautura, const int& volum, const MarimeMeniu& marime):
 	Produs(nume, pret),
-	mancare(std::dynamic_pointer_cast<Mancare>(mancare)),
-	bautura(std::dynamic_pointer_cast<Bautura>(bautura)),
+	nume_mancare(nume_mancare),
+	gramaj(gramaj),
+	nume_bautura(nume_bautura),
+	volum(volum),
 	marime(marime)
 {}
 
 Meniu::Meniu(const Meniu& copie):
 	Produs::Produs(copie),
-	mancare(copie.mancare),
-	bautura(copie.bautura),
+	nume_mancare(copie.nume_mancare),
+	gramaj(copie.gramaj),
+	nume_bautura(copie.nume_bautura),
+	volum(copie.volum),
 	marime(copie.marime)
 {}
 
 Meniu& Meniu::operator=(const Meniu& copie) {
 	if (this != &copie) {
 		Produs::operator=(copie);
-		mancare = copie.mancare;
-		bautura = copie.bautura;
+		nume_mancare = copie.nume_mancare;
+		gramaj = copie.gramaj;
+		nume_bautura = copie.nume_bautura;
+		volum = copie.volum;
 		marime = copie.marime;
 	}
 	return *this;
@@ -50,12 +56,12 @@ void Meniu::afisare(std::ostream& os) const {
 		case SPECIAL:
 			os << "Meniu Special: ";
 	}
-	os << mancare->getNume() << " (" << mancare->getGramaj() << "g), ";
-	os << bautura->getNume() << " (" << bautura->getVolum() << " ml) - ";
+	os << nume_mancare << " (" << gramaj << "g), ";
+	os << nume_bautura << " (" << volum << "ml) - ";
 	os << pret << " lei\n";
 }
 
-std::shared_ptr<Produs> Meniu::clone() {
+std::shared_ptr<Produs> Meniu::clone() const {
 	return std::make_shared<Meniu>(*this);
 }
 
