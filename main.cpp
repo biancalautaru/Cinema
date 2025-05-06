@@ -20,9 +20,7 @@
 #include "headers/Meniu.h"
 #include "headers/Suvenir.h"
 #include "headers/Bar.h"
-#include "headers/LocOcupat.h"
-#include "headers/OptiuneInexistenta.h"
-#include "headers/InputGresit.h"
+#include "headers/Exceptie.h"
 
 int main() {
 	// creare filme

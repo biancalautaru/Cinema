@@ -75,18 +75,10 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/Meniu.h
         sources/Bar.cpp
         headers/Bar.h
-        sources/OptiuneInexistenta.cpp
-        headers/OptiuneInexistenta.h
-        sources/LocOcupat.cpp
-        headers/LocOcupat.h
-        sources/ProdusInexistent.cpp
-        headers/ProdusInexistent.h
         sources/Exceptie.cpp
         headers/Exceptie.h
         sources/Suvenir.cpp
         headers/Suvenir.h
-        sources/InputGresit.cpp
-        headers/InputGresit.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
