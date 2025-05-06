@@ -2,8 +2,6 @@
 #define MENIU_H
 
 #include "Produs.h"
-#include "Mancare.h"
-#include "Bautura.h"
 
 enum MarimeMeniu {
 	MIC,
@@ -14,15 +12,17 @@ enum MarimeMeniu {
 
 class Meniu : public Produs {
 private:
-	std::shared_ptr<Mancare> mancare;
-	std::shared_ptr<Bautura> bautura;
+	std::string nume_mancare;
+	int gramaj;
+	std::string nume_bautura;
+	int volum;
 	MarimeMeniu marime;
 
 public:
 	Meniu();
 	~Meniu() override;
 
-	Meniu(const std::string& nume, double pret, const std::shared_ptr<Produs>& mancare, const std::shared_ptr<Produs>& bautura, const MarimeMeniu& marime);
+	Meniu(const std::string& nume, double pret, const std::string& nume_mancare, int gramaj, const std::string& nume_bautura, int volum, const MarimeMeniu& marime);
 	Meniu(const Meniu& copie);
 
 	Meniu& operator=(const Meniu& copie);
