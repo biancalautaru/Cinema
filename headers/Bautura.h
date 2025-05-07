@@ -21,7 +21,7 @@ public:
 	std::shared_ptr<Produs> clone() const override;
 	void aplicaPromotie() override;
 
-	int getVolum() const override;
+	int getVolum() const;
 };
 
 #endif

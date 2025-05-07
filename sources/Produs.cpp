@@ -28,14 +28,6 @@ std::ostream& operator<<(std::ostream& os, const Produs& produs) {
 	return os;
 }
 
-int Produs::getGramaj() const {
-	return 0;
-}
-
-int Produs::getVolum() const {
-	return 0;
-}
-
 const std::string& Produs::getNume() const {
 	return nume;
 }

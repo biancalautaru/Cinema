@@ -144,11 +144,19 @@ int main() {
 	std::shared_ptr<Produs> cola_mic = std::make_shared<Bautura>("Coca-Cola", 7.99, 330);
 	std::shared_ptr<Produs> cola_mediu = std::make_shared<Bautura>("Coca-Cola", 9.99, 500);
 	std::shared_ptr<Produs> cola_mare = std::make_shared<Bautura>("Coca-Cola", 12.99, 750);
-	std::shared_ptr<Produs> meniu_mic = std::make_shared<Meniu>("Meniu Mic", 20.99, popcorn_mic->getNume(), popcorn_mic->getGramaj(), cola_mic->getNume(), cola_mic->getVolum(), MIC);
-	std::shared_ptr<Produs> meniu_mediu = std::make_shared<Meniu>("Meniu Mediu", 26.99, popcorn_mediu->getNume(), popcorn_mediu->getGramaj(), cola_mediu->getNume(), cola_mediu->getVolum(), MEDIU);
-	std::shared_ptr<Produs> meniu_mare = std::make_shared<Meniu>("Meniu Mare", 31.99, popcorn_mare->getNume(), popcorn_mare->getGramaj(), cola_mare->getNume(), cola_mare->getVolum(), MARE);
-	std::shared_ptr<Produs> meniu_mic_mediu = std::make_shared<Meniu>("Meniu mic-mediu", 23.99, popcorn_mic->getNume(), popcorn_mic->getGramaj(), cola_mediu->getNume(), cola_mediu->getVolum(), SPECIAL);
-	std::shared_ptr<Produs> meniu_mediu_mare = std::make_shared<Meniu>("Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), popcorn_mediu->getGramaj(), cola_mare->getNume(), cola_mare->getVolum(), SPECIAL);
+
+	int g_mic = std::dynamic_pointer_cast<Mancare>(popcorn_mic)->getGramaj();
+	int g_mediu = std::dynamic_pointer_cast<Mancare>(popcorn_mediu)->getGramaj();
+	int g_mare = std::dynamic_pointer_cast<Mancare>(popcorn_mare)->getGramaj();
+	int v_mic = std::dynamic_pointer_cast<Bautura>(cola_mic)->getVolum();
+	int v_mediu = std::dynamic_pointer_cast<Bautura>(cola_mediu)->getVolum();
+	int v_mare = std::dynamic_pointer_cast<Bautura>(cola_mare)->getVolum();
+
+	std::shared_ptr<Produs> meniu_mic = std::make_shared<Meniu>("Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
+	std::shared_ptr<Produs> meniu_mediu = std::make_shared<Meniu>("Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
+	std::shared_ptr<Produs> meniu_mare = std::make_shared<Meniu>("Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
+	std::shared_ptr<Produs> meniu_mic_mediu = std::make_shared<Meniu>("Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
+	std::shared_ptr<Produs> meniu_mediu_mare = std::make_shared<Meniu>("Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
 	std::shared_ptr<Produs> pahar_dune = std::make_shared<Suvenir>("Pahar", 34.99, "Dune: Part One");
 	std::shared_ptr<Produs> tricou_barbie = std::make_shared<Suvenir>("Tricou", 54.99, "Barbie");
 
