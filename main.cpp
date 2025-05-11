@@ -140,12 +140,12 @@ int main() {
 	}
 
 	// creare produse
-	std::shared_ptr<Produs> popcorn_mic = std::make_shared<Mancare>("Popcorn", 16.99, 300);
-	std::shared_ptr<Produs> popcorn_mediu = std::make_shared<Mancare>("Popcorn", 20.99, 500);
-	std::shared_ptr<Produs> popcorn_mare = std::make_shared<Mancare>("Popcorn", 24.99, 800);
-	std::shared_ptr<Produs> cola_mic = std::make_shared<Bautura>("Coca-Cola", 7.99, 330);
-	std::shared_ptr<Produs> cola_mediu = std::make_shared<Bautura>("Coca-Cola", 9.99, 500);
-	std::shared_ptr<Produs> cola_mare = std::make_shared<Bautura>("Coca-Cola", 12.99, 750);
+	std::shared_ptr<Produs> popcorn_mic = std::make_shared<Mancare>("Popcorn Mic", 16.99, 300);
+	std::shared_ptr<Produs> popcorn_mediu = std::make_shared<Mancare>("Popcorn Mediu", 20.99, 500);
+	std::shared_ptr<Produs> popcorn_mare = std::make_shared<Mancare>("Popcorn Mare", 24.99, 800);
+	std::shared_ptr<Produs> cola_mic = std::make_shared<Bautura>("Coca-Cola Mic", 7.99, 330);
+	std::shared_ptr<Produs> cola_mediu = std::make_shared<Bautura>("Coca-Cola Mediu", 9.99, 500);
+	std::shared_ptr<Produs> cola_mare = std::make_shared<Bautura>("Coca-Cola Mare", 12.99, 750);
 
 	int g_mic = std::dynamic_pointer_cast<Mancare>(popcorn_mic)->getGramaj();
 	int g_mediu = std::dynamic_pointer_cast<Mancare>(popcorn_mediu)->getGramaj();
@@ -164,7 +164,7 @@ int main() {
 
 	// adaugare produse la bar
 	Bar& bar = Bar::getInstance();
-	bar.adaugaProdus(popcorn_mic);
+	bar.adaugaProdus(popcorn_mic->clone());
 	bar.adaugaProdus(popcorn_mediu);
 	bar.adaugaProdus(popcorn_mare);
 	bar.adaugaProdus(cola_mic);
