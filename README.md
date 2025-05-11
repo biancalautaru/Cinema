@@ -64,7 +64,7 @@ Această aplicație în linie de comandă simulează funcționalitatea unui sist
 ## Tema 3
 
 #### Cerințe
-- [ ] 2 șabloane de proiectare (design patterns)
+- [x] 2 șabloane de proiectare (design patterns)
 - [ ] o clasă șablon cu sens; minim **2 instanțieri**
   - [ ] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
 - [ ] minim 85% din codul propriu să fie C++

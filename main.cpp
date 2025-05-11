@@ -9,6 +9,7 @@
 #include "headers/Bautura.h"
 #include "headers/Film.h"
 #include "headers/Sala.h"
+#include "headers/SalaBuilder.h"
 #include "headers/Proiectie.h"
 #include "headers/ProgramZi.h"
 #include "headers/ProgramSaptamana.h"
@@ -53,12 +54,13 @@ int main() {
 	};
 
 	// creare sali
+	SalaBuilder builder;
 	std::vector<Sala> sali = {
-		{1, 5, 20},
-		{2, 8, 12},
-		{3, 5, 15},
-		{4, 7, 11},
-		{5, 9, 23}
+		builder.numar(1).randuri(5).coloane(20).build(),
+		builder.numar(2).randuri(8).coloane(12).build(),
+		builder.numar(3).randuri(5).coloane(15).build(),
+		builder.numar(4).randuri(7).coloane(11).build(),
+		builder.numar(5).randuri(9).coloane(23).build()
 	};
 
 	// creare clienti
@@ -161,7 +163,7 @@ int main() {
 	std::shared_ptr<Produs> tricou_barbie = std::make_shared<Suvenir>("Tricou", 54.99, "Barbie");
 
 	// adaugare produse la bar
-	Bar bar;
+	Bar& bar = Bar::getInstance();
 	bar.adaugaProdus(popcorn_mic);
 	bar.adaugaProdus(popcorn_mediu);
 	bar.adaugaProdus(popcorn_mare);

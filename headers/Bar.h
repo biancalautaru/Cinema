@@ -11,14 +11,16 @@ private:
 	static int totalProduse;
 	std::vector<std::shared_ptr<Produs>> produse;
 
-public:
 	Bar();
+
+public:
 	~Bar();
 
-	explicit Bar(const std::vector<std::shared_ptr<Produs>>& produse);
-	Bar(const Bar& copie);
+	Bar(const Bar&) = delete;
+	Bar& operator=(const Bar&) = delete;
 
-	Bar& operator=(const Bar& copie);
+	static Bar& getInstance();
+
 	friend std::ostream& operator<<(std::ostream& os, const Bar& bar);
 
 	void afisare(std::ostream& os) const;

@@ -4,7 +4,7 @@ Sala::Sala() {};
 
 Sala::~Sala() {};
 
-Sala::Sala(const int numar, const int randuri, const int coloane):
+Sala::Sala(const int& numar, const int& randuri, const int& coloane):
 	numar(numar),
 	randuri(randuri),
 	coloane(coloane)

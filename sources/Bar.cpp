@@ -9,19 +9,9 @@ Bar::Bar() {};
 
 Bar::~Bar() {}
 
-Bar::Bar(const std::vector<std::shared_ptr<Produs>>& produse):
-	produse(produse)
-{};
-
-Bar::Bar(const Bar& copie) {
-	for (const auto& produs: copie.produse)
-		produse.push_back(produs->clone());
-}
-
-Bar& Bar::operator=(const Bar& copie) {
-	Bar temp(copie);
-	std::swap(*this, temp);
-	return *this;
+Bar& Bar::getInstance() {
+	static Bar bar;
+	return bar;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bar& bar) {

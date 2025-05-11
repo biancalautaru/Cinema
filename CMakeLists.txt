@@ -87,6 +87,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/LocOcupat.h
         sources/ProdusInexistent.cpp
         headers/ProdusInexistent.h
+        sources/SalaBuilder.cpp
+        headers/SalaBuilder.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

@@ -9,11 +9,13 @@ private:
 	int randuri;
 	int coloane;
 
+	friend class SalaBuilder;
+
 public:
 	Sala();
 	~Sala();
 
-	Sala(const int numar, const int randuri, const int coloane);
+	Sala(const int& numar, const int& randuri, const int& coloane);
 	Sala(const Sala& copie);
 
 	Sala& operator=(const Sala& copie);
