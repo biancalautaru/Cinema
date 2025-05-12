@@ -69,4 +69,4 @@ Această aplicație în linie de comandă simulează funcționalitatea unui sist
   - [x] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
 - [x] minim 85% din codul propriu să fie C++
 <!-- - [ ] o specializare pe funcție/clasă șablon -->
-- [ ] tag de `git` pe commit cu **toate bifele**: de exemplu `v0.3` sau `v1.0`
+- [x] tag de `git` pe commit cu **toate bifele**: de exemplu `v0.3` sau `v1.0`

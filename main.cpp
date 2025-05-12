@@ -165,7 +165,7 @@ int main() {
 
 	// adaugare produse la bar
 	Bar& bar = Bar::getInstance();
-	bar.adaugaProdus(popcorn_mic);
+	bar.adaugaProdus(popcorn_mic->clone());
 	bar.adaugaProdus(popcorn_mediu);
 	bar.adaugaProdus(popcorn_mare);
 	bar.adaugaProdus(cola_mic);
