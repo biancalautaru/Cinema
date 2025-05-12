@@ -4,18 +4,18 @@ SalaBuilder::SalaBuilder() {}
 
 SalaBuilder::~SalaBuilder() {}
 
-SalaBuilder& SalaBuilder::numar(int numar_) {
-	sala.numar = numar_;
+SalaBuilder& SalaBuilder::numar(int numar) {
+	sala.numar = numar;
 	return *this;
 }
 
-SalaBuilder& SalaBuilder::randuri(int randuri_) {
-	sala.randuri = randuri_;
+SalaBuilder& SalaBuilder::randuri(int randuri) {
+	sala.randuri = randuri;
 	return *this;
 }
 
-SalaBuilder& SalaBuilder::coloane(int coloane_) {
-	sala.coloane = coloane_;
+SalaBuilder& SalaBuilder::coloane(int coloane) {
+	sala.coloane = coloane;
 	return *this;
 }
 

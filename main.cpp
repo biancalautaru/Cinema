@@ -21,61 +21,62 @@
 #include "headers/Meniu.h"
 #include "headers/Suvenir.h"
 #include "headers/Bar.h"
+#include "headers/Catalog.h"
 #include "headers/OptiuneInexistenta.h"
 #include "headers/InputGresit.h"
 #include "headers/LocOcupat.h"
 
 int main() {
 	// creare filme
-	std::vector<Film> filme = {
-		{"Memento", {"Mister", "Thriller"}, 113, 2000, "Christopher Nolan", "N-15", "2D", 35},
-		{"Catch Me If You Can", {"Biografie", "Crima", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35},
-		{"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35},
-		{"Taxi Driver", {"Crima", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30},
-		{"Back to the Future", {"Aventura", "Comedie", "SF"}, 116, 1985, "Robert Zemeckis", "AP-12", "2D", 30},
-		{"The Talented Mr. Ripley", {"Crima", "Drama", "Thriller"}, 139, 1999, "Anthony Minghella", "N-15", "2D", 35},
-		{"Inception", {"Actiune", "Aventura", "SF", "Thriller"}, 148, 2010, "Christopher Nolan", "N-15", "2D", 40},
-		{"Whiplash", {"Drama", "Muzica"}, 106, 2014, "Damien Chazelle", "AP-12", "2D", 30},
-		{"Hachi: A Dog's Tale", {"Biografie", "Drama", "Familie"}, 93, 2009, "Lasse Hallstrom", "AG", "2D", 25},
-		{"The Sixth Sense", {"Drama", "Mister", "Thriller"}, 107, 1999, "M. Night Shyamalan", "AP-12", "2D", 30},
-		{"Liar Liar", {"Comedie", "Fantastic"}, 86, 1997, "Tom Shadyac", "AP-12", "2D", 25},
-		{"The Search for Santa Paws", {"Aventura", "Drama", "Familie", "Fantastic"}, 96, 2010, "Robert Vince","AG", "2D", 25},
-		{"Barbie", {"Aventura", "Comedie", "Fantastic"}, 114, 2023, "Greta Gerwig", "AP-12", "2D", 25},
-		{"The Godfather", {"Crima", "Drama"}, 175, 1972, "Francis Ford Coppola", "N-15", "2D", 35},
-		{"Se7en", {"Crima", "Drama", "Mister", "Thriller"}, 127, 1995, "David Fincher", "N-15", "2D", 30},
-		{"The Wolf of Wall Street", {"Biografie", "Comedie", "Crima", "Drama"}, 180, 2013, "Martin Scorsese", "IM-18", "2D", 35},
-		{"Casino", {"Crima", "Drama"}, 178, 1995, "Martin Scorsese", "N-15", "2D", 35},
-		{"Avatar", {"Actiune", "Aventura", "Fantastic", "SF"}, 162, 2009, "James Cameron", "AP-12", "3D", 40},
-		{"Once Upon a Time in America", {"Crima", "Drama"}, 229, 1984, "Sergio Leone", "IM-18", "2D", 40},
-		{"Forrest Gump", {"Comedie", "Drama", "Romantic"}, 142, 1994, "Robert Zemeckis", "AP-12", "2D", 30},
-		{"Inglourious Basterds", {"Aventura", "Drama", "Razboi"}, 153, 2009, "Quentin Tarantino", "IM-18", "2D", 35},
-		{"Dune: Part One", {"Actiune", "Aventura", "Drama", "SF"}, 155, 2021, "Denis Villeneuve", "AP-12", "3D", 40},
-		{"The Princess Diaries", {"Comedie", "Familie", "Romantic"}, 105, 2001, "Garry Marshall", "AG", "2D", 25}
-	};
+	Catalog<Film> catalog_filme;
+	catalog_filme.adaugaObiect({"Memento", {"Mister", "Thriller"}, 113, 2000, "Christopher Nolan", "N-15", "2D", 35});
+	catalog_filme.adaugaObiect({"Catch Me If You Can", {"Biografie", "Crima", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35});
+	catalog_filme.adaugaObiect({"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35});
+	catalog_filme.adaugaObiect({"Taxi Driver", {"Crima", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30});
+	catalog_filme.adaugaObiect({"Back to the Future", {"Aventura", "Comedie", "SF"}, 116, 1985, "Robert Zemeckis", "AP-12", "2D", 30});
+	catalog_filme.adaugaObiect({"The Talented Mr. Ripley", {"Crima", "Drama", "Thriller"}, 139, 1999, "Anthony Minghella", "N-15", "2D", 35});
+	catalog_filme.adaugaObiect({"Inception", {"Actiune", "Aventura", "SF", "Thriller"}, 148, 2010, "Christopher Nolan", "N-15", "2D", 40});
+	catalog_filme.adaugaObiect({"Whiplash", {"Drama", "Muzica"}, 106, 2014, "Damien Chazelle", "AP-12", "2D", 30});
+	catalog_filme.adaugaObiect({"Hachi: A Dog's Tale", {"Biografie", "Drama", "Familie"}, 93, 2009, "Lasse Hallstrom", "AG", "2D", 25});
+	catalog_filme.adaugaObiect({"The Sixth Sense", {"Drama", "Mister", "Thriller"}, 107, 1999, "M. Night Shyamalan", "AP-12", "2D", 30});
+	catalog_filme.adaugaObiect({"Liar Liar", {"Comedie", "Fantastic"}, 86, 1997, "Tom Shadyac", "AP-12", "2D", 25});
+	catalog_filme.adaugaObiect({"The Search for Santa Paws", {"Aventura", "Drama", "Familie", "Fantastic"}, 96, 2010, "Robert Vince","AG", "2D", 25});
+	catalog_filme.adaugaObiect({"Barbie", {"Aventura", "Comedie", "Fantastic"}, 114, 2023, "Greta Gerwig", "AP-12", "2D", 25});
+	catalog_filme.adaugaObiect({"The Godfather", {"Crima", "Drama"}, 175, 1972, "Francis Ford Coppola", "N-15", "2D", 35});
+	catalog_filme.adaugaObiect({"Se7en", {"Crima", "Drama", "Mister", "Thriller"}, 127, 1995, "David Fincher", "N-15", "2D", 30});
+	catalog_filme.adaugaObiect({"The Wolf of Wall Street", {"Biografie", "Comedie", "Crima", "Drama"}, 180, 2013, "Martin Scorsese", "IM-18", "2D", 35});
+	catalog_filme.adaugaObiect({"Casino", {"Crima", "Drama"}, 178, 1995, "Martin Scorsese", "N-15", "2D", 35});
+	catalog_filme.adaugaObiect({"Avatar", {"Actiune", "Aventura", "Fantastic", "SF"}, 162, 2009, "James Cameron", "AP-12", "3D", 40});
+	catalog_filme.adaugaObiect({"Once Upon a Time in America", {"Crima", "Drama"}, 229, 1984, "Sergio Leone", "IM-18", "2D", 40});
+	catalog_filme.adaugaObiect({"Forrest Gump", {"Comedie", "Drama", "Romantic"}, 142, 1994, "Robert Zemeckis", "AP-12", "2D", 30});
+	catalog_filme.adaugaObiect({"Inglourious Basterds", {"Aventura", "Drama", "Razboi"}, 153, 2009, "Quentin Tarantino", "IM-18", "2D", 35});
+	catalog_filme.adaugaObiect({"Dune: Part One", {"Actiune", "Aventura", "Drama", "SF"}, 155, 2021, "Denis Villeneuve", "AP-12", "3D", 40});
+	catalog_filme.adaugaObiect({"The Princess Diaries", {"Comedie", "Familie", "Romantic"}, 105, 2001, "Garry Marshall", "AG", "2D", 25});
+	std::vector<Film> filme = catalog_filme.getObiecte();
 
 	// creare sali
+	Catalog<Sala> catalog_sali;
 	SalaBuilder builder;
-	std::vector<Sala> sali = {
-		builder.numar(1).randuri(5).coloane(20).build(),
-		builder.numar(2).randuri(8).coloane(12).build(),
-		builder.numar(3).randuri(5).coloane(15).build(),
-		builder.numar(4).randuri(7).coloane(11).build(),
-		builder.numar(5).randuri(9).coloane(23).build()
-	};
+	catalog_sali.adaugaObiect(builder.numar(1).randuri(5).coloane(20).build());
+	catalog_sali.adaugaObiect(builder.numar(2).randuri(8).coloane(12).build());
+	catalog_sali.adaugaObiect(builder.numar(3).randuri(5).coloane(15).build());
+	catalog_sali.adaugaObiect(builder.numar(4).randuri(7).coloane(11).build());
+	catalog_sali.adaugaObiect(builder.numar(5).randuri(9).coloane(23).build());
+	std::vector<Sala> sali = catalog_sali.getObiecte();
 
 	// creare clienti
-	std::vector<Client> clienti = {
-		{"Ion Popescu", "ion.popescu@gmail.com", "0749187947"},
-		{"George Ionescu", "george.ionescu@gmail.com", "0764367341"},
-		{"Mihai Vasile", "mihai.vasile@yahoo.com", "0737635326"},
-		{"Alexandru Radulescu", "alexandru.radulescu@gmail.com", "0789525437"},
-		{"Gabriel Tudor", "gabriel.tudor@hotmail.com", "0778912345"},
-		{"Maria Popa", "maria.popa@yahoo.com", "0758369424"},
-		{"Diana Munteanu", "diana.munteanu@hotmail.com", "0723658741"},
-		{"Gabriela Radu", "gabriela.radu@gmail.com", "0752375437"},
-		{"Elena Dumitrescu", "elena.dumitrescu@yahoo.com", "0765432199"},
-		{"Ana Dobre", "ana.dobre@gmail.com", "0745123789"}
-	};
+	Catalog<Client> catalog_clienti;
+	catalog_clienti.adaugaObiect({"Ion Popescu", "ion.popescu@gmail.com", "0749187947"});
+	catalog_clienti.adaugaObiect({"George Ionescu", "george.ionescu@gmail.com", "0764367341"});
+	catalog_clienti.adaugaObiect({"Mihai Vasile", "mihai.vasile@yahoo.com", "0737635326"});
+	catalog_clienti.adaugaObiect({"Alexandru Radulescu", "alexandru.radulescu@gmail.com", "0789525437"});
+	catalog_clienti.adaugaObiect({"Gabriel Tudor", "gabriel.tudor@hotmail.com", "0778912345"});
+	catalog_clienti.adaugaObiect({"Maria Popa", "maria.popa@yahoo.com", "0758369424"});
+	catalog_clienti.adaugaObiect({"Diana Munteanu", "diana.munteanu@hotmail.com", "0723658741"});
+	catalog_clienti.adaugaObiect({"Gabriela Radu", "gabriela.radu@gmail.com", "0752375437"});
+	catalog_clienti.adaugaObiect({"Elena Dumitrescu", "elena.dumitrescu@yahoo.com", "0765432199"});
+	catalog_clienti.adaugaObiect({"Ana Dobre", "ana.dobre@gmail.com", "0745123789"});
+	std::vector<Client> clienti = catalog_clienti.getObiecte();
 
 	// generare program
 	ProgramSaptamana program_saptamana;
@@ -164,7 +165,7 @@ int main() {
 
 	// adaugare produse la bar
 	Bar& bar = Bar::getInstance();
-	bar.adaugaProdus(popcorn_mic->clone());
+	bar.adaugaProdus(popcorn_mic);
 	bar.adaugaProdus(popcorn_mediu);
 	bar.adaugaProdus(popcorn_mare);
 	bar.adaugaProdus(cola_mic);
@@ -183,19 +184,23 @@ int main() {
 
 	// meniu interactiv
 	while (true) {
-		std::cout << "|---------------- Meniu ---------------|\n";
-		std::cout << "| 1. Afisare program ziua curenta      |\n";
-		std::cout << "|--------------------------------------|\n";
-		std::cout << "| 2. Afisare program saptamana curenta |\n";
-		std::cout << "|--------------------------------------|\n";
-		std::cout << "| 3. Afisare lista filme               |\n";
-		std::cout << "|--------------------------------------|\n";
-		std::cout << "| 4. Afisare configuratie sali         |\n";
-		std::cout << "|--------------------------------------|\n";
-		std::cout << "| 5. Creare rezervare                  |\n";
-		std::cout << "|--------------------------------------|\n";
-		std::cout << "| 6. Iesire                            |\n";
-		std::cout << "|--------------------------------------|\n";
+		std::cout << "|------------------ Meniu ---------------|\n";
+		std::cout << "| 1. Afisare program ziua curenta        |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 2. Afisare program saptamana curenta   |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 3. Afisare lista filme                 |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 4. Afisare configuratie sali           |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 5. Creare rezervare                    |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 6. Cautare film dupa gen               |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 7. Cautare sala dupa numar de randuri  |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 8. Iesire                              |\n";
+		std::cout << "|----------------------------------------|\n";
 
 		std::cout << "Introduceti numarul optiunii dorite:";
 		std::string linie;
@@ -206,7 +211,7 @@ int main() {
 				optiune = 0;
 				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					optiune = 10 * optiune + (linie[i] - '0');
-				if (optiune < 1 || optiune > 6)
+				if (optiune < 1 || optiune > 8)
 					throw OptiuneInexistenta();
 				break;
 			}
@@ -227,16 +232,9 @@ int main() {
 		else if (optiune == 2)
 			std::cout << program_saptamana;
 		else if (optiune == 3)
-			for (size_t i = 0; i < filme.size(); i++) {
-				std::cout << filme[i];
-				if (i != filme.size() - 1)
-					std::cout << "----------------------------------------\n";
-				else
-					std::cout << "\n";
-			}
+			std::cout << catalog_filme;
 		else if (optiune == 4)
-			for (size_t i = 0; i < sali.size(); i++)
-				std::cout << sali[i] << "\n";
+			std::cout << catalog_sali;
 		else if (optiune == 5) {
 			std::cout << "- Creare rezervare -\n\n";
 
@@ -247,6 +245,8 @@ int main() {
 			std::getline(std::cin, email);
 			std::cout << "Telefon: ";
 			std::getline(std::cin, telefon);
+			Client client(nume, email, telefon);
+			clienti.push_back(client);
 
 			std::string zi;
 			std::cout << "Ziua aleasa: ";
@@ -348,7 +348,7 @@ int main() {
 				elevi = 10 * elevi + (linie[i] - '0');
 
 			Rezervare rezervare;
-			rezervare.setClient({nume, email, telefon});
+			rezervare.setClient(client);
 			rezervare.setProiectie(proiectii[nr_proiectie]);
 			rezervare.setLocuri(locuri);
 			rezervare.setElevi(elevi);
@@ -385,7 +385,42 @@ int main() {
 				std::cout << "Pret total rezervare: " << rezervari[rezervari.size() - 1].pretTotal() << " lei\n";
 			}
 		}
-		else if (optiune == 6)
+		else if (optiune == 6) {
+			std::cout << "Introduceti genul de film cautat: ";
+			std::getline(std::cin, linie);
+			std::string gen;
+			for (auto c : linie)
+				gen += tolower(c);
+
+			catalog_filme.cautaObiect(std::cout, [gen](const Film& film) {
+				for (auto& gen_lista: film.getGen()) {
+					std::string gen_lower;
+					for (auto c : gen_lista)
+						gen_lower += tolower(c);
+					if (gen_lower == gen)
+						return true;
+				}
+				return false;
+			});
+		}
+		else if (optiune == 7) {
+			std::cout << "Introduceti numarul minim de randuri cautat: ";
+			std::getline(std::cin, linie);
+			int nr_min = 0;
+			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
+				nr_min = 10 * nr_min + (linie[i] - '0');
+
+			std::cout << "Introduceti numarul maxim de randuri cautat: ";
+			std::getline(std::cin, linie);
+			int nr_max = 0;
+			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
+				nr_max = 10 * nr_max + (linie[i] - '0');
+
+			catalog_sali.cautaObiect(std::cout, [nr_min, nr_max](const Sala& sala) {
+				return sala.getRanduri() >= nr_min && sala.getRanduri() <= nr_max;
+			});
+		}
+		else if (optiune == 8)
 			break;
 		std::cout << "\n";
 	}

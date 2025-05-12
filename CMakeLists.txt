@@ -89,6 +89,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/ProdusInexistent.h
         sources/SalaBuilder.cpp
         headers/SalaBuilder.h
+        headers/Catalog.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

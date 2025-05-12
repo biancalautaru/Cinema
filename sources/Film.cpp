@@ -59,6 +59,10 @@ const std::string& Film::getNume() const {
 	return nume;
 }
 
+const std::vector<std::string>& Film::getGen() const {
+	return gen;
+}
+
 int Film::getDurata() const {
 	return durata;
 }

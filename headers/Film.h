@@ -27,6 +27,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Film& film);
 
 	const std::string& getNume() const;
+	const std::vector<std::string>& getGen() const;
 	int getDurata() const;
 	const std::string& getRating() const;
 	const std::string& getFormat() const;

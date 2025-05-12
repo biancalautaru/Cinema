@@ -11,9 +11,9 @@ public:
 	SalaBuilder();
 	~SalaBuilder();
 
-	SalaBuilder& numar(int numar_);
-	SalaBuilder& randuri(int randuri_);
-	SalaBuilder& coloane(int coloane_);
+	SalaBuilder& numar(int numar);
+	SalaBuilder& randuri(int randuri);
+	SalaBuilder& coloane(int coloane);
 
 	Sala build();
 };
