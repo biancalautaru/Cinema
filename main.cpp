@@ -393,7 +393,7 @@ int main() {
 				gen += tolower(c);
 
 			catalog_filme.cautaObiect(std::cout, [gen](const Film& film) {
-				for (auto& gen_lista: film.getGen()) {
+				for (const std::string& gen_lista: film.getGen()) {
 					std::string gen_lower;
 					for (auto c : gen_lista)
 						gen_lower += tolower(c);
