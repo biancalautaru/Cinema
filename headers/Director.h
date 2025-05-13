@@ -5,12 +5,14 @@
 
 class Director {
 private:
-	OfertaBuilder* ofertaBuilder;
+	OfertaBuilder* oferta_builder;
 
 public:
 	Director();
 
-	void setOfertaBuilder(OfertaBuilder* ofertaBuilder);
+	Director(OfertaBuilder* oferta_builder);
+
+	void setOfertaBuilder(OfertaBuilder* oferta_builder);
 
 	void buildOferta();
 

@@ -15,6 +15,9 @@ public:
 	OfertaBuilder();
 	virtual ~OfertaBuilder();
 
+	OfertaBuilder(const OfertaBuilder& copie);
+	OfertaBuilder& operator=(const OfertaBuilder& copie);
+
 	virtual void buildOferta() = 0;
 
 	Oferta* getOferta();
