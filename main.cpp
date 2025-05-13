@@ -20,10 +20,13 @@
 #include "headers/Meniu.h"
 #include "headers/Suvenir.h"
 #include "headers/Bar.h"
-#include "headers/Catalog.h"
 #include "headers/OptiuneInexistenta.h"
 #include "headers/InputGresit.h"
 #include "headers/LocOcupat.h"
+#include "headers/Catalog.h"
+#include "headers/Director.h"
+#include "headers/OfertaGrupEleviBuilder.h"
+#include "headers/OfertaFamilieBuilder.h"
 
 int main() {
 	// creare filme
@@ -180,6 +183,19 @@ int main() {
 	bar->aplicaPromotii();
 	bar->aplicaPromotiiMeniuri();
 
+	// creare oferte
+	Director director;
+
+	OfertaBuilder* ofertaBuilder1 = new OfertaGrupEleviBuilder();
+	director.setOfertaBuilder(ofertaBuilder1);
+	director.buildOferta();
+	Oferta* oferta_grup_elevi = director.getOferta();
+
+	OfertaBuilder* ofertaBuilder2 = new OfertaFamilieBuilder();
+	director.setOfertaBuilder(ofertaBuilder2);
+	director.buildOferta();
+	Oferta* oferta_familie = director.getOferta();
+
 	// meniu interactiv
 	while (true) {
 		std::cout << "|------------------ Meniu ---------------|\n";
@@ -197,7 +213,9 @@ int main() {
 		std::cout << "|----------------------------------------|\n";
 		std::cout << "| 7. Cautare sala dupa numar de randuri  |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 8. Iesire                              |\n";
+		std::cout << "| 8. Vizualizare oferte                  |\n";
+		std::cout << "|----------------------------------------|\n";
+		std::cout << "| 9. Iesire                              |\n";
 		std::cout << "|----------------------------------------|\n";
 
 		std::cout << "Introduceti numarul optiunii dorite:";
@@ -209,7 +227,7 @@ int main() {
 				optiune = 0;
 				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
 					optiune = 10 * optiune + (linie[i] - '0');
-				if (optiune < 1 || optiune > 8)
+				if (optiune < 1 || optiune > 9)
 					throw OptiuneInexistenta();
 				break;
 			}
@@ -418,7 +436,12 @@ int main() {
 				return sala.getRanduri() >= nr_min && sala.getRanduri() <= nr_max;
 			});
 		}
-		else if (optiune == 8)
+		else if (optiune == 8) {
+			std::cout << "Oferte existente:\n";
+			oferta_grup_elevi->afisare(std::cout);
+			oferta_familie->afisare(std::cout);
+		}
+		else if (optiune == 9)
 			break;
 		std::cout << "\n";
 	}

@@ -88,6 +88,16 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         sources/ProdusInexistent.cpp
         headers/ProdusInexistent.h
         headers/Catalog.h
+        sources/Oferta.cpp
+        headers/Oferta.h
+        sources/OfertaBuilder.cpp
+        headers/OfertaBuilder.h
+        sources/OfertaGrupEleviBuilder.cpp
+        headers/OfertaGrupEleviBuilder.h
+        sources/OfertaFamilieBuilder.cpp
+        headers/OfertaFamilieBuilder.h
+        sources/Director.cpp
+        headers/Director.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
