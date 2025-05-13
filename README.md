@@ -10,6 +10,9 @@ Această aplicație în linie de comandă simulează funcționalitatea unui sist
 - 🪑 Vizualizarea **configurației sălilor de cinema**, inclusiv numărul de locuri și aranjamentul acestora în sală.
 - 🎫 Posibilitatea de a **face rezervări** - sistemul ține cont de locurile ocupate la fiecare proiecție a filmelor din program.
 - 🍿 Adăugarea de **produse de la bar** la rezervare - utilizatorii pot comanda gustări sau suveniruri și le pot ridica direct de la bar, evitând cozile de la cinematograf.
+- 🔍 **Căutarea filmelor** după gen - utilizatorii pot afla ce filme din program aparțin genului dorit.
+- 🕵️‍♂️ **Căutarea sălilor** după numărul minim și maxim de rânduri dorite.
+- 💸 Vizualizarea **ofertelor**, pentru a putea profita de cele mai bune prețuri.
 
 ## Tema 1
 
@@ -64,7 +67,7 @@ Această aplicație în linie de comandă simulează funcționalitatea unui sist
 ## Tema 3
 
 #### Cerințe
-- [ ] 2 șabloane de proiectare (design patterns)
+- [x] 2 șabloane de proiectare (design patterns)
 - [x] o clasă șablon cu sens; minim **2 instanțieri**
   - [x] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
 - [x] minim 85% din codul propriu să fie C++
