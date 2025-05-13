@@ -27,6 +27,7 @@
 #include "headers/Director.h"
 #include "headers/OfertaGrupEleviBuilder.h"
 #include "headers/OfertaFamilieBuilder.h"
+#include "headers/ProdusFactory.h"
 
 int main() {
 	// creare filme
@@ -142,12 +143,14 @@ int main() {
 	}
 
 	// creare produse
-	std::shared_ptr<Produs> popcorn_mic = std::make_shared<Mancare>("Popcorn Mic", 16.99, 300);
-	std::shared_ptr<Produs> popcorn_mediu = std::make_shared<Mancare>("Popcorn Mediu", 20.99, 500);
-	std::shared_ptr<Produs> popcorn_mare = std::make_shared<Mancare>("Popcorn Mare", 24.99, 800);
-	std::shared_ptr<Produs> cola_mic = std::make_shared<Bautura>("Coca-Cola Mic", 7.99, 330);
-	std::shared_ptr<Produs> cola_mediu = std::make_shared<Bautura>("Coca-Cola Mediu", 9.99, 500);
-	std::shared_ptr<Produs> cola_mare = std::make_shared<Bautura>("Coca-Cola Mare", 12.99, 750);
+	ProdusFactory produs_factory;
+
+	std::shared_ptr<Produs> popcorn_mic = ProdusFactory::createProdus(MANCARE, "Popcorn Mic", 16.99, 300);
+	std::shared_ptr<Produs> popcorn_mediu = ProdusFactory::createProdus(MANCARE, "Popcorn Mediu", 20.99, 500);
+	std::shared_ptr<Produs> popcorn_mare = ProdusFactory::createProdus(MANCARE, "Popcorn Mare", 24.99, 800);
+	std::shared_ptr<Produs> cola_mic = ProdusFactory::createProdus(BAUTURA, "Coca-Cola Mic", 7.99, 330);
+	std::shared_ptr<Produs> cola_mediu = ProdusFactory::createProdus(BAUTURA, "Coca-Cola Mediu", 9.99, 500);
+	std::shared_ptr<Produs> cola_mare = ProdusFactory::createProdus(BAUTURA, "Coca-Cola Mare", 12.99, 750);
 
 	int g_mic = std::dynamic_pointer_cast<Mancare>(popcorn_mic)->getGramaj();
 	int g_mediu = std::dynamic_pointer_cast<Mancare>(popcorn_mediu)->getGramaj();
@@ -156,13 +159,14 @@ int main() {
 	int v_mediu = std::dynamic_pointer_cast<Bautura>(cola_mediu)->getVolum();
 	int v_mare = std::dynamic_pointer_cast<Bautura>(cola_mare)->getVolum();
 
-	std::shared_ptr<Produs> meniu_mic = std::make_shared<Meniu>("Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
-	std::shared_ptr<Produs> meniu_mediu = std::make_shared<Meniu>("Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
-	std::shared_ptr<Produs> meniu_mare = std::make_shared<Meniu>("Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
-	std::shared_ptr<Produs> meniu_mic_mediu = std::make_shared<Meniu>("Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
-	std::shared_ptr<Produs> meniu_mediu_mare = std::make_shared<Meniu>("Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
-	std::shared_ptr<Produs> pahar_dune = std::make_shared<Suvenir>("Pahar", 34.99, "Dune: Part One");
-	std::shared_ptr<Produs> tricou_barbie = std::make_shared<Suvenir>("Tricou", 54.99, "Barbie");
+	std::shared_ptr<Produs> meniu_mic = ProdusFactory::createProdus(MENIU, "Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
+	std::shared_ptr<Produs> meniu_mediu= ProdusFactory::createProdus(MENIU, "Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
+	std::shared_ptr<Produs> meniu_mare = ProdusFactory::createProdus(MENIU, "Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
+	std::shared_ptr<Produs> meniu_mic_mediu = ProdusFactory::createProdus(MENIU, "Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
+	std::shared_ptr<Produs> meniu_mediu_mare = ProdusFactory::createProdus(MENIU, "Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
+
+	std::shared_ptr<Produs> pahar_dune = ProdusFactory::createProdus(SUVENIR, "Pahar", 34.99, "Dune: Part One");
+	std::shared_ptr<Produs> tricou_barbie = ProdusFactory::createProdus(SUVENIR, "Tricou", 54.99, "Barbie");
 
 	// adaugare produse la bar
 	Bar* bar = Bar::getInstance();
@@ -186,13 +190,13 @@ int main() {
 	// creare oferte
 	Director director;
 
-	OfertaGrupEleviBuilder ofertaBuilder1;
-	director.setOfertaBuilder(&ofertaBuilder1);
+	OfertaGrupEleviBuilder oferta_builder1;
+	director.setOfertaBuilder(&oferta_builder1);
 	director.buildOferta();
 	const Oferta* oferta_grup_elevi = director.getOferta();
 
-	OfertaFamilieBuilder ofertaBuilder2;
-	director.setOfertaBuilder(&ofertaBuilder2);
+	OfertaFamilieBuilder oferta_builder2;
+	director.setOfertaBuilder(&oferta_builder2);
 	director.buildOferta();
 	const Oferta* oferta_familie = director.getOferta();
 
@@ -317,10 +321,10 @@ int main() {
 				nr_proiectie = 0;
 			std::cout << proiectii[nr_proiectie] << "\n";
 
+			std::cout << "Introduceti locurile dorite (separate prin spatii): ";
 			std::vector<int> locuri;
 			while (true) {
 				try {
-					std::cout << "Introduceti locurile dorite (separate prin spatii): ";
 					while (true) {
 						std::getline(std::cin, linie);
 						try {
@@ -345,12 +349,18 @@ int main() {
 							locuri.push_back(loc);
 						}
 
-					for (auto loc : locuri)
+					for (auto loc : locuri) {
+						if (loc < 1 || loc > proiectii[nr_proiectie].getSala().getRanduri() * proiectii[nr_proiectie].getSala().getColoane())
+							throw InputGresit();
 						for (auto it : proiectii[nr_proiectie].getOcupate())
 							if (loc == it)
 								throw LocOcupat();
+					}
 
 					break;
+				}
+				catch (const InputGresit& e) {
+					std::cout << e.what();
 				}
 				catch (const LocOcupat& e) {
 					std::cout << e.what();
