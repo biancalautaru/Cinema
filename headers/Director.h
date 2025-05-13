@@ -10,7 +10,7 @@ private:
 public:
 	Director();
 
-	Director(OfertaBuilder* oferta_builder);
+	explicit Director(OfertaBuilder* oferta_builder);
 
 	void setOfertaBuilder(OfertaBuilder* oferta_builder);
 

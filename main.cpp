@@ -189,12 +189,12 @@ int main() {
 	OfertaGrupEleviBuilder ofertaBuilder1;
 	director.setOfertaBuilder(&ofertaBuilder1);
 	director.buildOferta();
-	Oferta* oferta_grup_elevi = director.getOferta();
+	Oferta* const oferta_grup_elevi = director.getOferta();
 
-	OfertaGrupEleviBuilder ofertaBuilder2;
+	OfertaFamilieBuilder ofertaBuilder2;
 	director.setOfertaBuilder(&ofertaBuilder2);
 	director.buildOferta();
-	Oferta* oferta_familie = director.getOferta();
+	Oferta* const oferta_familie = director.getOferta();
 
 	// meniu interactiv
 	while (true) {
