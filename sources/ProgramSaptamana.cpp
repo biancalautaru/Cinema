@@ -1,8 +1,8 @@
 #include "../headers/ProgramSaptamana.h"
 
-ProgramSaptamana::ProgramSaptamana() = default;
+ProgramSaptamana::ProgramSaptamana() {}
 
-ProgramSaptamana::~ProgramSaptamana() = default;
+ProgramSaptamana::~ProgramSaptamana() {}
 
 ProgramSaptamana::ProgramSaptamana(const std::vector<std::pair<std::string, ProgramZi>>& saptamana):
 	saptamana(saptamana)

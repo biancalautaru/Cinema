@@ -4,9 +4,9 @@
 
 #include <iomanip>
 
-Rezervare::Rezervare() = default;
+Rezervare::Rezervare() {}
 
-Rezervare::~Rezervare() = default;
+Rezervare::~Rezervare() {}
 
 Rezervare::Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi, const std::vector<std::shared_ptr<Produs>>& produse):
 	client(client),

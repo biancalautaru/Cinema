@@ -2,9 +2,9 @@
 
 #include <iomanip>
 
-Bautura::Bautura() = default;
+Bautura::Bautura() {}
 
-Bautura::~Bautura() = default;
+Bautura::~Bautura() {}
 
 Bautura::Bautura(const std::string&nume, double pret, int volum):
 	Produs(nume, pret),

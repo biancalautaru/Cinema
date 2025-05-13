@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-Client::Client() = default;
+Client::Client() {}
 
-Client::~Client() = default;
+Client::~Client() {}
 
 Client::Client(const std::string& nume, const std::string& email, const std::string& telefon):
 	nume(nume),

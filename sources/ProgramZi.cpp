@@ -5,9 +5,9 @@
 #include <chrono>
 #include <random>
 
-ProgramZi::ProgramZi() = default;
+ProgramZi::ProgramZi() {}
 
-ProgramZi::~ProgramZi() = default;
+ProgramZi::~ProgramZi() {}
 
 ProgramZi::ProgramZi(const std::vector<Proiectie>& zi):
 	zi(zi) {

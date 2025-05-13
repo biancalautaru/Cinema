@@ -1,8 +1,8 @@
 #include "../headers/Proiectie.h"
 
-Proiectie::Proiectie() = default;
+Proiectie::Proiectie() {}
 
-Proiectie::~Proiectie() = default;
+Proiectie::~Proiectie() {}
 
 Proiectie::Proiectie(const Film& film, const std::string& zi, const std::string& ora, const Sala& sala, const std::set<int>& ocupate):
 	film(film),
