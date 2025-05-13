@@ -4,6 +4,25 @@ Oferta::Oferta() {}
 
 Oferta::~Oferta() {}
 
+Oferta::Oferta(const std::string& nume, int bilete, int procent):
+	nume(nume),
+	bilete(bilete),
+	procent(procent)
+{}
+
+Oferta::Oferta(const Oferta& copie):
+	nume(copie.nume),
+	bilete(copie.bilete),
+	procent(copie.procent)
+{}
+
+Oferta& Oferta::operator=(const Oferta& copie) {
+	nume = copie.nume;
+	bilete = copie.bilete;
+	procent = copie.procent;
+	return *this;
+}
+
 void Oferta::setNume(const std::string& nume_) {
 	nume = nume_;
 }

@@ -13,6 +13,7 @@ protected:
 
 public:
 	OfertaBuilder();
+	virtual ~OfertaBuilder();
 
 	virtual void buildOferta() = 0;
 

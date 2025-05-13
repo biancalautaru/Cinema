@@ -186,13 +186,13 @@ int main() {
 	// creare oferte
 	Director director;
 
-	OfertaBuilder* ofertaBuilder1 = new OfertaGrupEleviBuilder();
-	director.setOfertaBuilder(ofertaBuilder1);
+	OfertaGrupEleviBuilder ofertaBuilder1;
+	director.setOfertaBuilder(&ofertaBuilder1);
 	director.buildOferta();
 	Oferta* oferta_grup_elevi = director.getOferta();
 
-	OfertaBuilder* ofertaBuilder2 = new OfertaFamilieBuilder();
-	director.setOfertaBuilder(ofertaBuilder2);
+	OfertaGrupEleviBuilder ofertaBuilder2;
+	director.setOfertaBuilder(&ofertaBuilder2);
 	director.buildOferta();
 	Oferta* oferta_familie = director.getOferta();
 
