@@ -2,9 +2,9 @@
 
 #include <iomanip>
 
-Meniu::Meniu() {}
+Meniu::Meniu() = default;
 
-Meniu::~Meniu() {}
+Meniu::~Meniu() = default;
 
 Meniu::Meniu(const std::string& nume, double pret, const std::string& nume_mancare, int gramaj, const std::string& nume_bautura, int volum, const MarimeMeniu& marime):
 	Produs(nume, pret),

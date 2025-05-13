@@ -2,9 +2,9 @@
 
 #include <iomanip>
 
-Produs::Produs() {}
+Produs::Produs() = default;
 
-Produs::~Produs() {}
+Produs::~Produs() = default;
 
 Produs::Produs(const std::string& nume, double pret):
 	nume(nume),

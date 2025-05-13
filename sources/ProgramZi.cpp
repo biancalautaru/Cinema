@@ -5,38 +5,9 @@
 #include <chrono>
 #include <random>
 
-void ProgramZi::sortareProiectii() {
-	std::sort(zi.begin(), zi.end(), [](const Proiectie& p1, const Proiectie& p2) {
-		return p1.getOra() < p2.getOra();
-	});
-}
+ProgramZi::ProgramZi() = default;
 
-std::string ProgramZi::oraString(const int& ora) {
-	std::string ora_st(5, ' ');
-	ora_st[0] = '0' + ora / 60 / 10;
-	ora_st[1] = '0' + ora / 60 % 10;
-	ora_st[2] = ':';
-	ora_st[3] = '0' + ora % 60 / 10;
-	ora_st[4] = '0' + ora % 60 % 10;
-	return ora_st;
-}
-
-int ProgramZi::urmatoareaOra(const int& ora) {
-	int min = ora % 60;
-	if (min == 0 || min == 15 || min == 30 || min == 45)
-		return ora + 30;
-	if (min < 15)
-		return ora + 15 - min + 30;
-	if (min < 30)
-		return ora + 30 - min + 30;
-	if (min < 45)
-		return ora + 45 - min + 30;
-	return ora + 60 - min + 30;
-}
-
-ProgramZi::ProgramZi() {};
-
-ProgramZi::~ProgramZi() {};
+ProgramZi::~ProgramZi() = default;
 
 ProgramZi::ProgramZi(const std::vector<Proiectie>& zi):
 	zi(zi) {
@@ -78,6 +49,35 @@ void ProgramZi::setZi(const std::vector<Proiectie>& zi_) {
 
 const std::vector<Proiectie>& ProgramZi::getZi() const {
 	return zi;
+}
+
+void ProgramZi::sortareProiectii() {
+	std::sort(zi.begin(), zi.end(), [](const Proiectie& p1, const Proiectie& p2) {
+		return p1.getOra() < p2.getOra();
+	});
+}
+
+std::string ProgramZi::oraString(const int& ora) {
+	std::string ora_st(5, ' ');
+	ora_st[0] = '0' + ora / 60 / 10;
+	ora_st[1] = '0' + ora / 60 % 10;
+	ora_st[2] = ':';
+	ora_st[3] = '0' + ora % 60 / 10;
+	ora_st[4] = '0' + ora % 60 % 10;
+	return ora_st;
+}
+
+int ProgramZi::urmatoareaOra(const int& ora) {
+	int min = ora % 60;
+	if (min == 0 || min == 15 || min == 30 || min == 45)
+		return ora + 30;
+	if (min < 15)
+		return ora + 15 - min + 30;
+	if (min < 30)
+		return ora + 30 - min + 30;
+	if (min < 45)
+		return ora + 45 - min + 30;
+	return ora + 60 - min + 30;
 }
 
 void ProgramZi::adaugaProiectie(const Proiectie& proiectie) {

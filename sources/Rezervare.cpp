@@ -4,9 +4,9 @@
 
 #include <iomanip>
 
-Rezervare::Rezervare() {};
+Rezervare::Rezervare() = default;
 
-Rezervare::~Rezervare() {};
+Rezervare::~Rezervare() = default;
 
 Rezervare::Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi, const std::vector<std::shared_ptr<Produs>>& produse):
 	client(client),
@@ -60,7 +60,7 @@ void Rezervare::afisareProduse(std::ostream& os) const {
 		produs->afisare(os);
 }
 
-void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar) {
+void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar* bar) {
 	os << bar;
 	os << "\n";
 
@@ -95,7 +95,7 @@ void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar
 				}
 
 			for (auto nr : nr_produse)
-				if (nr < 0 || nr > static_cast<int>(bar.getProduse().size()) - 1)
+				if (nr < 0 || nr > static_cast<int>(bar->getProduse().size()) - 1)
 					throw ProdusInexistent();
 			break;
 		}
@@ -105,7 +105,7 @@ void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar& bar
 	}
 
 	for (auto nr : nr_produse)
-		adaugaProdus(bar.getProduse()[nr]);
+		adaugaProdus(bar->getProduse()[nr]);
 }
 
 void Rezervare::setClient(const Client& client_) {

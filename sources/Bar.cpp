@@ -5,13 +5,16 @@
 
 int Bar::totalProduse = 0;
 
-Bar::Bar() {};
+Bar::Bar() = default;
 
-Bar::~Bar() {}
+Bar::~Bar() = default;
 
-Bar& Bar::getInstance() {
-	static Bar bar;
-	return bar;
+Bar* Bar::instance = nullptr;
+
+Bar* Bar::getInstance() {
+	if (instance == nullptr)
+		instance = new Bar();
+	return instance;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bar& bar) {

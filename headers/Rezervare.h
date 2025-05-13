@@ -27,7 +27,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Rezervare& rezervare);
 	void afisareRezervare(std::ostream& os) const;
 	void afisareProduse(std::ostream& os) const;
-	void citireProduse(std::istream& is, std::ostream& os, const Bar& bar);
+	void citireProduse(std::istream& is, std::ostream& os, const Bar* bar);
 
 	void setClient(const Client& client_);
 	void setProiectie(const Proiectie& proiectie_);

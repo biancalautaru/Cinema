@@ -1,6 +1,6 @@
 #include "../headers/Exceptie.h"
 
-Exceptie::Exceptie() {}
+Exceptie::Exceptie() = default;
 
 Exceptie::Exceptie(const std::string& mesaj):
 	mesaj(mesaj)

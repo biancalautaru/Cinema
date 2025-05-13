@@ -12,14 +12,15 @@ private:
 	std::vector<std::shared_ptr<Produs>> produse;
 
 	Bar();
-
-public:
 	~Bar();
 
 	Bar(const Bar&) = delete;
 	Bar& operator=(const Bar&) = delete;
 
-	static Bar& getInstance();
+	static Bar* instance;
+
+public:
+	static Bar* getInstance();
 
 	friend std::ostream& operator<<(std::ostream& os, const Bar& bar);
 

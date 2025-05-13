@@ -10,8 +10,9 @@ private:
 	std::vector<T> obiecte;
 
 public:
-	Catalog() {}
-	~Catalog() {}
+	Catalog() = default;
+
+	~Catalog() = default;
 
 	explicit Catalog(const std::vector<T>& obiecte):
 		obiecte(obiecte)

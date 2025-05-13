@@ -9,8 +9,6 @@ private:
 	int randuri;
 	int coloane;
 
-	friend class SalaBuilder;
-
 public:
 	Sala();
 	~Sala();

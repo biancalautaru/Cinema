@@ -2,9 +2,9 @@
 
 #include <iomanip>
 
-Suvenir::Suvenir() {}
+Suvenir::Suvenir() = default;
 
-Suvenir::~Suvenir() {}
+Suvenir::~Suvenir() = default;
 
 Suvenir::Suvenir(const std::string& nume, double pret, const std::string& nume_film):
 	Produs(nume, pret),

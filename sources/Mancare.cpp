@@ -2,9 +2,9 @@
 
 #include <iomanip>
 
-Mancare::Mancare() {}
+Mancare::Mancare() = default;
 
-Mancare::~Mancare() {}
+Mancare::~Mancare() = default;
 
 Mancare::Mancare(const std::string& nume, double pret, int gramaj):
 	Produs(nume, pret),

@@ -9,7 +9,6 @@
 #include "headers/Bautura.h"
 #include "headers/Film.h"
 #include "headers/Sala.h"
-#include "headers/SalaBuilder.h"
 #include "headers/Proiectie.h"
 #include "headers/ProgramZi.h"
 #include "headers/ProgramSaptamana.h"
@@ -56,12 +55,11 @@ int main() {
 
 	// creare sali
 	Catalog<Sala> catalog_sali;
-	SalaBuilder builder;
-	catalog_sali.adaugaObiect(builder.numar(1).randuri(5).coloane(20).build());
-	catalog_sali.adaugaObiect(builder.numar(2).randuri(8).coloane(12).build());
-	catalog_sali.adaugaObiect(builder.numar(3).randuri(5).coloane(15).build());
-	catalog_sali.adaugaObiect(builder.numar(4).randuri(7).coloane(11).build());
-	catalog_sali.adaugaObiect(builder.numar(5).randuri(9).coloane(23).build());
+	catalog_sali.adaugaObiect({1, 5, 20});
+	catalog_sali.adaugaObiect({2, 8, 12});
+	catalog_sali.adaugaObiect({3, 5, 15});
+	catalog_sali.adaugaObiect({4, 7, 11});
+	catalog_sali.adaugaObiect({5, 9, 23});
 	std::vector<Sala> sali = catalog_sali.getObiecte();
 
 	// creare clienti
@@ -164,23 +162,23 @@ int main() {
 	std::shared_ptr<Produs> tricou_barbie = std::make_shared<Suvenir>("Tricou", 54.99, "Barbie");
 
 	// adaugare produse la bar
-	Bar& bar = Bar::getInstance();
-	bar.adaugaProdus(popcorn_mic->clone());
-	bar.adaugaProdus(popcorn_mediu);
-	bar.adaugaProdus(popcorn_mare);
-	bar.adaugaProdus(cola_mic);
-	bar.adaugaProdus(cola_mediu);
-	bar.adaugaProdus(cola_mare);
-	bar.adaugaProdus(meniu_mic);
-	bar.adaugaProdus(meniu_mediu);
-	bar.adaugaProdus(meniu_mare);
-	bar.adaugaProdus(meniu_mic_mediu);
-	bar.adaugaProdus(meniu_mediu_mare);
-	bar.adaugaProdus(pahar_dune);
-	bar.adaugaProdus(tricou_barbie);
+	Bar* bar = Bar::getInstance();
+	bar->adaugaProdus(popcorn_mic->clone());
+	bar->adaugaProdus(popcorn_mediu);
+	bar->adaugaProdus(popcorn_mare);
+	bar->adaugaProdus(cola_mic);
+	bar->adaugaProdus(cola_mediu);
+	bar->adaugaProdus(cola_mare);
+	bar->adaugaProdus(meniu_mic);
+	bar->adaugaProdus(meniu_mediu);
+	bar->adaugaProdus(meniu_mare);
+	bar->adaugaProdus(meniu_mic_mediu);
+	bar->adaugaProdus(meniu_mediu_mare);
+	bar->adaugaProdus(pahar_dune);
+	bar->adaugaProdus(tricou_barbie);
 
-	bar.aplicaPromotii();
-	bar.aplicaPromotiiMeniuri();
+	bar->aplicaPromotii();
+	bar->aplicaPromotiiMeniuri();
 
 	// meniu interactiv
 	while (true) {
