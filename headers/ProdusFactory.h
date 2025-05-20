@@ -15,9 +15,9 @@ class ProdusFactory {
 public:
 	ProdusFactory();
 
-	static std::shared_ptr<Produs> createProdus(TipProdus tip, const std::string& nume, double pret, int cantitate);
-	static std::shared_ptr<Produs> createProdus(TipProdus tip, const std::string& nume, double pret, const std::string& nume_mancare, int gramaj, const std::string& nume_bautura, int volum, MarimeMeniu marime);
-	static std::shared_ptr<Produs> createProdus(TipProdus tip, const std::string& nume, double pret, const std::string& nume_film);
+	std::shared_ptr<Produs> createProdus(TipProdus tip, const std::string& nume, double pret, int cantitate);
+	std::shared_ptr<Produs> createProdus(TipProdus tip, const std::string& nume, double pret, const std::string& nume_mancare, int gramaj, const std::string& nume_bautura, int volum, MarimeMeniu marime);
+	std::shared_ptr<Produs> createProdus(TipProdus tip, const std::string& nume, double pret, const std::string& nume_film);
 };
 
 #endif

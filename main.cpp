@@ -145,12 +145,12 @@ int main() {
 	// creare produse
 	ProdusFactory produs_factory;
 
-	std::shared_ptr<Produs> popcorn_mic = ProdusFactory::createProdus(MANCARE, "Popcorn Mic", 16.99, 300);
-	std::shared_ptr<Produs> popcorn_mediu = ProdusFactory::createProdus(MANCARE, "Popcorn Mediu", 20.99, 500);
-	std::shared_ptr<Produs> popcorn_mare = ProdusFactory::createProdus(MANCARE, "Popcorn Mare", 24.99, 800);
-	std::shared_ptr<Produs> cola_mic = ProdusFactory::createProdus(BAUTURA, "Coca-Cola Mic", 7.99, 330);
-	std::shared_ptr<Produs> cola_mediu = ProdusFactory::createProdus(BAUTURA, "Coca-Cola Mediu", 9.99, 500);
-	std::shared_ptr<Produs> cola_mare = ProdusFactory::createProdus(BAUTURA, "Coca-Cola Mare", 12.99, 750);
+	std::shared_ptr<Produs> popcorn_mic = produs_factory.createProdus(MANCARE, "Popcorn Mic", 16.99, 300);
+	std::shared_ptr<Produs> popcorn_mediu = produs_factory.createProdus(MANCARE, "Popcorn Mediu", 20.99, 500);
+	std::shared_ptr<Produs> popcorn_mare = produs_factory.createProdus(MANCARE, "Popcorn Mare", 24.99, 800);
+	std::shared_ptr<Produs> cola_mic = produs_factory.createProdus(BAUTURA, "Coca-Cola Mic", 7.99, 330);
+	std::shared_ptr<Produs> cola_mediu = produs_factory.createProdus(BAUTURA, "Coca-Cola Mediu", 9.99, 500);
+	std::shared_ptr<Produs> cola_mare = produs_factory.createProdus(BAUTURA, "Coca-Cola Mare", 12.99, 750);
 
 	int g_mic = std::dynamic_pointer_cast<Mancare>(popcorn_mic)->getGramaj();
 	int g_mediu = std::dynamic_pointer_cast<Mancare>(popcorn_mediu)->getGramaj();
@@ -159,14 +159,14 @@ int main() {
 	int v_mediu = std::dynamic_pointer_cast<Bautura>(cola_mediu)->getVolum();
 	int v_mare = std::dynamic_pointer_cast<Bautura>(cola_mare)->getVolum();
 
-	std::shared_ptr<Produs> meniu_mic = ProdusFactory::createProdus(MENIU, "Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
-	std::shared_ptr<Produs> meniu_mediu= ProdusFactory::createProdus(MENIU, "Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
-	std::shared_ptr<Produs> meniu_mare = ProdusFactory::createProdus(MENIU, "Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
-	std::shared_ptr<Produs> meniu_mic_mediu = ProdusFactory::createProdus(MENIU, "Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
-	std::shared_ptr<Produs> meniu_mediu_mare = ProdusFactory::createProdus(MENIU, "Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
+	std::shared_ptr<Produs> meniu_mic = produs_factory.createProdus(MENIU, "Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
+	std::shared_ptr<Produs> meniu_mediu= produs_factory.createProdus(MENIU, "Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
+	std::shared_ptr<Produs> meniu_mare = produs_factory.createProdus(MENIU, "Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
+	std::shared_ptr<Produs> meniu_mic_mediu = produs_factory.createProdus(MENIU, "Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
+	std::shared_ptr<Produs> meniu_mediu_mare = produs_factory.createProdus(MENIU, "Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
 
-	std::shared_ptr<Produs> pahar_dune = ProdusFactory::createProdus(SUVENIR, "Pahar", 34.99, "Dune: Part One");
-	std::shared_ptr<Produs> tricou_barbie = ProdusFactory::createProdus(SUVENIR, "Tricou", 54.99, "Barbie");
+	std::shared_ptr<Produs> pahar_dune = produs_factory.createProdus(SUVENIR, "Pahar", 34.99, "Dune: Part One");
+	std::shared_ptr<Produs> tricou_barbie = produs_factory.createProdus(SUVENIR, "Tricou", 54.99, "Barbie");
 
 	// adaugare produse la bar
 	Bar* bar = Bar::getInstance();
