@@ -10,7 +10,7 @@ class Proiectie {
 private:
 	Film film;
 	std::string zi;
-	std::string	ora;
+	std::string ora;
 	Sala sala;
 	std::set<int> ocupate;
 
@@ -18,7 +18,8 @@ public:
 	Proiectie();
 	~Proiectie();
 
-	Proiectie(const Film& film, const std::string& zi, const std::string& ora, const Sala& sala, const std::set<int>& ocupate);
+	Proiectie(const Film& film, const std::string& zi, const std::string& ora, const Sala& sala,
+	          const std::set<int>& ocupate);
 	Proiectie(const Proiectie& copie);
 
 	Proiectie& operator=(const Proiectie& copie);

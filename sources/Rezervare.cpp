@@ -4,25 +4,28 @@
 
 #include <iomanip>
 
-Rezervare::Rezervare() {}
+Rezervare::Rezervare() {
+}
 
-Rezervare::~Rezervare() {}
+Rezervare::~Rezervare() {
+}
 
-Rezervare::Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi, const std::vector<std::shared_ptr<Produs>>& produse):
+Rezervare::Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi,
+                     const std::vector<std::shared_ptr<Produs>>& produse):
 	client(client),
 	proiectie(proiectie),
 	locuri(locuri),
 	elevi(elevi),
-	produse(produse)
-{}
+	produse(produse) {
+}
 
 Rezervare::Rezervare(const Rezervare& copie):
 	client(copie.client),
 	proiectie(copie.proiectie),
 	locuri(copie.locuri),
 	elevi(copie.elevi),
-	produse(copie.produse)
-{}
+	produse(copie.produse) {
+}
 
 Rezervare& Rezervare::operator=(const Rezervare& copie) {
 	client = copie.client;
@@ -60,7 +63,7 @@ void Rezervare::afisareProduse(std::ostream& os) const {
 		produs->afisare(os);
 }
 
-void Rezervare::citireProduse(std::istream& is, std::ostream &os, const Bar* bar) {
+void Rezervare::citireProduse(std::istream& is, std::ostream& os, const Bar* bar) {
 	bar->afisare(os);
 	os << "\n";
 

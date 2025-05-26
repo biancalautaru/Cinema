@@ -5,9 +5,11 @@
 
 int Bar::totalProduse = 0;
 
-Bar::Bar() {}
+Bar::Bar() {
+}
 
-Bar::~Bar() {}
+Bar::~Bar() {
+}
 
 Bar* Bar::instance = nullptr;
 

@@ -20,7 +20,8 @@ public:
 	Film();
 	~Film();
 
-	Film(const std::string& nume, const std::vector<std::string>& gen, const int& durata, const int& an, const std::string& regizor, const std::string& rating, const std::string& format, const double& pret);
+	Film(const std::string& nume, const std::vector<std::string>& gen, const int& durata, const int& an,
+	     const std::string& regizor, const std::string& rating, const std::string& format, const double& pret);
 	Film(const Film& copie);
 
 	Film& operator=(const Film& copie);

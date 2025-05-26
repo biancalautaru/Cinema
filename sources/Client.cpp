@@ -2,21 +2,23 @@
 
 #include <iostream>
 
-Client::Client() {}
+Client::Client() {
+}
 
-Client::~Client() {}
+Client::~Client() {
+}
 
 Client::Client(const std::string& nume, const std::string& email, const std::string& telefon):
 	nume(nume),
 	email(email),
-	telefon(telefon)
-{}
+	telefon(telefon) {
+}
 
 Client::Client(const Client& copie):
 	nume(copie.nume),
 	email(copie.email),
-	telefon(copie.telefon)
-{}
+	telefon(copie.telefon) {
+}
 
 Client& Client::operator=(const Client& copie) {
 	nume = copie.nume;

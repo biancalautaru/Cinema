@@ -2,18 +2,21 @@
 
 #include <iomanip>
 
-Meniu::Meniu() {};
+Meniu::Meniu() {
+};
 
-Meniu::~Meniu() {}
+Meniu::~Meniu() {
+}
 
-Meniu::Meniu(const std::string& nume, double pret, const std::string& nume_mancare, int gramaj, const std::string& nume_bautura, int volum, const MarimeMeniu& marime):
+Meniu::Meniu(const std::string& nume, double pret, const std::string& nume_mancare, int gramaj,
+             const std::string& nume_bautura, int volum, const MarimeMeniu& marime):
 	Produs(nume, pret),
 	nume_mancare(nume_mancare),
 	gramaj(gramaj),
 	nume_bautura(nume_bautura),
 	volum(volum),
-	marime(marime)
-{}
+	marime(marime) {
+}
 
 Meniu::Meniu(const Meniu& copie):
 	Produs::Produs(copie),
@@ -21,8 +24,8 @@ Meniu::Meniu(const Meniu& copie):
 	gramaj(copie.gramaj),
 	nume_bautura(copie.nume_bautura),
 	volum(copie.volum),
-	marime(copie.marime)
-{}
+	marime(copie.marime) {
+}
 
 Meniu& Meniu::operator=(const Meniu& copie) {
 	if (this != &copie) {

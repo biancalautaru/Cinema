@@ -1,20 +1,22 @@
 #include "../headers/Oferta.h"
 
-Oferta::Oferta() {}
+Oferta::Oferta() {
+}
 
-Oferta::~Oferta() {}
+Oferta::~Oferta() {
+}
 
 Oferta::Oferta(const std::string& nume, int bilete, int procent):
 	nume(nume),
 	bilete(bilete),
-	procent(procent)
-{}
+	procent(procent) {
+}
 
 Oferta::Oferta(const Oferta& copie):
 	nume(copie.nume),
 	bilete(copie.bilete),
-	procent(copie.procent)
-{}
+	procent(copie.procent) {
+}
 
 Oferta& Oferta::operator=(const Oferta& copie) {
 	nume = copie.nume;

@@ -1,6 +1,7 @@
 #include "../headers/OfertaGrupEleviBuilder.h"
 
-OfertaGrupEleviBuilder::OfertaGrupEleviBuilder() {}
+OfertaGrupEleviBuilder::OfertaGrupEleviBuilder() {
+}
 
 void OfertaGrupEleviBuilder::buildNume() {
 	oferta->setNume("Oferta Grup Elevi");

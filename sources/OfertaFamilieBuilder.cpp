@@ -1,6 +1,7 @@
 #include "../headers/OfertaFamilieBuilder.h"
 
-OfertaFamilieBuilder::OfertaFamilieBuilder() {}
+OfertaFamilieBuilder::OfertaFamilieBuilder() {
+}
 
 void OfertaFamilieBuilder::buildNume() {
 	oferta->setNume("Oferta Familie");

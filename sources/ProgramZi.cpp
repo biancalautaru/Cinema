@@ -5,9 +5,11 @@
 #include <chrono>
 #include <random>
 
-ProgramZi::ProgramZi() {}
+ProgramZi::ProgramZi() {
+}
 
-ProgramZi::~ProgramZi() {}
+ProgramZi::~ProgramZi() {
+}
 
 ProgramZi::ProgramZi(const std::vector<Proiectie>& zi):
 	zi(zi) {
@@ -15,8 +17,8 @@ ProgramZi::ProgramZi(const std::vector<Proiectie>& zi):
 }
 
 ProgramZi::ProgramZi(const ProgramZi& copie):
-	zi(copie.zi)
-{}
+	zi(copie.zi) {
+}
 
 ProgramZi& ProgramZi::operator=(const ProgramZi& copie) {
 	zi = copie.zi;
@@ -32,11 +34,10 @@ std::ostream& operator<<(std::ostream& os, const ProgramZi& program) {
 		const int& locuri = proiectie.locuriRamase();
 		if (locuri == 1)
 			os << locuri << " loc ramas";
+		else if (locuri % 100 >= 20)
+			os << locuri << " de locuri ramase";
 		else
-			if (locuri % 100 >= 20)
-				os << locuri << " de locuri ramase";
-			else
-				os << locuri << " locuri ramase";
+			os << locuri << " locuri ramase";
 		os << "\n";
 	}
 	return os;
@@ -96,14 +97,12 @@ ProgramZi ProgramZi::generare(const std::vector<Film>& filme_aux, const std::vec
 	for (size_t i = 0; i < filme.size(); i++)
 		if (filme[i].getRating() == "AG")
 			filmeAG.push_back(i);
+		else if (filme[i].getRating() == "IM-18")
+			filmeIM.push_back(i);
+		else if (filme[i].getFormat() == "3D")
+			filme3D.push_back(i);
 		else
-			if (filme[i].getRating() == "IM-18")
-				filmeIM.push_back(i);
-			else
-				if (filme[i].getFormat() == "3D")
-					filme3D.push_back(i);
-				else
-					filmeRest.push_back(i);
+			filmeRest.push_back(i);
 
 	ProgramZi program;
 	std::vector<int> sali_ore;

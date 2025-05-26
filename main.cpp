@@ -43,7 +43,7 @@ int main() {
 	catalog_filme.adaugaObiect({"Hachi: A Dog's Tale", {"Biografie", "Drama", "Familie"}, 93, 2009, "Lasse Hallstrom", "AG", "2D", 25});
 	catalog_filme.adaugaObiect({"The Sixth Sense", {"Drama", "Mister", "Thriller"}, 107, 1999, "M. Night Shyamalan", "AP-12", "2D", 30});
 	catalog_filme.adaugaObiect({"Liar Liar", {"Comedie", "Fantastic"}, 86, 1997, "Tom Shadyac", "AP-12", "2D", 25});
-	catalog_filme.adaugaObiect({"The Search for Santa Paws", {"Aventura", "Drama", "Familie", "Fantastic"}, 96, 2010, "Robert Vince","AG", "2D", 25});
+	catalog_filme.adaugaObiect({"The Search for Santa Paws", {"Aventura", "Drama", "Familie", "Fantastic"}, 96, 2010, "Robert Vince", "AG", "2D", 25});
 	catalog_filme.adaugaObiect({"Barbie", {"Aventura", "Comedie", "Fantastic"}, 114, 2023, "Greta Gerwig", "AP-12", "2D", 25});
 	catalog_filme.adaugaObiect({"The Godfather", {"Crima", "Drama"}, 175, 1972, "Francis Ford Coppola", "N-15", "2D", 35});
 	catalog_filme.adaugaObiect({"Se7en", {"Crima", "Drama", "Mister", "Thriller"}, 127, 1995, "David Fincher", "N-15", "2D", 30});
@@ -160,7 +160,7 @@ int main() {
 	int v_mare = std::dynamic_pointer_cast<Bautura>(cola_mare)->getVolum();
 
 	std::shared_ptr<Produs> meniu_mic = produs_factory.createProdus(MENIU, "Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
-	std::shared_ptr<Produs> meniu_mediu= produs_factory.createProdus(MENIU, "Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
+	std::shared_ptr<Produs> meniu_mediu = produs_factory.createProdus(MENIU, "Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
 	std::shared_ptr<Produs> meniu_mare = produs_factory.createProdus(MENIU, "Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
 	std::shared_ptr<Produs> meniu_mic_mediu = produs_factory.createProdus(MENIU, "Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
 	std::shared_ptr<Produs> meniu_mediu_mare = produs_factory.createProdus(MENIU, "Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
@@ -246,8 +246,8 @@ int main() {
 			int nr_azi = ziua_saptamanii.c_encoding() - 1;
 			if (nr_azi == -1)
 				nr_azi = 6;
-			auto program_azi =  program_saptamana.getSaptamana()[nr_azi];
-			std::cout << "- " << program_azi.first<< " -\n" << program_azi.second;
+			auto program_azi = program_saptamana.getSaptamana()[nr_azi];
+			std::cout << "- " << program_azi.first << " -\n" << program_azi.second;
 		}
 		else if (optiune == 2)
 			std::cout << program_saptamana;
@@ -302,11 +302,10 @@ int main() {
 				int nr_locuri = proiectii[i].locuriRamase();
 				if (nr_locuri == 1)
 					std::cout << nr_locuri << " loc ramas";
+				else if (nr_locuri >= 20)
+					std::cout << nr_locuri << " de locuri ramase";
 				else
-					if (nr_locuri >= 20)
-						std::cout << nr_locuri << " de locuri ramase";
-					else
-						std::cout << nr_locuri << " locuri ramase";
+					std::cout << nr_locuri << " locuri ramase";
 				std::cout << "\n";
 			}
 			std::cout << "\n";
@@ -390,8 +389,8 @@ int main() {
 			program_saptamana.setSaptamana(program_modificat);
 			for (size_t i = 0; i < rezervari.size(); i++)
 				if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie].getZi()
-				&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
-				&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie].getSala().getNumar())
+					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
+					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie].getSala().getNumar())
 					rezervari[i].setProiectie(proiectii_modificat[nr_proiectie]);
 
 			std::cout << "Doriti sa adaugati produse de la bar la rezervare? (da/nu)\n";
@@ -419,7 +418,7 @@ int main() {
 				gen += tolower(c);
 
 			catalog_filme.cautaObiect(std::cout, [gen](const Film& film) {
-				for (const std::string& gen_lista: film.getGen()) {
+				for (const std::string& gen_lista : film.getGen()) {
 					std::string gen_lower;
 					for (auto c : gen_lista)
 						gen_lower += tolower(c);

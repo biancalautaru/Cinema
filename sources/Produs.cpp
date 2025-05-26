@@ -2,19 +2,21 @@
 
 #include <iomanip>
 
-Produs::Produs() {}
+Produs::Produs() {
+}
 
-Produs::~Produs() {}
+Produs::~Produs() {
+}
 
 Produs::Produs(const std::string& nume, double pret):
 	nume(nume),
-	pret(pret)
-{}
+	pret(pret) {
+}
 
 Produs::Produs(const Produs& copie):
 	nume(copie.nume),
-	pret(copie.pret)
-{}
+	pret(copie.pret) {
+}
 
 Produs& Produs::operator=(const Produs& copie) {
 	nume = copie.nume;

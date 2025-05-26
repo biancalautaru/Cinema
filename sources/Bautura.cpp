@@ -2,19 +2,21 @@
 
 #include <iomanip>
 
-Bautura::Bautura() {}
+Bautura::Bautura() {
+}
 
-Bautura::~Bautura() {}
+Bautura::~Bautura() {
+}
 
-Bautura::Bautura(const std::string&nume, double pret, int volum):
+Bautura::Bautura(const std::string& nume, double pret, int volum):
 	Produs(nume, pret),
-	volum(volum)
-{}
+	volum(volum) {
+}
 
 Bautura::Bautura(const Bautura& copie):
 	Produs(copie),
-	volum(copie.volum)
-{}
+	volum(copie.volum) {
+}
 
 Bautura& Bautura::operator=(const Bautura& copie) {
 	Produs::operator=(copie);

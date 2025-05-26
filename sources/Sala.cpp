@@ -1,20 +1,22 @@
 #include "../headers/Sala.h"
 
-Sala::Sala() {}
+Sala::Sala() {
+}
 
-Sala::~Sala() {}
+Sala::~Sala() {
+}
 
 Sala::Sala(const int& numar, const int& randuri, const int& coloane):
 	numar(numar),
 	randuri(randuri),
-	coloane(coloane)
-{}
+	coloane(coloane) {
+}
 
 Sala::Sala(const Sala& copie):
 	numar(copie.numar),
 	randuri(copie.randuri),
-	coloane(copie.coloane)
-{}
+	coloane(copie.coloane) {
+}
 
 Sala& Sala::operator=(const Sala& copie) {
 	numar = copie.numar;

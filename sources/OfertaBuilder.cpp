@@ -9,8 +9,8 @@ OfertaBuilder::~OfertaBuilder() {
 }
 
 OfertaBuilder::OfertaBuilder(const OfertaBuilder& copie):
-	oferta(copie.oferta)
-{}
+	oferta(copie.oferta) {
+}
 
 OfertaBuilder& OfertaBuilder::operator=(const OfertaBuilder& copie) {
 	oferta = copie.oferta;

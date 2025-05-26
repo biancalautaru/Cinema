@@ -1,10 +1,13 @@
 #include "../headers/Film.h"
 
-Film::Film() {}
+Film::Film() {
+}
 
-Film::~Film() {}
+Film::~Film() {
+}
 
-Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int& durata, const int& an, const std::string& regizor, const std::string& rating, const std::string& format, const double& pret):
+Film::Film(const std::string& nume, const std::vector<std::string>& gen, const int& durata, const int& an,
+           const std::string& regizor, const std::string& rating, const std::string& format, const double& pret):
 	nume(nume),
 	gen(gen),
 	durata(durata),
@@ -12,8 +15,8 @@ Film::Film(const std::string& nume, const std::vector<std::string>& gen, const i
 	regizor(regizor),
 	rating(rating),
 	format(format),
-	pret(pret)
-{}
+	pret(pret) {
+}
 
 Film::Film(const Film& copie):
 	nume(copie.nume),
@@ -23,8 +26,8 @@ Film::Film(const Film& copie):
 	regizor(copie.regizor),
 	rating(copie.rating),
 	format(copie.format),
-	pret(copie.pret)
-{}
+	pret(copie.pret) {
+}
 
 Film& Film::operator=(const Film& copie) {
 	nume = copie.nume;

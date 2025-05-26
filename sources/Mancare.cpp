@@ -2,19 +2,21 @@
 
 #include <iomanip>
 
-Mancare::Mancare() {}
+Mancare::Mancare() {
+}
 
-Mancare::~Mancare() {}
+Mancare::~Mancare() {
+}
 
 Mancare::Mancare(const std::string& nume, double pret, int gramaj):
 	Produs(nume, pret),
-	gramaj(gramaj)
-{}
+	gramaj(gramaj) {
+}
 
 Mancare::Mancare(const Mancare& copie):
 	Produs(copie),
-	gramaj(copie.gramaj)
-{}
+	gramaj(copie.gramaj) {
+}
 
 Mancare& Mancare::operator=(const Mancare& copie) {
 	Produs::operator=(copie);

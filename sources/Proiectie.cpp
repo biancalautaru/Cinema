@@ -1,24 +1,27 @@
 #include "../headers/Proiectie.h"
 
-Proiectie::Proiectie() {}
+Proiectie::Proiectie() {
+}
 
-Proiectie::~Proiectie() {}
+Proiectie::~Proiectie() {
+}
 
-Proiectie::Proiectie(const Film& film, const std::string& zi, const std::string& ora, const Sala& sala, const std::set<int>& ocupate):
+Proiectie::Proiectie(const Film& film, const std::string& zi, const std::string& ora, const Sala& sala,
+                     const std::set<int>& ocupate):
 	film(film),
 	zi(zi),
 	ora(ora),
 	sala(sala),
-	ocupate(ocupate)
-{}
+	ocupate(ocupate) {
+}
 
 Proiectie::Proiectie(const Proiectie& copie):
 	film(copie.film),
 	zi(copie.zi),
 	ora(copie.ora),
 	sala(copie.sala),
-	ocupate(copie.ocupate)
-{}
+	ocupate(copie.ocupate) {
+}
 
 Proiectie& Proiectie::operator=(const Proiectie& copie) {
 	film = copie.film;

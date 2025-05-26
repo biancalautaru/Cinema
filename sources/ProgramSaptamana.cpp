@@ -1,16 +1,18 @@
 #include "../headers/ProgramSaptamana.h"
 
-ProgramSaptamana::ProgramSaptamana() {}
+ProgramSaptamana::ProgramSaptamana() {
+}
 
-ProgramSaptamana::~ProgramSaptamana() {}
+ProgramSaptamana::~ProgramSaptamana() {
+}
 
 ProgramSaptamana::ProgramSaptamana(const std::vector<std::pair<std::string, ProgramZi>>& saptamana):
-	saptamana(saptamana)
-{}
+	saptamana(saptamana) {
+}
 
 ProgramSaptamana::ProgramSaptamana(const ProgramSaptamana& copie):
-	saptamana(copie.saptamana)
-{}
+	saptamana(copie.saptamana) {
+}
 
 ProgramSaptamana& ProgramSaptamana::operator=(const ProgramSaptamana& copie) {
 	saptamana = copie.saptamana;
@@ -43,9 +45,9 @@ ProgramSaptamana ProgramSaptamana::generare(const std::vector<Film>& filme, cons
 	for (int i = 0; i < 7; i++) {
 		std::string zi;
 		switch (i) {
-		case 0:	zi = "Luni";
+		case 0: zi = "Luni";
 			break;
-		case 1:	zi = "Marti";
+		case 1: zi = "Marti";
 			break;
 		case 2: zi = "Miercuri";
 			break;

@@ -15,14 +15,14 @@ public:
 	~Catalog() = default;
 
 	explicit Catalog(const std::vector<T>& obiecte):
-		obiecte(obiecte)
-	{}
+		obiecte(obiecte) {
+	}
 
 	Catalog(const Catalog& copie):
-		obiecte(copie.obiecte)
-	{}
+		obiecte(copie.obiecte) {
+	}
 
-	Catalog& operator=(const Catalog& copie)  {
+	Catalog& operator=(const Catalog& copie) {
 		obiecte = copie.obiecte;
 		return *this;
 	}

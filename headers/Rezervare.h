@@ -20,7 +20,8 @@ public:
 	Rezervare();
 	~Rezervare();
 
-	Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi, const std::vector<std::shared_ptr<Produs>>& produse);
+	Rezervare(const Client& client, const Proiectie& proiectie, const std::vector<int>& locuri, const int& elevi,
+	          const std::vector<std::shared_ptr<Produs>>& produse);
 	Rezervare(const Rezervare& copie);
 
 	Rezervare& operator=(const Rezervare& copie);

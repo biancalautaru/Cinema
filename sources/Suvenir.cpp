@@ -2,19 +2,21 @@
 
 #include <iomanip>
 
-Suvenir::Suvenir() {}
+Suvenir::Suvenir() {
+}
 
-Suvenir::~Suvenir() {}
+Suvenir::~Suvenir() {
+}
 
 Suvenir::Suvenir(const std::string& nume, double pret, const std::string& nume_film):
 	Produs(nume, pret),
-	nume_film(nume_film)
-{}
+	nume_film(nume_film) {
+}
 
 Suvenir::Suvenir(const Suvenir& copie):
 	Produs(copie),
-	nume_film(copie.nume_film)
-{}
+	nume_film(copie.nume_film) {
+}
 
 Suvenir& Suvenir::operator=(const Suvenir& copie) {
 	Produs::operator=(copie);

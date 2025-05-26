@@ -5,9 +5,9 @@
 
 class Client {
 private:
-	std::string	nume;
-	std::string	email;
-	std::string	telefon;
+	std::string nume;
+	std::string email;
+	std::string telefon;
 
 public:
 	Client();
