@@ -4,12 +4,12 @@
 #include <vector>
 #include <memory>
 
-#include "Produs.h"
+#include "Product.h"
 
 class Bar {
 private:
-	static int totalProduse;
-	std::vector<std::shared_ptr<Produs>> produse;
+	static int totalProducts;
+	std::vector<std::shared_ptr<Product>> products;
 
 	Bar();
 	~Bar();
@@ -24,13 +24,13 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const Bar& bar);
 
-	void afisare(std::ostream& os) const;
-	void adaugaProdus(const std::shared_ptr<Produs>& produs);
-	void aplicaPromotii();
-	void aplicaPromotiiMeniuri();
+	void display(std::ostream& os) const;
+	void addProduct(const std::shared_ptr<Product>& product);
+	void applyPromotions();
+	void applyMenuPromotions();
 
-	const std::vector<std::shared_ptr<Produs>>& getProduse() const;
-	static int getTotalProduse();
+	const std::vector<std::shared_ptr<Product>>& getProducts() const;
+	static int getTotalProducts();
 };
 
 #endif

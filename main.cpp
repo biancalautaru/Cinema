@@ -6,451 +6,451 @@
 #include <set>
 #include <memory>
 
-#include "headers/Bautura.h"
-#include "headers/Film.h"
-#include "headers/Sala.h"
-#include "headers/Proiectie.h"
-#include "headers/ProgramZi.h"
-#include "headers/ProgramSaptamana.h"
+#include "headers/Drink.h"
+#include "headers/Movie.h"
+#include "headers/Auditorium.h"
+#include "headers/Screening.h"
+#include "headers/DaySchedule.h"
+#include "headers/WeekSchedule.h"
 #include "headers/Client.h"
-#include "headers/Rezervare.h"
-#include "headers/Produs.h"
-#include "headers/Mancare.h"
-#include "headers/Bautura.h"
-#include "headers/Meniu.h"
-#include "headers/Suvenir.h"
+#include "headers/Reservation.h"
+#include "headers/Product.h"
+#include "headers/Food.h"
+#include "headers/Drink.h"
+#include "headers/Menu.h"
+#include "headers/Souvenir.h"
 #include "headers/Bar.h"
-#include "headers/OptiuneInexistenta.h"
-#include "headers/InputGresit.h"
-#include "headers/LocOcupat.h"
+#include "headers/InvalidOption.h"
+#include "headers/WrongInput.h"
+#include "headers/OccupiedSeat.h"
 #include "headers/Catalog.h"
 #include "headers/Director.h"
-#include "headers/OfertaGrupEleviBuilder.h"
-#include "headers/OfertaFamilieBuilder.h"
-#include "headers/ProdusFactory.h"
+#include "headers/StudentGroupOfferBuilder.h"
+#include "headers/FamilyOfferBuilder.h"
+#include "headers/ProductFactory.h"
 
 int main() {
-	// creare filme
-	Catalog<Film> catalog_filme;
-	catalog_filme.adaugaObiect({"Memento", {"Mister", "Thriller"}, 113, 2000, "Christopher Nolan", "N-15", "2D", 35});
-	catalog_filme.adaugaObiect({"Catch Me If You Can", {"Biografie", "Crima", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35});
-	catalog_filme.adaugaObiect({"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35});
-	catalog_filme.adaugaObiect({"Taxi Driver", {"Crima", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30});
-	catalog_filme.adaugaObiect({"Back to the Future", {"Aventura", "Comedie", "SF"}, 116, 1985, "Robert Zemeckis", "AP-12", "2D", 30});
-	catalog_filme.adaugaObiect({"The Talented Mr. Ripley", {"Crima", "Drama", "Thriller"}, 139, 1999, "Anthony Minghella", "N-15", "2D", 35});
-	catalog_filme.adaugaObiect({"Inception", {"Actiune", "Aventura", "SF", "Thriller"}, 148, 2010, "Christopher Nolan", "N-15", "2D", 40});
-	catalog_filme.adaugaObiect({"Whiplash", {"Drama", "Muzica"}, 106, 2014, "Damien Chazelle", "AP-12", "2D", 30});
-	catalog_filme.adaugaObiect({"Hachi: A Dog's Tale", {"Biografie", "Drama", "Familie"}, 93, 2009, "Lasse Hallstrom", "AG", "2D", 25});
-	catalog_filme.adaugaObiect({"The Sixth Sense", {"Drama", "Mister", "Thriller"}, 107, 1999, "M. Night Shyamalan", "AP-12", "2D", 30});
-	catalog_filme.adaugaObiect({"Liar Liar", {"Comedie", "Fantastic"}, 86, 1997, "Tom Shadyac", "AP-12", "2D", 25});
-	catalog_filme.adaugaObiect({"The Search for Santa Paws", {"Aventura", "Drama", "Familie", "Fantastic"}, 96, 2010, "Robert Vince", "AG", "2D", 25});
-	catalog_filme.adaugaObiect({"Barbie", {"Aventura", "Comedie", "Fantastic"}, 114, 2023, "Greta Gerwig", "AP-12", "2D", 25});
-	catalog_filme.adaugaObiect({"The Godfather", {"Crima", "Drama"}, 175, 1972, "Francis Ford Coppola", "N-15", "2D", 35});
-	catalog_filme.adaugaObiect({"Se7en", {"Crima", "Drama", "Mister", "Thriller"}, 127, 1995, "David Fincher", "N-15", "2D", 30});
-	catalog_filme.adaugaObiect({"The Wolf of Wall Street", {"Biografie", "Comedie", "Crima", "Drama"}, 180, 2013, "Martin Scorsese", "IM-18", "2D", 35});
-	catalog_filme.adaugaObiect({"Casino", {"Crima", "Drama"}, 178, 1995, "Martin Scorsese", "N-15", "2D", 35});
-	catalog_filme.adaugaObiect({"Avatar", {"Actiune", "Aventura", "Fantastic", "SF"}, 162, 2009, "James Cameron", "AP-12", "3D", 40});
-	catalog_filme.adaugaObiect({"Once Upon a Time in America", {"Crima", "Drama"}, 229, 1984, "Sergio Leone", "IM-18", "2D", 40});
-	catalog_filme.adaugaObiect({"Forrest Gump", {"Comedie", "Drama", "Romantic"}, 142, 1994, "Robert Zemeckis", "AP-12", "2D", 30});
-	catalog_filme.adaugaObiect({"Inglourious Basterds", {"Aventura", "Drama", "Razboi"}, 153, 2009, "Quentin Tarantino", "IM-18", "2D", 35});
-	catalog_filme.adaugaObiect({"Dune: Part One", {"Actiune", "Aventura", "Drama", "SF"}, 155, 2021, "Denis Villeneuve", "AP-12", "3D", 40});
-	catalog_filme.adaugaObiect({"The Princess Diaries", {"Comedie", "Familie", "Romantic"}, 105, 2001, "Garry Marshall", "AG", "2D", 25});
-	std::vector<Film> filme = catalog_filme.getObiecte();
+	// create movies
+	Catalog<Movie> movieCatalog;
+	movieCatalog.addObject({"Memento", {"Mistery", "Thriller"}, 113, 2000, "Christopher Nolan", "N-15", "2D", 35});
+	movieCatalog.addObject({"Catch Me If You Can", {"Biography", "Crime", "Drama"}, 141, 2002, "Steven Spielberg", "AP-12", "2D", 35});
+	movieCatalog.addObject({"The Shawshank Redemption", {"Drama"}, 142, 1994, "Frank Darabont", "N-15", "2D", 35});
+	movieCatalog.addObject({"Taxi Driver", {"Crime", "Drama"}, 114, 1976, "Martin Scorsese", "N-15", "2D", 30});
+	movieCatalog.addObject({"Back to the Future", {"Adventure", "Comedy", "Sci-Fi"}, 116, 1985, "Robert Zemeckis", "AP-12", "2D", 30});
+	movieCatalog.addObject({"The Talented Mr. Ripley", {"Crime", "Drama", "Thriller"}, 139, 1999, "Anthony Minghella", "N-15", "2D", 35});
+	movieCatalog.addObject({"Inception", {"Action", "Adventure", "Sci-Fi", "Thriller"}, 148, 2010, "Christopher Nolan", "N-15", "2D", 40});
+	movieCatalog.addObject({"Whiplash", {"Drama", "Music"}, 106, 2014, "Damien Chazelle", "AP-12", "2D", 30});
+	movieCatalog.addObject({"Hachi: A Dog's Tale", {"Biography", "Drama", "Family"}, 93, 2009, "Lasse Hallstrom", "AG", "2D", 25});
+	movieCatalog.addObject({"The Sixth Sense", {"Drama", "Mistery", "Thriller"}, 107, 1999, "M. Night Shyamalan", "AP-12", "2D", 30});
+	movieCatalog.addObject({"Liar Liar", {"Comedy", "Fantasy"}, 86, 1997, "Tom Shadyac", "AP-12", "2D", 25});
+	movieCatalog.addObject({"The Search for Santa Paws", {"Adventure", "Drama", "Family", "Fantasy"}, 96, 2010, "Robert Vince", "AG", "2D", 25});
+	movieCatalog.addObject({"Barbie", {"Adventure", "Comedy", "Fantasy"}, 114, 2023, "Greta Gerwig", "AP-12", "2D", 25});
+	movieCatalog.addObject({"The Godfather", {"Crime", "Drama"}, 175, 1972, "Francis Ford Coppola", "N-15", "2D", 35});
+	movieCatalog.addObject({"Se7en", {"Crime", "Drama", "Mistery", "Thriller"}, 127, 1995, "David Fincher", "N-15", "2D", 30});
+	movieCatalog.addObject({"The Wolf of Wall Street", {"Biography", "Comedy", "Crime", "Drama"}, 180, 2013, "Martin Scorsese", "IM-18", "2D", 35});
+	movieCatalog.addObject({"Casino", {"Crime", "Drama"}, 178, 1995, "Martin Scorsese", "N-15", "2D", 35});
+	movieCatalog.addObject({"Avatar", {"Action", "Adventure", "Fantasy", "Sci-Fi"}, 162, 2009, "James Cameron", "AP-12", "3D", 40});
+	movieCatalog.addObject({"Once Upon a Time in America", {"Crime", "Drama"}, 229, 1984, "Sergio Leone", "IM-18", "2D", 40});
+	movieCatalog.addObject({"Forrest Gump", {"Comedy", "Drama", "Romance"}, 142, 1994, "Robert Zemeckis", "AP-12", "2D", 30});
+	movieCatalog.addObject({"Inglourious Basterds", {"Adventure", "Drama", "War"}, 153, 2009, "Quentin Tarantino", "IM-18", "2D", 35});
+	movieCatalog.addObject({"Dune: Part One", {"Action", "Adventure", "Drama", "Sci-Fi"}, 155, 2021, "Denis Villeneuve", "AP-12", "3D", 40});
+	movieCatalog.addObject({"The Princess Diaries", {"Comedy", "Family", "Romance"}, 105, 2001, "Garry Marshall", "AG", "2D", 25});
+	std::vector<Movie> movies = movieCatalog.getObjects();
 
-	// creare sali
-	Catalog<Sala> catalog_sali;
-	catalog_sali.adaugaObiect({1, 5, 20});
-	catalog_sali.adaugaObiect({2, 8, 12});
-	catalog_sali.adaugaObiect({3, 5, 15});
-	catalog_sali.adaugaObiect({4, 7, 11});
-	catalog_sali.adaugaObiect({5, 9, 23});
-	std::vector<Sala> sali = catalog_sali.getObiecte();
+	// create auditoriums
+	Catalog<Auditorium> auditoriumCatalog;
+	auditoriumCatalog.addObject({1, 5, 20});
+	auditoriumCatalog.addObject({2, 8, 12});
+	auditoriumCatalog.addObject({3, 5, 15});
+	auditoriumCatalog.addObject({4, 7, 11});
+	auditoriumCatalog.addObject({5, 9, 23});
+	std::vector<Auditorium> auditoriums = auditoriumCatalog.getObjects();
 
-	// creare clienti
-	Catalog<Client> catalog_clienti;
-	catalog_clienti.adaugaObiect({"Ion Popescu", "ion.popescu@gmail.com", "0749187947"});
-	catalog_clienti.adaugaObiect({"George Ionescu", "george.ionescu@gmail.com", "0764367341"});
-	catalog_clienti.adaugaObiect({"Mihai Vasile", "mihai.vasile@yahoo.com", "0737635326"});
-	catalog_clienti.adaugaObiect({"Alexandru Radulescu", "alexandru.radulescu@gmail.com", "0789525437"});
-	catalog_clienti.adaugaObiect({"Gabriel Tudor", "gabriel.tudor@hotmail.com", "0778912345"});
-	catalog_clienti.adaugaObiect({"Maria Popa", "maria.popa@yahoo.com", "0758369424"});
-	catalog_clienti.adaugaObiect({"Diana Munteanu", "diana.munteanu@hotmail.com", "0723658741"});
-	catalog_clienti.adaugaObiect({"Gabriela Radu", "gabriela.radu@gmail.com", "0752375437"});
-	catalog_clienti.adaugaObiect({"Elena Dumitrescu", "elena.dumitrescu@yahoo.com", "0765432199"});
-	catalog_clienti.adaugaObiect({"Ana Dobre", "ana.dobre@gmail.com", "0745123789"});
-	std::vector<Client> clienti = catalog_clienti.getObiecte();
+	// create clients
+	Catalog<Client> clientCatalog;
+	clientCatalog.addObject({"Ion Popescu", "ion.popescu@gmail.com", "0749187947"});
+	clientCatalog.addObject({"George Ionescu", "george.ionescu@gmail.com", "0764367341"});
+	clientCatalog.addObject({"Mihai Vasile", "mihai.vasile@yahoo.com", "0737635326"});
+	clientCatalog.addObject({"Alexandru Radulescu", "alexandru.radulescu@gmail.com", "0789525437"});
+	clientCatalog.addObject({"Gabriel Tudor", "gabriel.tudor@hotmail.com", "0778912345"});
+	clientCatalog.addObject({"Maria Popa", "maria.popa@yahoo.com", "0758369424"});
+	clientCatalog.addObject({"Diana Munteanu", "diana.munteanu@hotmail.com", "0723658741"});
+	clientCatalog.addObject({"Gabriela Radu", "gabriela.radu@gmail.com", "0752375437"});
+	clientCatalog.addObject({"Elena Dumitrescu", "elena.dumitrescu@yahoo.com", "0765432199"});
+	clientCatalog.addObject({"Ana Dobre", "ana.dobre@gmail.com", "0745123789"});
+	std::vector<Client> clients = clientCatalog.getObjects();
 
-	// generare program
-	ProgramSaptamana program_saptamana;
-	program_saptamana = program_saptamana.generare(filme, sali);
+	// generate schedule
+	WeekSchedule weekSchedule;
+	weekSchedule = weekSchedule.generate(movies, auditoriums);
 
-	// creare rezervari existente
-	std::vector<Rezervare> rezervari;
-	std::vector<std::pair<std::string, ProgramZi>> program = program_saptamana.getSaptamana();
-	program_saptamana = {};
-	for (size_t i = 0; i < program.size(); i++) {
-		std::vector<Proiectie> proiectii = program[i].second.getZi();
+	// create existing reservations
+	std::vector<Reservation> reservations;
+	std::vector<std::pair<std::string, DaySchedule>> schedule = weekSchedule.getWeek();
+	weekSchedule = {};
+	for (size_t i = 0; i < schedule.size(); i++) {
+		std::vector<Screening> screenings = schedule[i].second.getDay();
 
-		for (size_t j = 0; j < proiectii.size(); j++) {
-			std::set<int> ocupate = proiectii[j].getOcupate();
+		for (size_t j = 0; j < screenings.size(); j++) {
+			std::set<int> occupied = screenings[j].getOccupied();
 
-			std::vector<int> clienti_fara_rezervare;
-			for (size_t k = 0; k < clienti.size(); k++)
-				clienti_fara_rezervare.push_back(k);
+			std::vector<int> clientsWithoutReservations;
+			for (size_t k = 0; k < clients.size(); k++)
+				clientsWithoutReservations.push_back(k);
 
-			int ultima_rezervare = rezervari.size() - 1;
+			int lastReservation = reservations.size() - 1;
 
-			// pentru fiecare proiectie, selectez un nr random (intre 0 si size clienti)
+			// for each screening select a random number (between 0 and size(clients))
 			std::srand(std::chrono::system_clock::now().time_since_epoch().count());
-			int nr_clienti = rand() % clienti.size();
+			int clientsNumber = rand() % clients.size();
 
-			while (nr_clienti--) {
-				// selectez un client random din cei ramasi
-				int poz_client = rand() % clienti_fara_rezervare.size();
-				const Client& client = clienti[clienti_fara_rezervare[poz_client]];
-				clienti_fara_rezervare.erase(clienti_fara_rezervare.begin() + poz_client);
+			while (clientsNumber--) {
+				// select a random client from the remaining ones
+				int clientPos = rand() % clientsWithoutReservations.size();
+				const Client& client = clients[clientsWithoutReservations[clientPos]];
+				clientsWithoutReservations.erase(clientsWithoutReservations.begin() + clientPos);
 
-				// selectez random locurile (intre 1 si 10 + sa aiba loc pe un rand) si numarul elevilor
-				int nr_locuri = 1 + rand() % 10;
-				int nr_rand = rand() % proiectii[j].getSala().getRanduri();
-				int nr_coloana = rand() % proiectii[j].getSala().getColoane();
-				int col_start = std::max(0, nr_coloana - nr_locuri / 2);
-				int col_final = std::min(nr_coloana + nr_locuri / 2, proiectii[j].getSala().getColoane() - 1);
-				nr_locuri = col_final - col_start + 1;
-				int nr_elevi = rand() % nr_locuri;
-				std::vector<int> ocupate_rezervare;
-				for (int k = col_start; k <= col_final; k++) {
-					ocupate.insert(nr_rand * proiectii[j].getSala().getColoane() + k + 1);
-					ocupate_rezervare.push_back(nr_rand * proiectii[j].getSala().getColoane() + k + 1);
+				// randomly select seats (between 1 and 10 + should fit on one line) and number of students
+				int seatsNumber = 1 + rand() % 10;
+				int rowsNumber = rand() % screenings[j].getAuditorium().getRows();
+				int columnsNumber = rand() % screenings[j].getAuditorium().getColumns();
+				int startColumn = std::max(0, columnsNumber - seatsNumber / 2);
+				int endColumn = std::min(columnsNumber + seatsNumber / 2, screenings[j].getAuditorium().getColumns() - 1);
+				seatsNumber = endColumn - startColumn + 1;
+				int studentsNumber = rand() % seatsNumber;
+				std::vector<int> selected;
+				for (int k = startColumn; k <= endColumn; k++) {
+					occupied.insert(rowsNumber * screenings[j].getAuditorium().getColumns() + k + 1);
+					selected.push_back(rowsNumber * screenings[j].getAuditorium().getColumns() + k + 1);
 				}
 
-				// creez rezervarea
-				Rezervare rezervare;
-				rezervare.setClient(client);
-				rezervare.setLocuri(ocupate_rezervare);
-				rezervare.setElevi(nr_elevi);
-				rezervari.push_back(rezervare);
+				// create reservation
+				Reservation reservation;
+				reservation.setClient(client);
+				reservation.setSeats(selected);
+				reservation.setStudents(studentsNumber);
+				reservations.push_back(reservation);
 			}
 
-			proiectii[j].setOcupate(ocupate);
-			for (size_t k = ultima_rezervare + 1; k < rezervari.size(); k++)
-				rezervari[k].setProiectie(proiectii[j]);
+			screenings[j].setOccupied(occupied);
+			for (size_t k = lastReservation + 1; k < reservations.size(); k++)
+				reservations[k].setScreening(screenings[j]);
 		}
 
-		ProgramZi program_zi;
-		program_zi.setZi(proiectii);
-		program_saptamana = program_saptamana.adaugaZi({program[i].first, program_zi});
+		DaySchedule daySchedule;
+		daySchedule.setDay(screenings);
+		weekSchedule = weekSchedule.addDay({schedule[i].first, daySchedule});
 	}
 
-	// creare produse
-	ProdusFactory produs_factory;
+	// create products
+	ProductFactory productFactory;
 
-	std::shared_ptr<Produs> popcorn_mic = produs_factory.createProdus(MANCARE, "Popcorn Mic", 16.99, 300);
-	std::shared_ptr<Produs> popcorn_mediu = produs_factory.createProdus(MANCARE, "Popcorn Mediu", 20.99, 500);
-	std::shared_ptr<Produs> popcorn_mare = produs_factory.createProdus(MANCARE, "Popcorn Mare", 24.99, 800);
-	std::shared_ptr<Produs> cola_mic = produs_factory.createProdus(BAUTURA, "Coca-Cola Mic", 7.99, 330);
-	std::shared_ptr<Produs> cola_mediu = produs_factory.createProdus(BAUTURA, "Coca-Cola Mediu", 9.99, 500);
-	std::shared_ptr<Produs> cola_mare = produs_factory.createProdus(BAUTURA, "Coca-Cola Mare", 12.99, 750);
+	std::shared_ptr<Product> smallPopcorn = productFactory.createProduct(FOOD, "Small Popcorn", 16.99, 300);
+	std::shared_ptr<Product> mediumPopcorn = productFactory.createProduct(FOOD, "Medium Popcorn", 20.99, 500);
+	std::shared_ptr<Product> largePopcorn = productFactory.createProduct(FOOD, "Large Popcorn", 24.99, 800);
+	std::shared_ptr<Product> smallCocaCola = productFactory.createProduct(DRINK, "Small Coca-Cola", 7.99, 330);
+	std::shared_ptr<Product> mediumCocaCola = productFactory.createProduct(DRINK, "Medium Coca-Cola", 9.99, 500);
+	std::shared_ptr<Product> largeCocaCola = productFactory.createProduct(DRINK, "Large Coca-Cola", 12.99, 750);
 
-	int g_mic = std::dynamic_pointer_cast<Mancare>(popcorn_mic)->getGramaj();
-	int g_mediu = std::dynamic_pointer_cast<Mancare>(popcorn_mediu)->getGramaj();
-	int g_mare = std::dynamic_pointer_cast<Mancare>(popcorn_mare)->getGramaj();
-	int v_mic = std::dynamic_pointer_cast<Bautura>(cola_mic)->getVolum();
-	int v_mediu = std::dynamic_pointer_cast<Bautura>(cola_mediu)->getVolum();
-	int v_mare = std::dynamic_pointer_cast<Bautura>(cola_mare)->getVolum();
+	int wSmall = std::dynamic_pointer_cast<Food>(smallPopcorn)->getWeight();
+	int wMedium = std::dynamic_pointer_cast<Food>(mediumPopcorn)->getWeight();
+	int wLarge = std::dynamic_pointer_cast<Food>(largePopcorn)->getWeight();
+	int vSmall = std::dynamic_pointer_cast<Drink>(smallCocaCola)->getVolume();
+	int vMedium = std::dynamic_pointer_cast<Drink>(mediumCocaCola)->getVolume();
+	int vLarge = std::dynamic_pointer_cast<Drink>(largeCocaCola)->getVolume();
 
-	std::shared_ptr<Produs> meniu_mic = produs_factory.createProdus(MENIU, "Meniu Mic", 20.99, popcorn_mic->getNume(), g_mic, cola_mic->getNume(), v_mic, MIC);
-	std::shared_ptr<Produs> meniu_mediu = produs_factory.createProdus(MENIU, "Meniu Mediu", 26.99, popcorn_mediu->getNume(), g_mediu, cola_mediu->getNume(), v_mediu, MEDIU);
-	std::shared_ptr<Produs> meniu_mare = produs_factory.createProdus(MENIU, "Meniu Mare", 31.99, popcorn_mare->getNume(), g_mare, cola_mare->getNume(), v_mare, MARE);
-	std::shared_ptr<Produs> meniu_mic_mediu = produs_factory.createProdus(MENIU, "Meniu mic-mediu", 23.99, popcorn_mic->getNume(), g_mic, cola_mediu->getNume(), v_mediu, SPECIAL);
-	std::shared_ptr<Produs> meniu_mediu_mare = produs_factory.createProdus(MENIU, "Meniu mediu-mare", 28.99, popcorn_mediu->getNume(), g_mediu, cola_mare->getNume(), v_mare, SPECIAL);
+	std::shared_ptr<Product> smallMenu = productFactory.createProduct(MENU, "Small Menu", 20.99, smallPopcorn->getName(), wSmall, smallCocaCola->getName(), vSmall, SMALL);
+	std::shared_ptr<Product> mediumMenu = productFactory.createProduct(MENU, "Medium Menu", 26.99, mediumPopcorn->getName(), wMedium, mediumCocaCola->getName(), vMedium, MEDIUM);
+	std::shared_ptr<Product> largeMenu = productFactory.createProduct(MENU, "Large Menu", 31.99, largePopcorn->getName(), wLarge, largeCocaCola->getName(), vLarge, LARGE);
+	std::shared_ptr<Product> smallMediumMenu = productFactory.createProduct(MENU, "Small-Medium Menu", 23.99, smallPopcorn->getName(), wSmall, mediumCocaCola->getName(), vMedium, SPECIAL);
+	std::shared_ptr<Product> mediumLargeMenu = productFactory.createProduct(MENU, "Medium-Large Menu", 28.99, mediumPopcorn->getName(), wMedium, largeCocaCola->getName(), vLarge, SPECIAL);
 
-	std::shared_ptr<Produs> pahar_dune = produs_factory.createProdus(SUVENIR, "Pahar", 34.99, "Dune: Part One");
-	std::shared_ptr<Produs> tricou_barbie = produs_factory.createProdus(SUVENIR, "Tricou", 54.99, "Barbie");
+	std::shared_ptr<Product> duneCup = productFactory.createProduct(SOUVENIR, "Cup", 34.99, "Dune: Part One");
+	std::shared_ptr<Product> barbieTShirt = productFactory.createProduct(SOUVENIR, "T-Shirt", 54.99, "Barbie");
 
-	// adaugare produse la bar
+	// add products to the bar
 	Bar* bar = Bar::getInstance();
-	bar->adaugaProdus(popcorn_mic->clone());
-	bar->adaugaProdus(popcorn_mediu);
-	bar->adaugaProdus(popcorn_mare);
-	bar->adaugaProdus(cola_mic);
-	bar->adaugaProdus(cola_mediu);
-	bar->adaugaProdus(cola_mare);
-	bar->adaugaProdus(meniu_mic);
-	bar->adaugaProdus(meniu_mediu);
-	bar->adaugaProdus(meniu_mare);
-	bar->adaugaProdus(meniu_mic_mediu);
-	bar->adaugaProdus(meniu_mediu_mare);
-	bar->adaugaProdus(pahar_dune);
-	bar->adaugaProdus(tricou_barbie);
+	bar->addProduct(smallPopcorn->clone());
+	bar->addProduct(mediumPopcorn);
+	bar->addProduct(largePopcorn);
+	bar->addProduct(smallCocaCola);
+	bar->addProduct(mediumCocaCola);
+	bar->addProduct(largeCocaCola);
+	bar->addProduct(smallMenu);
+	bar->addProduct(mediumMenu);
+	bar->addProduct(largeMenu);
+	bar->addProduct(smallMediumMenu);
+	bar->addProduct(mediumLargeMenu);
+	bar->addProduct(duneCup);
+	bar->addProduct(barbieTShirt);
 
-	bar->aplicaPromotii();
-	bar->aplicaPromotiiMeniuri();
+	bar->applyPromotions();
+	bar->applyMenuPromotions();
 
-	// creare oferte
+	// create offers
 	Director director;
 
-	OfertaGrupEleviBuilder oferta_builder1;
-	director.setOfertaBuilder(&oferta_builder1);
-	director.buildOferta();
-	const Oferta* oferta_grup_elevi = director.getOferta();
+	auto* offerBuilder1 = new StudentGroupOfferBuilder();
+	director.setOfferBuilder(offerBuilder1);
+	director.buildOffer();
+	const Offer* studentGroupOffer = director.getOffer();
+	delete offerBuilder1;
 
-	OfertaFamilieBuilder oferta_builder2;
-	director.setOfertaBuilder(&oferta_builder2);
-	director.buildOferta();
-	const Oferta* oferta_familie = director.getOferta();
+	auto* offerBuilder2 = new FamilyOfferBuilder();
+	director.setOfferBuilder(offerBuilder2);
+	director.buildOffer();
+	const Offer* familyOffer = director.getOffer();
+	delete offerBuilder2;
 
-	// meniu interactiv
+	// interactive menu
 	while (true) {
-		std::cout << "|------------------ Meniu ---------------|\n";
-		std::cout << "| 1. Afisare program ziua curenta        |\n";
+		std::cout << "|------------------ Menu ----------------|\n";
+		std::cout << "| 1. View today's schedule               |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 2. Afisare program saptamana curenta   |\n";
+		std::cout << "| 2. View this week's schedule           |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 3. Afisare lista filme                 |\n";
+		std::cout << "| 3. View movie list                     |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 4. Afisare configuratie sali           |\n";
+		std::cout << "| 4. View auditorium configurations      |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 5. Creare rezervare                    |\n";
+		std::cout << "| 5. Make a reservation                  |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 6. Cautare film dupa gen               |\n";
+		std::cout << "| 6. Search movie by genre               |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 7. Cautare sala dupa numar de randuri  |\n";
+		std::cout << "| 7. Search auditorium by number of rows |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 8. Vizualizare oferte                  |\n";
+		std::cout << "| 8. View offers                         |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 9. Iesire                              |\n";
+		std::cout << "| 9. Exit                                |\n";
 		std::cout << "|----------------------------------------|\n";
 
-		std::cout << "Introduceti numarul optiunii dorite:";
-		std::string linie;
-		int optiune;
+		std::cout << "Enter the number of the desired option:";
+		std::string line;
+		int option;
 		while (true) {
 			try {
-				std::getline(std::cin, linie);
-				optiune = 0;
-				for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
-					optiune = 10 * optiune + (linie[i] - '0');
-				if (optiune < 1 || optiune > 9)
-					throw OptiuneInexistenta();
+				std::getline(std::cin, line);
+				option = 0;
+				for (size_t i = 0; i < line.size() && isdigit(line[i]); i++)
+					option = 10 * option + (line[i] - '0');
+				if (option < 1 || option > 9)
+					throw InvalidOption();
 				break;
 			}
-			catch (const OptiuneInexistenta& e) {
+			catch (const InvalidOption& e) {
 				std::cout << e.what();
 			}
 		}
 
-		if (optiune == 1) {
-			auto azi = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
-			auto ziua_saptamanii = std::chrono::weekday{std::chrono::sys_days{azi}};
-			int nr_azi = ziua_saptamanii.c_encoding() - 1;
-			if (nr_azi == -1)
-				nr_azi = 6;
-			auto program_azi = program_saptamana.getSaptamana()[nr_azi];
-			std::cout << "- " << program_azi.first << " -\n" << program_azi.second;
+		if (option == 1) {
+			auto today = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
+			auto dayOfTheWeek = std::chrono::weekday{std::chrono::sys_days{today}};
+			int todayNumber = dayOfTheWeek.c_encoding() - 1;
+			if (todayNumber == -1)
+				todayNumber = 6;
+			auto todaySchedule = weekSchedule.getWeek()[todayNumber];
+			std::cout << "- " << todaySchedule.first << " -\n" << todaySchedule.second;
 		}
-		else if (optiune == 2)
-			std::cout << program_saptamana;
-		else if (optiune == 3)
-			std::cout << catalog_filme;
-		else if (optiune == 4)
-			std::cout << catalog_sali;
-		else if (optiune == 5) {
-			std::cout << "- Creare rezervare -\n\n";
+		else if (option == 2)
+			std::cout << weekSchedule;
+		else if (option == 3)
+			std::cout << movieCatalog;
+		else if (option == 4)
+			std::cout << auditoriumCatalog;
+		else if (option == 5) {
+			std::cout << "- Create reservation -\n\n";
 
-			std::string nume, email, telefon;
-			std::cout << "Nume: ";
-			std::getline(std::cin, nume);
+			std::string name, email, phone;
+			std::cout << "Name: ";
+			std::getline(std::cin, name);
 			std::cout << "Email: ";
 			std::getline(std::cin, email);
-			std::cout << "Telefon: ";
-			std::getline(std::cin, telefon);
-			Client client(nume, email, telefon);
-			clienti.push_back(client);
+			std::cout << "Phone number: ";
+			std::getline(std::cin, phone);
+			Client client(name, email, phone);
+			clients.push_back(client);
 
-			std::string zi;
-			std::cout << "Ziua aleasa: ";
-			std::getline(std::cin, zi);
-			if (islower(zi[0]))
-				zi[0] = zi[0] - 'a' + 'A';
-			int nr_zi = -1;
-			if (zi == "Luni")
-				nr_zi = 0;
-			else if (zi == "Marti")
-				nr_zi = 1;
-			else if (zi == "Miercuri")
-				nr_zi = 2;
-			else if (zi == "Joi")
-				nr_zi = 3;
-			else if (zi == "Vineri")
-				nr_zi = 4;
-			else if (zi == "Sambata")
-				nr_zi = 5;
-			else if (zi == "Duminica")
-				nr_zi = 6;
+			std::string day;
+			std::cout << "Chosen day: ";
+			std::getline(std::cin, day);
+			if (islower(day[0]))
+				day[0] = day[0] - 'a' + 'A';
+			int dayNumber = -1;
+			if (day == "Monday")
+				dayNumber = 0;
+			else if (day == "Tuesday")
+				dayNumber = 1;
+			else if (day == "Wednesday")
+				dayNumber = 2;
+			else if (day == "Thursday")
+				dayNumber = 3;
+			else if (day == "Friday")
+				dayNumber = 4;
+			else if (day == "Saturday")
+				dayNumber = 5;
+			else if (day == "Sunday")
+				dayNumber = 6;
 
-			std::vector<Proiectie> proiectii, proiectii_modificat;
-			proiectii = program_saptamana.getSaptamana()[nr_zi].second.getZi();
-			for (size_t i = 0; i < proiectii.size(); i++) {
+			std::vector<Screening> screenings, screeningsModified;
+			screenings = weekSchedule.getWeek()[dayNumber].second.getDay();
+			for (size_t i = 0; i < screenings.size(); i++) {
 				if (i + 1 < 10)
 					std::cout << " ";
 				std::cout << i + 1 << ". ";
 				std::cout << "| ";
-				std::cout << "Ora " << proiectii[i].getOra() << " | ";
-				std::cout << "Sala " << proiectii[i].getSala().getNumar() << " | ";
-				std::cout << proiectii[i].getFilm().getNume() << " | ";
-				int nr_locuri = proiectii[i].locuriRamase();
-				if (nr_locuri == 1)
-					std::cout << nr_locuri << " loc ramas";
-				else if (nr_locuri >= 20)
-					std::cout << nr_locuri << " de locuri ramase";
+				std::cout << "Time: " << screenings[i].getTime() << " | ";
+				std::cout << "Aud. " << screenings[i].getAuditorium().getNumber() << " | ";
+				std::cout << screenings[i].getMovie().getName() << " | ";
+				int seatsNumber = screenings[i].availableSeats();
+				if (seatsNumber == 1)
+					std::cout << seatsNumber << " seat available";
 				else
-					std::cout << nr_locuri << " locuri ramase";
+					std::cout << seatsNumber << " seats available";
 				std::cout << "\n";
 			}
 			std::cout << "\n";
 
-			std::cout << "Introduceti numarul proiectiei dorite: ";
-			std::getline(std::cin, linie);
-			int nr_proiectie = 0;
-			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
-				nr_proiectie = 10 * nr_proiectie + (linie[i] - '0');
-			nr_proiectie--;
-			if (nr_proiectie == -1)
-				nr_proiectie = 0;
-			std::cout << proiectii[nr_proiectie] << "\n";
+			std::cout << "Enter the number of the desired screening: ";
+			std::getline(std::cin, line);
+			int screeningNumber = 0;
+			for (size_t i = 0; i < line.size() && isdigit(line[i]); i++)
+				screeningNumber = 10 * screeningNumber + (line[i] - '0');
+			screeningNumber--;
+			if (screeningNumber == -1)
+				screeningNumber = 0;
+			std::cout << screenings[screeningNumber] << "\n";
 
-			std::cout << "Introduceti locurile dorite (separate prin spatii): ";
-			std::vector<int> locuri;
+			std::cout << "Enter the desired seats (separated by spaces): ";
+			std::vector<int> seats;
 			while (true) {
 				try {
 					while (true) {
-						std::getline(std::cin, linie);
+						std::getline(std::cin, line);
 						try {
-							for (size_t i = 0; i < linie.size(); i++)
-								if (!isdigit(linie[i]) && linie[i] != ' ')
-									throw InputGresit();
+							for (size_t i = 0; i < line.size(); i++)
+								if (!isdigit(line[i]) && line[i] != ' ')
+									throw WrongInput();
 							break;
 						}
-						catch (const InputGresit& e) {
+						catch (const WrongInput& e) {
 							std::cout << e.what();
 						}
 					}
 
-					locuri.clear();
-					for (size_t i = 0; i < linie.size(); i++)
-						if (isdigit(linie[i])) {
-							int loc = 0;
+					seats.clear();
+					for (size_t i = 0; i < line.size(); i++)
+						if (isdigit(line[i])) {
+							int seat = 0;
 							size_t j;
-							for (j = i; isdigit(linie[j]); j++)
-								loc = loc * 10 + linie[j] - '0';
+							for (j = i; isdigit(line[j]); j++)
+								seat = seat * 10 + line[j] - '0';
 							i = j - 1;
-							locuri.push_back(loc);
+							seats.push_back(seat);
 						}
 
-					for (auto loc : locuri) {
-						if (loc < 1 || loc > proiectii[nr_proiectie].getSala().getRanduri() * proiectii[nr_proiectie].getSala().getColoane())
-							throw InputGresit();
-						for (auto it : proiectii[nr_proiectie].getOcupate())
-							if (loc == it)
-								throw LocOcupat();
+					for (auto seat : seats) {
+						if (seat < 1 || seat > screenings[screeningNumber].getAuditorium().getRows() * screenings[screeningNumber].getAuditorium().getColumns())
+							throw WrongInput();
+						for (auto it : screenings[screeningNumber].getOccupied())
+							if (seat == it)
+								throw OccupiedSeat();
 					}
 
 					break;
 				}
-				catch (const InputGresit& e) {
+				catch (const WrongInput& e) {
 					std::cout << e.what();
 				}
-				catch (const LocOcupat& e) {
+				catch (const OccupiedSeat& e) {
 					std::cout << e.what();
 				}
 			}
 
-			std::cout << "Numarul de bilete destinate elevilor (20% reducere): ";
-			std::getline(std::cin, linie);
-			int elevi = 0;
-			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
-				elevi = 10 * elevi + (linie[i] - '0');
+			std::cout << "Number of student tickets (20% off): ";
+			std::getline(std::cin, line);
+			int students = 0;
+			for (size_t i = 0; i < line.size() && isdigit(line[i]); i++)
+				students = 10 * students + (line[i] - '0');
 
-			Rezervare rezervare;
-			rezervare.setClient(client);
-			rezervare.setProiectie(proiectii[nr_proiectie]);
-			rezervare.setLocuri(locuri);
-			rezervare.setElevi(elevi);
-			rezervari.push_back(rezervare);
+			Reservation reservation;
+			reservation.setClient(client);
+			reservation.setScreening(screenings[screeningNumber]);
+			reservation.setSeats(seats);
+			reservation.setStudents(students);
+			reservations.push_back(reservation);
 
-			std::set<int> ocupate = proiectii[nr_proiectie].getOcupate();
-			for (size_t i = 0; i < locuri.size(); i++)
-				ocupate.insert(locuri[i]);
-			std::vector<std::pair<std::string, ProgramZi>> program_modificat = program_saptamana.getSaptamana();
-			proiectii_modificat = program_modificat[nr_zi].second.getZi();
-			proiectii_modificat[nr_proiectie].setOcupate(ocupate);
-			program_modificat[nr_zi].second.setZi(proiectii_modificat);
-			program_saptamana.setSaptamana(program_modificat);
-			for (size_t i = 0; i < rezervari.size(); i++)
-				if (rezervari[i].getProiectie().getZi() == proiectii[nr_proiectie].getZi()
-					&& rezervari[i].getProiectie().getOra() == proiectii[nr_proiectie].getOra()
-					&& rezervari[i].getProiectie().getSala().getNumar() == proiectii[nr_proiectie].getSala().getNumar())
-					rezervari[i].setProiectie(proiectii_modificat[nr_proiectie]);
+			std::set<int> occupied = screenings[screeningNumber].getOccupied();
+			for (size_t i = 0; i < seats.size(); i++)
+				occupied.insert(seats[i]);
+			std::vector<std::pair<std::string, DaySchedule>> scheduleModified = weekSchedule.getWeek();
+			screeningsModified = scheduleModified[dayNumber].second.getDay();
+			screeningsModified[screeningNumber].setOccupied(occupied);
+			scheduleModified[dayNumber].second.setDay(screeningsModified);
+			weekSchedule.setWeek(scheduleModified);
+			for (size_t i = 0; i < reservations.size(); i++)
+				if (reservations[i].getScreening().getDay() == screenings[screeningNumber].getDay()
+					&& reservations[i].getScreening().getTime() == screenings[screeningNumber].getTime()
+					&& reservations[i].getScreening().getAuditorium().getNumber() == screenings[screeningNumber].getAuditorium().getNumber())
+					reservations[i].setScreening(screeningsModified[screeningNumber]);
 
-			std::cout << "Doriti sa adaugati produse de la bar la rezervare? (da/nu)\n";
-			std::getline(std::cin, linie);
-			if (linie == "nu") {
-				std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n";
-				rezervari[rezervari.size() - 1].afisareRezervare(std::cout);
+			std::cout << "Do you want to add products from the bar to the reservation? (yes/no)\n";
+			std::getline(std::cin, line);
+			if (line == "no") {
+				std::cout << "Reservation completed successfully!\n\nReservation details:\n";
+				reservations[reservations.size() - 1].displayReservation(std::cout);
 			}
 			else {
-				rezervari[rezervari.size() - 1].citireProduse(std::cin, std::cout, bar);
-				std::cout << "Rezervarea a fost efectuata!\n\nDetalii rezervare:\n";
-				rezervari[rezervari.size() - 1].afisareRezervare(std::cout);
+				reservations[reservations.size() - 1].readProducts(std::cin, std::cout, bar);
+				std::cout << "Reservation completed successfully!\n\nReservation details:\n";
+				reservations[reservations.size() - 1].displayReservation(std::cout);
 				std::cout << "\n";
-				std::cout << "Produse comandate de la bar:\n";
-				rezervari[rezervari.size() - 1].afisareProduse(std::cout);
+				std::cout << "Products ordered from the bar:\n";
+				reservations[reservations.size() - 1].displayProducts(std::cout);
 				std::cout << "\n";
-				std::cout << "Pret total rezervare: " << rezervari[rezervari.size() - 1].pretTotal() << " lei\n";
+				std::cout << "Total reservation price: " << reservations[reservations.size() - 1].totalPrice() << " lei\n";
 			}
 		}
-		else if (optiune == 6) {
-			std::cout << "Introduceti genul de film cautat: ";
-			std::getline(std::cin, linie);
-			std::string gen;
-			for (auto c : linie)
-				gen += tolower(c);
+		else if (option == 6) {
+			std::cout << "Enter the genre you are searching for: ";
+			std::getline(std::cin, line);
+			std::string genre;
+			for (auto c : line)
+				genre += tolower(c);
 
-			catalog_filme.cautaObiect(std::cout, [gen](const Film& film) {
-				for (const std::string& gen_lista : film.getGen()) {
-					std::string gen_lower;
-					for (auto c : gen_lista)
-						gen_lower += tolower(c);
-					if (gen_lower == gen)
+			movieCatalog.searchObject(std::cout, [genre](const Movie& movie) {
+				for (const std::string& genreList : movie.getGenre()) {
+					std::string genreLower;
+					for (auto c : genreList)
+						genreLower += tolower(c);
+					if (genreLower == genre)
 						return true;
 				}
 				return false;
 			});
 		}
-		else if (optiune == 7) {
-			std::cout << "Introduceti numarul minim de randuri cautat: ";
-			std::getline(std::cin, linie);
-			int nr_min = 0;
-			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
-				nr_min = 10 * nr_min + (linie[i] - '0');
+		else if (option == 7) {
+			std::cout << "Enter the minimum number of rows you are searching for: ";
+			std::getline(std::cin, line);
+			int minimum = 0;
+			for (size_t i = 0; i < line.size() && isdigit(line[i]); i++)
+				minimum = 10 * minimum + (line[i] - '0');
 
-			std::cout << "Introduceti numarul maxim de randuri cautat: ";
-			std::getline(std::cin, linie);
-			int nr_max = 0;
-			for (size_t i = 0; i < linie.size() && isdigit(linie[i]); i++)
-				nr_max = 10 * nr_max + (linie[i] - '0');
+			std::cout << "Enter the maximum number of rows you are searching for: ";
+			std::getline(std::cin, line);
+			int maximum = 0;
+			for (size_t i = 0; i < line.size() && isdigit(line[i]); i++)
+				maximum = 10 * maximum + (line[i] - '0');
 
-			catalog_sali.cautaObiect(std::cout, [nr_min, nr_max](const Sala& sala) {
-				return sala.getRanduri() >= nr_min && sala.getRanduri() <= nr_max;
+			auditoriumCatalog.searchObject(std::cout, [minimum, maximum](const Auditorium& auditorium) {
+				return auditorium.getRows() >= minimum && auditorium.getRows() <= maximum;
 			});
 		}
-		else if (optiune == 8) {
-			std::cout << "Oferte existente:\n";
-			oferta_grup_elevi->afisare(std::cout);
-			oferta_familie->afisare(std::cout);
+		else if (option == 8) {
+			std::cout << "Existing offers:\n";
+			studentGroupOffer->display(std::cout);
+			familyOffer->display(std::cout);
 		}
-		else if (optiune == 9)
+		else if (option == 9)
 			break;
 		std::cout << "\n";
 	}

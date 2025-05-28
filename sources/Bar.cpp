@@ -1,9 +1,9 @@
 #include "../headers/Bar.h"
-#include "../headers/Meniu.h"
+#include "../headers/Menu.h"
 
 #include <iostream>
 
-int Bar::totalProduse = 0;
+int Bar::totalProducts = 0;
 
 Bar::Bar() {
 }
@@ -20,40 +20,40 @@ Bar* Bar::getInstance() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bar& bar) {
-	os << "Produse bar (" << Bar::getTotalProduse() << " produse):\n";
-	bar.afisare(os);
+	os << "Bar products (" << Bar::getTotalProducts() << " products):\n";
+	bar.display(os);
 	return os;
 }
 
-void Bar::afisare(std::ostream& os) const {
-	for (size_t i = 0; i < produse.size(); i++) {
+void Bar::display(std::ostream& os) const {
+	for (size_t i = 0; i < products.size(); i++) {
 		os << i + 1 << ". ";
-		produse[i]->afisare(os);
+		products[i]->display(os);
 	}
 }
 
-void Bar::adaugaProdus(const std::shared_ptr<Produs>& produs) {
-	produse.push_back(produs);
-	totalProduse++;
+void Bar::addProduct(const std::shared_ptr<Product>& product) {
+	products.push_back(product);
+	totalProducts++;
 }
 
-void Bar::aplicaPromotii() {
-	for (auto& produs : produse)
-		produs->aplicaPromotie();
+void Bar::applyPromotions() {
+	for (auto& produs : products)
+		produs->applyPromotion();
 }
 
-void Bar::aplicaPromotiiMeniuri() {
-	for (auto& produs : produse) {
-		auto* meniu = dynamic_cast<Meniu*>(produs.get());
-		if (meniu != nullptr)
-			meniu->aplicaPromotie();
+void Bar::applyMenuPromotions() {
+	for (auto& product : products) {
+		auto* menu = dynamic_cast<Menu*>(product.get());
+		if (menu != nullptr)
+			menu->applyPromotion();
 	}
 }
 
-const std::vector<std::shared_ptr<Produs>>& Bar::getProduse() const {
-	return produse;
+const std::vector<std::shared_ptr<Product>>& Bar::getProducts() const {
+	return products;
 }
 
-int Bar::getTotalProduse() {
-	return totalProduse;
+int Bar::getTotalProducts() {
+	return totalProducts;
 }

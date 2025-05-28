@@ -1,22 +1,22 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR_H
 
-#include "OfertaBuilder.h"
+#include "OfferBuilder.h"
 
 class Director {
 private:
-	OfertaBuilder* oferta_builder;
+	OfferBuilder* offerBuilder;
 
 public:
 	Director();
 
-	explicit Director(OfertaBuilder* oferta_builder);
+	explicit Director(OfferBuilder* offerBuilder);
 
-	void setOfertaBuilder(OfertaBuilder* oferta_builder);
+	void setOfferBuilder(OfferBuilder* offerBuilder);
 
-	void buildOferta();
+	void buildOffer();
 
-	Oferta* getOferta();
+	Offer* getOffer();
 };
 
 #endif

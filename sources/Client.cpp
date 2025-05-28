@@ -8,32 +8,32 @@ Client::Client() {
 Client::~Client() {
 }
 
-Client::Client(const std::string& nume, const std::string& email, const std::string& telefon):
-	nume(nume),
+Client::Client(const std::string& name, const std::string& email, const std::string& phone):
+	name(name),
 	email(email),
-	telefon(telefon) {
+	phone(phone) {
 }
 
-Client::Client(const Client& copie):
-	nume(copie.nume),
-	email(copie.email),
-	telefon(copie.telefon) {
+Client::Client(const Client& copy):
+	name(copy.name),
+	email(copy.email),
+	phone(copy.phone) {
 }
 
-Client& Client::operator=(const Client& copie) {
-	nume = copie.nume;
-	email = copie.email;
-	telefon = copie.telefon;
+Client& Client::operator=(const Client& copy) {
+	name = copy.name;
+	email = copy.email;
+	phone = copy.phone;
 	return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const Client& client) {
-	os << "Nume: " << client.nume << "\n";
+	os << "Name: " << client.name << "\n";
 	os << "Email: " << client.email << "\n";
-	os << "Telefon: " << client.telefon << "\n";
+	os << "Phone: " << client.phone << "\n";
 	return os;
 }
 
-const std::string& Client::getNume() const {
-	return nume;
+const std::string& Client::getName() const {
+	return name;
 }

@@ -51,55 +51,55 @@ include(cmake/CopyHelper.cmake)
 add_executable(${MAIN_EXECUTABLE_NAME}
     main.cpp
     generated/src/Helper.cpp
-        sources/Film.cpp
-        headers/Film.h
-        sources/Sala.cpp
-        headers/Sala.h
-        sources/Proiectie.cpp
-        headers/Proiectie.h
-        sources/ProgramZi.cpp
-        headers/ProgramZi.h
-        sources/ProgramSaptamana.cpp
-        headers/ProgramSaptamana.h
+        sources/Movie.cpp
+        headers/Movie.h
+        sources/Auditorium.cpp
+        headers/Auditorium.h
+        sources/Screening.cpp
+        headers/Screening.h
+        sources/DaySchedule.cpp
+        headers/DaySchedule.h
+        sources/WeekSchedule.cpp
+        headers/WeekSchedule.h
         sources/Client.cpp
         headers/Client.h
-        sources/Rezervare.cpp
-        headers/Rezervare.h
-        sources/Produs.cpp
-        headers/Produs.h
-        sources/Mancare.cpp
-        headers/Mancare.h
-        sources/Bautura.cpp
-        headers/Bautura.h
-        sources/Meniu.cpp
-        headers/Meniu.h
+        sources/Reservation.cpp
+        headers/Reservation.h
+        sources/Product.cpp
+        headers/Product.h
+        sources/Food.cpp
+        headers/Food.h
+        sources/Drink.cpp
+        headers/Drink.h
+        sources/Menu.cpp
+        headers/Menu.h
         sources/Bar.cpp
         headers/Bar.h
-        sources/Suvenir.cpp
-        headers/Suvenir.h
-        sources/Exceptie.cpp
-        headers/Exceptie.h
-        sources/OptiuneInexistenta.cpp
-        headers/OptiuneInexistenta.h
-        sources/InputGresit.cpp
-        headers/InputGresit.h
-        sources/LocOcupat.cpp
-        headers/LocOcupat.h
-        sources/ProdusInexistent.cpp
-        headers/ProdusInexistent.h
+        sources/Souvenir.cpp
+        headers/Souvenir.h
+        sources/Exception.cpp
+        headers/Exception.h
+        sources/InvalidOption.cpp
+        headers/InvalidOption.h
+        sources/WrongInput.cpp
+        headers/WrongInput.h
+        sources/OccupiedSeat.cpp
+        headers/OccupiedSeat.h
+        sources/NonexistentProduct.cpp
+        headers/NonexistentProduct.h
         headers/Catalog.h
-        sources/Oferta.cpp
-        headers/Oferta.h
-        sources/OfertaBuilder.cpp
-        headers/OfertaBuilder.h
-        sources/OfertaGrupEleviBuilder.cpp
-        headers/OfertaGrupEleviBuilder.h
-        sources/OfertaFamilieBuilder.cpp
-        headers/OfertaFamilieBuilder.h
+        sources/Offer.cpp
+        headers/Offer.h
+        sources/OfferBuilder.cpp
+        headers/OfferBuilder.h
+        sources/StudentGroupOfferBuilder.cpp
+        headers/StudentGroupOfferBuilder.h
+        sources/FamilyOfferBuilder.cpp
+        headers/FamilyOfferBuilder.h
         sources/Director.cpp
         headers/Director.h
-        sources/ProdusFactory.cpp
-        headers/ProdusFactory.h
+        sources/ProductFactory.cpp
+        headers/ProductFactory.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

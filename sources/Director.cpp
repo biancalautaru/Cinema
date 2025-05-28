@@ -3,18 +3,18 @@
 Director::Director() {
 }
 
-void Director::setOfertaBuilder(OfertaBuilder* oferta_builder_) {
-	oferta_builder = oferta_builder_;
+void Director::setOfferBuilder(OfferBuilder* offerBuilder_) {
+	offerBuilder = offerBuilder_;
 }
 
-Director::Director(OfertaBuilder* oferta_builder):
-	oferta_builder(oferta_builder) {
+Director::Director(OfferBuilder* offerBuilder):
+	offerBuilder(offerBuilder) {
 }
 
-void Director::buildOferta() {
-	oferta_builder->buildOferta();
+void Director::buildOffer() {
+	offerBuilder->buildOffer();
 }
 
-Oferta* Director::getOferta() {
-	return oferta_builder->getOferta();
+Offer* Director::getOffer() {
+	return offerBuilder->getOffer();
 }

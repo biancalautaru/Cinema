@@ -5,21 +5,21 @@
 
 class Client {
 private:
-	std::string nume;
+	std::string name;
 	std::string email;
-	std::string telefon;
+	std::string phone;
 
 public:
 	Client();
 	~Client();
 
-	Client(const std::string& nume, const std::string& email, const std::string& telefon);
-	Client(const Client& copie);
+	Client(const std::string& name, const std::string& email, const std::string& phone);
+	Client(const Client& copy);
 
-	Client& operator=(const Client& copie);
+	Client& operator=(const Client& copy);
 	friend std::ostream& operator<<(std::ostream& os, const Client& client);
 
-	const std::string& getNume() const;
+	const std::string& getName() const;
 };
 
 #endif
