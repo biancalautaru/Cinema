@@ -1,7 +1,6 @@
 #include "../headers/OfferBuilder.h"
 
 OfferBuilder::OfferBuilder() {
-	offer = std::make_shared<Offer>();
 }
 
 OfferBuilder::~OfferBuilder() {
