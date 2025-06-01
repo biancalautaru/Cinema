@@ -5,18 +5,18 @@
 
 class Director {
 private:
-	OfferBuilder* offerBuilder;
+	std::shared_ptr<OfferBuilder> offerBuilder;
 
 public:
 	Director();
 
-	explicit Director(OfferBuilder* offerBuilder);
+	explicit Director(const std::shared_ptr<OfferBuilder>& offerBuilder);
 
-	void setOfferBuilder(OfferBuilder* offerBuilder);
+	void setOfferBuilder(const std::shared_ptr<OfferBuilder>& offerBuilder);
 
 	void buildOffer();
 
-	Offer* getOffer();
+	const std::shared_ptr<Offer>& getOffer() const;
 };
 
 #endif

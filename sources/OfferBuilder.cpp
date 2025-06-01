@@ -1,11 +1,10 @@
 #include "../headers/OfferBuilder.h"
 
 OfferBuilder::OfferBuilder() {
-	offer = new Offer();
+	offer = std::make_shared<Offer>();
 }
 
 OfferBuilder::~OfferBuilder() {
-	delete offer;
 }
 
 OfferBuilder::OfferBuilder(const OfferBuilder& copy):
@@ -17,6 +16,6 @@ OfferBuilder& OfferBuilder::operator=(const OfferBuilder& copy) {
 	return *this;
 }
 
-Offer* OfferBuilder::getOffer() {
+const std::shared_ptr<Offer>& OfferBuilder::getOffer() const {
 	return offer;
 }

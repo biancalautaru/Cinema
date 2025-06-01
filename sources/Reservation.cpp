@@ -45,7 +45,7 @@ std::ostream& operator<<(std::ostream& os, const Reservation& reservation) {
 void Reservation::displayReservation(std::ostream& os) const {
 	os << std::fixed << std::setprecision(2);
 	os << client;
-	os << "Movie: \"" << screening.getMovie().getName() << "\", ";
+	os << "Movie: \"" << screening.getMovie().getTitle() << "\", ";
 	os << screening.getDay() << ", Time: " << screening.getTime() << ", Aud. " << screening.getAuditorium().getNumber() << "\n";
 	os << "Seats: ";
 	for (size_t i = 0; i < seats.size(); i++) {
@@ -63,7 +63,7 @@ void Reservation::displayProducts(std::ostream& os) const {
 		product->display(os);
 }
 
-void Reservation::readProducts(std::istream& is, std::ostream& os, const Bar* bar) {
+void Reservation::readProducts(std::istream& is, std::ostream& os, const std::shared_ptr<Bar>& bar) {
 	bar->display(os);
 	os << "\n";
 
@@ -108,7 +108,7 @@ void Reservation::readProducts(std::istream& is, std::ostream& os, const Bar* ba
 	}
 
 	for (auto nr : productsNumbers)
-		addProduct(bar->getProducts()[nr]);
+		bar->addProduct(bar->getProducts()[nr]);
 }
 
 void Reservation::setClient(const Client& client_) {

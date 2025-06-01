@@ -33,7 +33,3 @@ std::ostream& operator<<(std::ostream& os, const Client& client) {
 	os << "Phone: " << client.phone << "\n";
 	return os;
 }
-
-const std::string& Client::getName() const {
-	return name;
-}

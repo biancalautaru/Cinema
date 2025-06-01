@@ -33,7 +33,7 @@ Screening& Screening::operator=(const Screening& copy) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Screening& screening) {
-	os << screening.movie.getName() << "\n";
+	os << screening.movie.getTitle() << "\n";
 	os << screening.day << ", " << screening.time << "\n";
 	os << "Aud. " << screening.auditorium.getNumber() << "\n";
 	const int& rows = screening.auditorium.getRows();

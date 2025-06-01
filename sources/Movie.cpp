@@ -6,9 +6,9 @@ Movie::Movie() {
 Movie::~Movie() {
 }
 
-Movie::Movie(const std::string& name, const std::vector<std::string>& genre, const int& runtime, const int& year,
+Movie::Movie(const std::string& title, const std::vector<std::string>& genre, const int& runtime, const int& year,
            const std::string& director, const std::string& rating, const std::string& format, const double& price):
-	name(name),
+	title(title),
 	genre(genre),
 	runtime(runtime),
 	year(year),
@@ -19,7 +19,7 @@ Movie::Movie(const std::string& name, const std::vector<std::string>& genre, con
 }
 
 Movie::Movie(const Movie& copy):
-	name(copy.name),
+	title(copy.title),
 	genre(copy.genre),
 	runtime(copy.runtime),
 	year(copy.year),
@@ -30,7 +30,7 @@ Movie::Movie(const Movie& copy):
 }
 
 Movie& Movie::operator=(const Movie& copy) {
-	name = copy.name;
+	title = copy.title;
 	genre = copy.genre;
 	runtime = copy.runtime;
 	year = copy.year;
@@ -42,7 +42,7 @@ Movie& Movie::operator=(const Movie& copy) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Movie& movie) {
-	os << "Name: " << movie.name << "\n";
+	os << "Title: " << movie.title << "\n";
 	os << "Genre: ";
 	for (size_t i = 0; i < movie.genre.size(); i++)
 		if (i != movie.genre.size() - 1)
@@ -58,8 +58,8 @@ std::ostream& operator<<(std::ostream& os, const Movie& movie) {
 	return os;
 }
 
-const std::string& Movie::getName() const {
-	return name;
+const std::string& Movie::getTitle() const {
+	return title;
 }
 
 const std::vector<std::string>& Movie::getGenre() const {

@@ -3,6 +3,9 @@
 Exception::Exception() {
 }
 
+Exception::~Exception() {
+}
+
 Exception::Exception(const std::string& message):
 	message(message) {
 }

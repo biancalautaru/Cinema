@@ -11,11 +11,11 @@ Bar::Bar() {
 Bar::~Bar() {
 }
 
-Bar* Bar::instance = nullptr;
+std::shared_ptr<Bar> Bar::instance = nullptr;
 
-Bar* Bar::getInstance() {
+std::shared_ptr<Bar> Bar::getInstance() {
 	if (instance == nullptr)
-		instance = new Bar();
+		instance = std::make_shared<Bar>();
 	return instance;
 }
 

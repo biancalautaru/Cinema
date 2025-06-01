@@ -6,7 +6,6 @@
 #include <set>
 #include <memory>
 
-#include "headers/Drink.h"
 #include "headers/Movie.h"
 #include "headers/Auditorium.h"
 #include "headers/Screening.h"
@@ -15,6 +14,7 @@
 #include "headers/Client.h"
 #include "headers/Reservation.h"
 #include "headers/Product.h"
+#include "headers/ProductFactory.h"
 #include "headers/Food.h"
 #include "headers/Drink.h"
 #include "headers/Menu.h"
@@ -27,7 +27,6 @@
 #include "headers/Director.h"
 #include "headers/StudentGroupOfferBuilder.h"
 #include "headers/FamilyOfferBuilder.h"
-#include "headers/ProductFactory.h"
 
 int main() {
 	// create movies
@@ -81,7 +80,7 @@ int main() {
 	std::vector<Client> clients = clientCatalog.getObjects();
 
 	// generate schedule
-	WeekSchedule weekSchedule;
+	WeekSchedule weekSchedule; // The weekly schedule.
 	weekSchedule = weekSchedule.generate(movies, auditoriums);
 
 	// create existing reservations
@@ -169,7 +168,7 @@ int main() {
 	std::shared_ptr<Product> barbieTShirt = productFactory.createProduct(SOUVENIR, "T-Shirt", 54.99, "Barbie");
 
 	// add products to the bar
-	Bar* bar = Bar::getInstance();
+	std::shared_ptr<Bar> bar = Bar::getInstance();
 	bar->addProduct(smallPopcorn->clone());
 	bar->addProduct(mediumPopcorn);
 	bar->addProduct(largePopcorn);
@@ -186,21 +185,19 @@ int main() {
 
 	bar->applyPromotions();
 	bar->applyMenuPromotions();
-
+	
 	// create offers
 	Director director;
 
-	auto* offerBuilder1 = new StudentGroupOfferBuilder();
+	std::shared_ptr<OfferBuilder> offerBuilder1 = std::make_shared<StudentGroupOfferBuilder>();
 	director.setOfferBuilder(offerBuilder1);
 	director.buildOffer();
-	const Offer* studentGroupOffer = director.getOffer();
-	delete offerBuilder1;
+	const std::shared_ptr<Offer> studentGroupOffer = director.getOffer();
 
-	auto* offerBuilder2 = new FamilyOfferBuilder();
+	std::shared_ptr<OfferBuilder> offerBuilder2 = std::make_shared<FamilyOfferBuilder>();
 	director.setOfferBuilder(offerBuilder2);
 	director.buildOffer();
-	const Offer* familyOffer = director.getOffer();
-	delete offerBuilder2;
+	const std::shared_ptr<Offer> familyOffer = director.getOffer();
 
 	// interactive menu
 	while (true) {
@@ -211,7 +208,7 @@ int main() {
 		std::cout << "|----------------------------------------|\n";
 		std::cout << "| 3. View movie list                     |\n";
 		std::cout << "|----------------------------------------|\n";
-		std::cout << "| 4. View auditorium configurations      |\n";
+		std::cout << "| 4. View auditorium layouts             |\n";
 		std::cout << "|----------------------------------------|\n";
 		std::cout << "| 5. Make a reservation                  |\n";
 		std::cout << "|----------------------------------------|\n";
@@ -300,7 +297,7 @@ int main() {
 				std::cout << "| ";
 				std::cout << "Time: " << screenings[i].getTime() << " | ";
 				std::cout << "Aud. " << screenings[i].getAuditorium().getNumber() << " | ";
-				std::cout << screenings[i].getMovie().getName() << " | ";
+				std::cout << screenings[i].getMovie().getTitle() << " | ";
 				int seatsNumber = screenings[i].availableSeats();
 				if (seatsNumber == 1)
 					std::cout << seatsNumber << " seat available";

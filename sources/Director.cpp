@@ -3,18 +3,18 @@
 Director::Director() {
 }
 
-void Director::setOfferBuilder(OfferBuilder* offerBuilder_) {
-	offerBuilder = offerBuilder_;
+Director::Director(const std::shared_ptr<OfferBuilder>& offerBuilder):
+	offerBuilder(offerBuilder) {
 }
 
-Director::Director(OfferBuilder* offerBuilder):
-	offerBuilder(offerBuilder) {
+void Director::setOfferBuilder(const std::shared_ptr<OfferBuilder>& offerBuilder_) {
+	offerBuilder = offerBuilder_;
 }
 
 void Director::buildOffer() {
 	offerBuilder->buildOffer();
 }
 
-Offer* Director::getOffer() {
+const std::shared_ptr<Offer>& Director::getOffer() const {
 	return offerBuilder->getOffer();
 }

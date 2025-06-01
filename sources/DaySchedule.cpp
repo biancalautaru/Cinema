@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& os, const DaySchedule& schedule) {
 		const Screening& screening = schedule.day[i];
 		os << "Time: " << screening.getTime() << " | ";
 		os << "Aud. " << screening.getAuditorium().getNumber() << " | ";
-		os << screening.getMovie().getName() << " | ";
+		os << screening.getMovie().getTitle() << " | ";
 		const int& seats = screening.availableSeats();
 		if (seats == 1)
 			os << seats << " seat available";

@@ -3,9 +3,11 @@
 
 #include "Offer.h"
 
+#include <memory>
+
 class OfferBuilder {
 protected:
-	Offer* offer;
+	std::shared_ptr<Offer> offer;
 
 	virtual void buildName() = 0;
 	virtual void buildTickets() = 0;
@@ -20,7 +22,7 @@ public:
 
 	virtual void buildOffer() = 0;
 
-	Offer* getOffer();
+	const std::shared_ptr<Offer>& getOffer() const;
 };
 
 #endif
