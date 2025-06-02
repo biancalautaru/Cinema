@@ -10,7 +10,7 @@
  * @brief Represents a movie and stores the information related to it.
  *
  * The Movie class contains detailed information about a movie, including its title,
- * genre(s), runtime, release year, director, age rating, format and price.
+ * genre list, runtime, release year, director, age rating, format and price.
  */
 class Movie {
 private:
@@ -38,7 +38,7 @@ public:
 	/**
 	 * @brief Prints information about the movie.
 	 *
-	 * Displays the movie title, year, genre(s), runtime, release year, director, age rating, format,
+	 * Displays the movie title, year, genre list, runtime, release year, director, age rating, format,
 	 * normal price and student price in a readable form.
 	 *
 	 * @param os The output stream to write to.

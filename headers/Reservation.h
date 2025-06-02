@@ -41,7 +41,7 @@ public:
 	/**
 	 * @brief Prints all the information about a reservation.
 	 *
-	 * Calls the Reservation::displayReservation and Reservation::displayProducts methods.
+	 * Calls the Reservation::displayReservation() and Reservation::displayProducts() methods.
 	 * 
 	 * @param os The output stream to write to.
 	 * @param reservation The Reservation object to print.
@@ -73,7 +73,7 @@ public:
 	 * @brief Reads a list of desired products from the user and adds them
 	 * to the reservation.
 	 *
-	 * Displays the list of available products using Bar::display, prompts
+	 * Displays the list of available products using Bar::display(), prompts
 	 * the user to input the desired products and adds them to the reservation
 	 * after validating the input and handling incorrect entries.
 	 *
@@ -112,7 +112,7 @@ public:
 	/**
 	 * @brief Calculates the total price of the reservation.
 	 *
-	 * Calls the Reservation::reservationPrice method to get the price of the tickets
+	 * Calls the Reservation::reservationPrice() method to get the price of the tickets
 	 * and adds the price of each product to it.
 	 *
 	 * @return The price of the whole reservation.

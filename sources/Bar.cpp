@@ -20,12 +20,12 @@ std::shared_ptr<Bar> Bar::getInstance() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bar& bar) {
-	os << "Bar products (" << Bar::getTotalProducts() << " products):\n";
 	bar.display(os);
 	return os;
 }
 
 void Bar::display(std::ostream& os) const {
+	os << "Bar products (" << Bar::getTotalProducts() << " products):\n";
 	for (size_t i = 0; i < products.size(); i++) {
 		os << i + 1 << ". ";
 		products[i]->display(os);
@@ -37,17 +37,15 @@ void Bar::addProduct(const std::shared_ptr<Product>& product) {
 	totalProducts++;
 }
 
-void Bar::applyPromotions() {
-	for (auto& produs : products)
-		produs->applyPromotion();
+void Bar::applyDiscounts() {
+	for (auto& product : products)
+		product->applyDiscount();
 }
 
-void Bar::applyMenuPromotions() {
-	for (auto& product : products) {
-		auto* menu = dynamic_cast<Menu*>(product.get());
-		if (menu != nullptr)
-			menu->applyPromotion();
-	}
+void Bar::applyMenuDiscounts() {
+	for (auto& product : products)
+		if (std::dynamic_pointer_cast<std::shared_ptr<Menu>>(product) != nullptr)
+			product->applyDiscount();
 }
 
 const std::vector<std::shared_ptr<Product>>& Bar::getProducts() const {

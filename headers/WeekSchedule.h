@@ -53,7 +53,7 @@ public:
 	/**
 	 * @brief Generates a complete weekly schedule from a list of movies and auditoriums.
 	 *
-	 * For each day of the week, this method calls the DaySchedule::generate method
+	 * For each day of the week, this method calls the DaySchedule::generate() method
 	 * to create the day's schedule.
 	 *
 	 * @param movies A list of available movies.

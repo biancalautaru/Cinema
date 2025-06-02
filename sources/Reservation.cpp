@@ -46,7 +46,7 @@ void Reservation::displayReservation(std::ostream& os) const {
 	os << std::fixed << std::setprecision(2);
 	os << client;
 	os << "Movie: \"" << screening.getMovie().getTitle() << "\", ";
-	os << screening.getDay() << ", Time: " << screening.getTime() << ", Aud. " << screening.getAuditorium().getNumber() << "\n";
+	os << screening.getDay() << ", " << screening.getTime() << ", Aud. " << screening.getAuditorium().getNumber() << "\n";
 	os << "Seats: ";
 	for (size_t i = 0; i < seats.size(); i++) {
 		os << seats[i];
@@ -64,8 +64,7 @@ void Reservation::displayProducts(std::ostream& os) const {
 }
 
 void Reservation::readProducts(std::istream& is, std::ostream& os, const std::shared_ptr<Bar>& bar) {
-	bar->display(os);
-	os << "\n";
+	os << *bar << "\n";
 
 	os << "Enter the numbers corresponding to the desired products (separated by spaces): ";
 	std::vector<int> productsNumbers;
@@ -108,7 +107,7 @@ void Reservation::readProducts(std::istream& is, std::ostream& os, const std::sh
 	}
 
 	for (auto nr : productsNumbers)
-		bar->addProduct(bar->getProducts()[nr]);
+		addProduct(bar->getProducts()[nr]);
 }
 
 void Reservation::setClient(const Client& client_) {

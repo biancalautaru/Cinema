@@ -68,7 +68,7 @@ std::shared_ptr<Product> Menu::clone() const {
 	return std::make_shared<Menu>(*this);
 }
 
-void Menu::applyPromotion() {
+void Menu::applyDiscount() {
 	if (price > 27)
 		price *= 0.9;
 }

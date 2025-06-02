@@ -28,7 +28,7 @@ DaySchedule& DaySchedule::operator=(const DaySchedule& copy) {
 std::ostream& operator<<(std::ostream& os, const DaySchedule& schedule) {
 	for (size_t i = 0; i < schedule.day.size(); i++) {
 		const Screening& screening = schedule.day[i];
-		os << "Time: " << screening.getTime() << " | ";
+		os << screening.getTime() << " | ";
 		os << "Aud. " << screening.getAuditorium().getNumber() << " | ";
 		os << screening.getMovie().getTitle() << " | ";
 		const int& seats = screening.availableSeats();

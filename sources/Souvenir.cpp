@@ -38,7 +38,7 @@ std::shared_ptr<Product> Souvenir::clone() const {
 	return std::make_shared<Souvenir>(*this);
 }
 
-void Souvenir::applyPromotion() {
+void Souvenir::applyDiscount() {
 	if (price > 50)
 		price *= 0.9;
 }

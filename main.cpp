@@ -65,6 +65,10 @@ int main() {
 	auditoriumCatalog.addObject({5, 9, 23});
 	std::vector<Auditorium> auditoriums = auditoriumCatalog.getObjects();
 
+	// generate schedule
+	WeekSchedule weekSchedule;
+	weekSchedule = weekSchedule.generate(movies, auditoriums);
+
 	// create clients
 	Catalog<Client> clientCatalog;
 	clientCatalog.addObject({"Ion Popescu", "ion.popescu@gmail.com", "0749187947"});
@@ -78,10 +82,6 @@ int main() {
 	clientCatalog.addObject({"Elena Dumitrescu", "elena.dumitrescu@yahoo.com", "0765432199"});
 	clientCatalog.addObject({"Ana Dobre", "ana.dobre@gmail.com", "0745123789"});
 	std::vector<Client> clients = clientCatalog.getObjects();
-
-	// generate schedule
-	WeekSchedule weekSchedule; // The weekly schedule.
-	weekSchedule = weekSchedule.generate(movies, auditoriums);
 
 	// create existing reservations
 	std::vector<Reservation> reservations;
@@ -183,9 +183,9 @@ int main() {
 	bar->addProduct(duneCup);
 	bar->addProduct(barbieTShirt);
 
-	bar->applyPromotions();
-	bar->applyMenuPromotions();
-	
+	bar->applyDiscounts();
+	bar->applyMenuDiscounts();
+
 	// create offers
 	Director director;
 

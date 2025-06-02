@@ -38,7 +38,7 @@ std::shared_ptr<Product> Drink::clone() const {
 	return std::make_shared<Drink>(*this);
 }
 
-void Drink::applyPromotion() {
+void Drink::applyDiscount() {
 	if (price > 10)
 		price *= 0.9;
 }

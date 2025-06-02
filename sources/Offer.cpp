@@ -25,6 +25,14 @@ Offer& Offer::operator=(const Offer& copy) {
 	return *this;
 }
 
+void Offer::display(std::ostream& os) const {
+	os << name << " - " << percentage << "% off";
+	if (tickets == -1)
+		os << "\n";
+	else
+		os << " - " << tickets << " tickets\n";
+}
+
 void Offer::setName(const std::string& name_) {
 	name = name_;
 }
@@ -35,12 +43,4 @@ void Offer::setTickets(int tickets_) {
 
 void Offer::setPercentage(int percentage_) {
 	percentage = percentage_;
-}
-
-void Offer::display(std::ostream& os) const {
-	os << name << " - " << percentage << "% off";
-	if (tickets == -1)
-		os << "\n";
-	else
-		os << " - " << tickets << " tickets\n";
 }
